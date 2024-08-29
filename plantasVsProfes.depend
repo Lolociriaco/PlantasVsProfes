@@ -1,4 +1,9 @@
 # depslib dependency file v1.0
-1724896531 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1724967525 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	"shape.h"
+
+1724967544 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
