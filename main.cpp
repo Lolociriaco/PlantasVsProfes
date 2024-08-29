@@ -10,6 +10,8 @@ int main()
     shape.setFillColor(sf::Color::Green);
 
     cout<<"marto";
+    cout<<"marto";
+    cout<<"marto";
 
     while (window.isOpen())
     {
