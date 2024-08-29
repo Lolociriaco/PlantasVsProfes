@@ -1,10 +1,15 @@
 #include <SFML/Graphics.hpp>
+#include <iostream>
+
+using namespace std;
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
+
+    cout<<"marto";
 
     while (window.isOpen())
     {
