@@ -1,16 +1,23 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "shape.h"
+#include "claseZombies.h"
 
 
 using namespace std;
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1000, 600), "SFML works!");
+    // Obtener la resolución de pantalla actual
+    sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
+
+    // Crear una ventana en pantalla completa
+    sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
+
     window.setFramerateLimit(60);
-    sf::CircleShape shape(100.f);
-    Pelota p;
+    Zombie zombie(1900, 800);
+    Zombie zombie1(1900, 600);
+    Zombie zombie2(1900, 400);
+    Zombie zombie3(1900,200);
 
 
 
@@ -25,18 +32,30 @@ int main()
 
         }
 
-        p.cmd();
+        zombie.cmd();
+        zombie.update();
 
-        p.update();
+        zombie1.cmd();
+        zombie1.update();
+
+        zombie2.cmd();
+        zombie2.update();
+
+        zombie3.cmd();
+        zombie3.update();
+
 
         ///FRENAR SALTO
-        if(p.getDraw().getPosition().y > 400){
-            p.quieto(p.getDraw().getPosition().x, 400);
+        if(zombie.getDraw().getPosition().x < 400){
+            zombie.quieto(zombie.getDraw().getPosition().y, 400);
         }
 
 
         window.clear();
-        window.draw(p.getDraw());
+        window.draw(zombie.getDraw());
+        window.draw(zombie1.getDraw());
+        window.draw(zombie2.getDraw());
+        window.draw(zombie3.getDraw());
         window.display();
     }
 
