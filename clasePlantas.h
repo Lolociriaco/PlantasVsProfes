@@ -1,22 +1,18 @@
-enum ESTADOS_ZOMBIES{
-    CAMINANDO,
-    ATACANDO
-};
+#include <SFML/Graphics.hpp>
 
 
-class Zombie{
+class Planta{
 private:
     sf::RectangleShape _square;
     int _vida;
     int _danio;
-    ESTADOS_ZOMBIES _estado;
 
 public:
-    Zombie();
+    Planta();
 
     void cmd();
     void update();
-    void atacando();
-    sf::CircleShape& getDraw();
+    void disparando();
+    sf::RectangleShape& getDraw();
 };
 

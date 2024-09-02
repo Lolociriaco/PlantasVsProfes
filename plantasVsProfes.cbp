@@ -32,7 +32,11 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="clasePlantas.h" />
+		<Unit filename="claseZombies.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mthZombies.cpp" />
+		<Unit filename="pantallaInicio.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

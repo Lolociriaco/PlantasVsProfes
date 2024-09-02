@@ -1,10 +1,11 @@
 #include "claseZombies.h"
 #include <SFML/Graphics.hpp>
+#include "funciones.h"
 
-Zombie::Zombie(float x, float y){
+
+Zombie::Zombie(){
     _shape.setFillColor(sf::Color::Red);
     _shape.setSize(sf::Vector2f(50.f, 150.f));
-    _shape.setPosition(x,y);
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
 }
 
@@ -22,16 +23,15 @@ void Zombie::update(){
     case ATACANDO:
         break;
     }
-
-
 }
 
-void Zombie::quieto(float x, float y){
-    _estado = ESTADOS_ZOMBIES::QUIETO;
 
+void Zombie::posInicio(){
+    _estado = ESTADOS_ZOMBIES::CAMINANDO;
+    _shape.setPosition(1900,randomNum()*150);
 }
 
-    void atacando();
+
 
 sf::RectangleShape& Zombie::getDraw(){
     return _shape;

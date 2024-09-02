@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
-#include "claseZombies.h"
-
+#include "Gameplay.h"
 
 using namespace std;
 
@@ -14,12 +13,7 @@ int main()
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
 
     window.setFramerateLimit(60);
-    Zombie zombie(1900, 800);
-    Zombie zombie1(1900, 600);
-    Zombie zombie2(1900, 400);
-    Zombie zombie3(1900,200);
-
-
+    Gameplay zb;
 
     while (window.isOpen())
     {
@@ -32,30 +26,12 @@ int main()
 
         }
 
-        zombie.cmd();
-        zombie.update();
-
-        zombie1.cmd();
-        zombie1.update();
-
-        zombie2.cmd();
-        zombie2.update();
-
-        zombie3.cmd();
-        zombie3.update();
-
-
-        ///FRENAR SALTO
-        if(zombie.getDraw().getPosition().x < 400){
-            zombie.quieto(zombie.getDraw().getPosition().y, 400);
-        }
+        zb.cmd();
+        zb.update();
 
 
         window.clear();
-        window.draw(zombie.getDraw());
-        window.draw(zombie1.getDraw());
-        window.draw(zombie2.getDraw());
-        window.draw(zombie3.getDraw());
+        zb.draw(window);
         window.display();
     }
 

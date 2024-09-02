@@ -2,10 +2,8 @@
 
 enum ESTADOS_ZOMBIES{
     CAMINANDO,
-    ATACANDO,
-    QUIETO
+    ATACANDO
 };
-
 
 class Zombie{
 private:
@@ -15,11 +13,11 @@ private:
     ESTADOS_ZOMBIES _estado;
 
 public:
-    Zombie(float x, float y);
+    Zombie();
 
     void cmd();
     void update();
     void atacando();
-    void quieto(float x, float y);
+    void posInicio();
     sf::RectangleShape& getDraw();
 };

@@ -1,16 +1,25 @@
 # depslib dependency file v1.0
-1725046130 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1725291124 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
-	"claseZombies.h"
+	"Gameplay.h"
 
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1725046034 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1725292646 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<SFML/Graphics.hpp>
+	"funciones.h"
 
-1725046035 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1725293164 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
+
+1725292646 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+	<SFML/Graphics.hpp>
+	"claseZombies.h"
+
+1725292143 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
+	<cstdlib>
+	<ctime>
 
