@@ -1,6 +1,8 @@
 #include "claseZombies.h"
 #include <SFML/Graphics.hpp>
 #include "funciones.h"
+#include <stdlib.h>  // Necesario para rand() y srand()
+#include <time.h>    // Necesario para time()
 
 
 Zombie::Zombie(){
@@ -28,7 +30,7 @@ void Zombie::update(){
 
 void Zombie::posInicio(){
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
-    _shape.setPosition(1900,randomNum()*150);
+    _shape.setPosition(1920,randomNum()*150);
 }
 
 
@@ -36,3 +38,4 @@ void Zombie::posInicio(){
 sf::RectangleShape& Zombie::getDraw(){
     return _shape;
 }
+

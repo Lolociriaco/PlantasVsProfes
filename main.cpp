@@ -12,6 +12,7 @@ int main()
     // Crear una ventana en pantalla completa
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
 
+
     window.setFramerateLimit(60);
     Gameplay zb;
 
@@ -27,11 +28,13 @@ int main()
         }
 
         zb.cmd();
+
         zb.update();
 
 
         window.clear();
         zb.draw(window);
+
         window.display();
     }
 
