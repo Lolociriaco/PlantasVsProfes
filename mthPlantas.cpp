@@ -7,7 +7,7 @@
 Planta::Planta()
 {
     _plant.setFillColor(sf::Color::Green);
-    _plant.setSize(sf::Vector2f(50.f, 120.f));
+    _plant.setSize(sf::Vector2f(50.f, 100.f));
 }
 
 

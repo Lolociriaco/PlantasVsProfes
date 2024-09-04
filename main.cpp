@@ -16,10 +16,10 @@ int main()
     sf::Sprite personaje;
     sf::Texture personaje_text;
 
-    personaje_text.loadFromFile("plantalg.jpeg.jpg");
+    personaje_text.loadFromFile("lanzaguisazulsinfondo.png");
 
     personaje.setTexture(personaje_text);
-    void posInicial ();
+    personaje.setPosition(200, 470);
 
     window.setFramerateLimit(60);
     Gameplay zb;
