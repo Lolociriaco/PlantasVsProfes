@@ -32,9 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Gameplay.h" />
+		<Unit filename="clasLanzaguisantes.h" />
+		<Unit filename="claseNuez.h" />
 		<Unit filename="clasePlantas.h" />
 		<Unit filename="claseZombies.h" />
+		<Unit filename="funciones.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mthLanzaguisantes.cpp" />
+		<Unit filename="mthNuez.cpp" />
+		<Unit filename="mthPlantas.cpp" />
 		<Unit filename="mthZombies.cpp" />
 		<Unit filename="pantallaInicio.h" />
 		<Extensions>

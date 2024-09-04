@@ -2,10 +2,14 @@
 #include <time.h>    // Necesario para time()
 
 
-int randomNum(){
+int randomNum()
+{
     std::srand(std::time(NULL));
 
     // Generar un número aleatorio entre 1 y 5
     int random_number = std::rand() % 5 + 1;
     return random_number;
 }
+
+
+

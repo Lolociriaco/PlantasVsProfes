@@ -5,17 +5,20 @@
 #include <time.h>    // Necesario para time()
 
 
-Zombie::Zombie(){
+Zombie::Zombie()
+{
     _shape.setFillColor(sf::Color::Red);
     _shape.setSize(sf::Vector2f(50.f, 150.f));
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
 }
 
-void Zombie::cmd(){
+void Zombie::cmd()
+{
 
 }
 
-void Zombie::update(){
+void Zombie::update()
+{
     switch (_estado)
     {
     case CAMINANDO:
@@ -23,19 +26,22 @@ void Zombie::update(){
         break;
 
     case ATACANDO:
+
         break;
     }
 }
 
 
-void Zombie::posInicio(){
+void Zombie::posInicio()
+{
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
     _shape.setPosition(1920,randomNum()*150);
 }
 
 
 
-sf::RectangleShape& Zombie::getDraw(){
+sf::RectangleShape& Zombie::getDraw()
+{
     return _shape;
 }
 

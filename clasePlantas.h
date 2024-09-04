@@ -2,7 +2,8 @@
 #include "clasLanzaguisantes.h"
 #include <vector>
 
-class Planta{
+class Planta
+{
 private:
     //Lanzaguisantes balas[100];
     sf::RectangleShape _plant;

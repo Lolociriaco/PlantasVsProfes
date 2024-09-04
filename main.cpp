@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 int main()
 {
     // Obtener la resolución de pantalla actual
@@ -12,6 +13,13 @@ int main()
     // Crear una ventana en pantalla completa
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
 
+    sf::Sprite personaje;
+    sf::Texture personaje_text;
+
+    personaje_text.loadFromFile("plantalg.jpeg.jpg");
+
+    personaje.setTexture(personaje_text);
+    void posInicial ();
 
     window.setFramerateLimit(60);
     Gameplay zb;
@@ -35,8 +43,11 @@ int main()
         window.clear();
         zb.draw(window);
 
+        window.draw(personaje);
+
         window.display();
     }
 
     return 0;
 }
+

@@ -1,11 +1,13 @@
 #include <SFML/Graphics.hpp>
 
-enum ESTADOS_ZOMBIES{
+enum ESTADOS_ZOMBIES
+{
     CAMINANDO,
     ATACANDO
 };
 
-class Zombie{
+class Zombie
+{
 private:
     sf::RectangleShape _shape;
     int _vida;

@@ -3,7 +3,8 @@
 #include <SFML/Graphics.hpp>
 
 
-class Lanzaguisantes{
+class Lanzaguisantes
+{
 private:
     sf::CircleShape _shape;
 
