@@ -8,7 +8,7 @@
 Zombie::Zombie()
 {
     _shape.setFillColor(sf::Color::Red);
-    _shape.setSize(sf::Vector2f(50.f, 150.f));
+    _shape.setSize(sf::Vector2f(50.f, 130.f));
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
 }
 
@@ -35,7 +35,7 @@ void Zombie::update()
 void Zombie::posInicio()
 {
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
-    _shape.setPosition(1920,randomNum()*150);
+    _shape.setPosition(1920,randomNum()*175);
 }
 
 

@@ -5,7 +5,7 @@
 Nuez::Nuez()
 {
     _nuez.setFillColor(sf::Color::Blue);
-    _nuez.setRadius(30);
+    _nuez.setRadius(10);
 }
 
 
@@ -25,7 +25,7 @@ void Nuez::posInicio(int y)
 {
     if (_ticsNU % (60*2) == 0)
     {
-       _nuez.setPosition(400, y * 170);
+       _nuez.setPosition(680, y * 194);
     }
 }
 

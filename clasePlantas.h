@@ -19,6 +19,7 @@ public:
     void update();
     void posInicio(int y);
     sf::RectangleShape& getDraw(sf::RenderWindow &window);
+
 };
 
 
