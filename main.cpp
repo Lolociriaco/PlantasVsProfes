@@ -14,27 +14,37 @@ int main()
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
 
     ///sprite lanzaguisante
-    sf::Sprite lanzaguisante;
+    sf::Sprite lanzaguisanteSprite;
     sf::Texture lanzaguisante_text;
 
-    lanzaguisante_text.loadFromFile("lanzaguisazul.png");
+    lanzaguisante_text.loadFromFile("lanzaguisantevioleta.png");
 
-    lanzaguisante.setTexture(lanzaguisante_text);
-    lanzaguisante.setPosition(482, 515);
+    lanzaguisanteSprite.setTexture(lanzaguisante_text);
+    lanzaguisanteSprite.setPosition(322, 515);
 
     ///sprite nuez
-    sf::Sprite nuez;
+    sf::Sprite nuezSprite;
     sf::Texture nuez_text;
 
     nuez_text.loadFromFile("nuezpvp.png");
 
-    nuez.setTexture(nuez_text);
-    nuez.setPosition(660, 540);
+    nuezSprite.setTexture(nuez_text);
+    nuezSprite.setPosition(470, 540);
+
+    ///sprite de vikingo
+    sf::Sprite vikingoSprite;
+    sf::Texture vikingo_text;
+
+    vikingo_text.loadFromFile("vikingo.png");
+
+    vikingoSprite.setTexture(vikingo_text);
+    vikingoSprite.setPosition(1720,200);
+
 
     ///sprite fondo de partida
     sf::Sprite fondo;
     sf::Texture tex;
-    tex.loadFromFile("fondopvz.jpg");
+    tex.loadFromFile("fondop.jpg");
 
     fondo.setTexture(tex);
 
@@ -52,6 +62,8 @@ int main()
 
         }
 
+        vikingoSprite.move(-0.5,0);
+
         zb.cmd();
 
         zb.update();
@@ -60,8 +72,10 @@ int main()
 
         window.draw(fondo);
         zb.draw(window);
-        window.draw(lanzaguisante);
-        window.draw(nuez);
+
+        window.draw(lanzaguisanteSprite);
+        window.draw(nuezSprite);
+        window.draw(vikingoSprite);
 
         window.display();
     }

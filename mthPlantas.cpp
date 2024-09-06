@@ -6,7 +6,7 @@
 
 Planta::Planta()
 {
-    _plant.setFillColor(sf::Color::Green);
+    _plant.setFillColor(sf::Color::Transparent);
     _plant.setSize(sf::Vector2f(3.f, 3.f));
 }
 
@@ -35,7 +35,7 @@ void Planta::update()
 
 void Planta::posInicio(int y)
 {
-    _plant.setPosition(500, y * 200);
+    _plant.setPosition(400, y * 200);
 }
 
 sf::RectangleShape& Planta::getDraw(sf::RenderWindow &window)  //cambiar para que reciba la ventana y dibuje
