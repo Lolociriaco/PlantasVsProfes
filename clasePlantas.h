@@ -20,6 +20,22 @@ public:
     void posInicio(int y);
     sf::RectangleShape& getDraw(sf::RenderWindow &window);
 
+    std::vector<Lanzaguisantes>& getGuisantes()
+    {
+        return _guisante;
+    }
+
+
+    void removeGuisante(Lanzaguisantes& guisanteToRemove)
+    {
+        auto it = std::remove_if(_guisante.begin(), _guisante.end(),
+                                 [&guisanteToRemove](Lanzaguisantes& guis)
+        {
+            return guis.getDraw().getGlobalBounds().intersects(guisanteToRemove.getDraw().getGlobalBounds());
+        });
+        _guisante.erase(it, _guisante.end());
+    }
+
 };
 
 

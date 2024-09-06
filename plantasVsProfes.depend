@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1725312194 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1725637538 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -7,42 +7,46 @@
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1725320214 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1725630789 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<SFML/Graphics.hpp>
 	"funciones.h"
 	<stdlib.h>
 	<time.h>
 
-1725320241 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1725647010 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
 1725320241 ated upstream
 
-1725396435 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1725647021 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
+	"claseNuez.h"
+	<iostream>
+	<vector>
+	<algorithm>
 
-1725320430 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
+1725630789 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
-1725396990 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
+1725644039 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1725396635 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
+1725644898 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
 	<SFML/Graphics.hpp>
 	"clasLanzaguisantes.h"
 	<vector>
 
-1725396635 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
+1725646817 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
 
-1725394092 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
+1725630789 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 	<iostream>
 
@@ -102,4 +106,14 @@
 
 1725493327 source:c:\users\scott\onedrive\documentos\plantasvsprofes\clasepersonaje.cpp
 	<iostream>
+
+1725630789 source:d:\documentos\utn\programacion\plantasvsprofes\clasepersonaje.cpp
+	<iostream>
+
+1725630789 d:\documentos\utn\programacion\plantasvsprofes\clasenuez.h
+
+1725630789 source:d:\documentos\utn\programacion\plantasvsprofes\mthnuez.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"claseNuez.h"
 

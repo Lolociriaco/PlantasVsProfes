@@ -10,12 +10,18 @@ private:
 
 public:
     Lanzaguisantes(float y);
+
+
     void disparando();
     void drawBall(sf::RenderWindow &window);
 
-    //PARA MAS ADELANTE sf::Vector2f getPosicion() {
-    //PARA MAS ADELANTE     return shape.getPosition();
-    //PARA MAS ADELANTE }
+    sf::CircleShape& getDraw(){
+        return _shape;
+    }
+
+    sf::FloatRect getBounds() const { //parte de la colision
+        return _shape.getGlobalBounds();
+    }
 };
 
 
