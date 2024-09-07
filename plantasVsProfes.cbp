@@ -39,7 +39,10 @@
 		<Unit filename="clasePlantas.h" />
 		<Unit filename="claseZombies.h" />
 		<Unit filename="funciones.h" />
+		<Unit filename="funcionesSprites.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="mainMenu.cpp" />
+		<Unit filename="mainMenu.h" />
 		<Unit filename="mthLanzaguisantes.cpp" />
 		<Unit filename="mthNuez.cpp" />
 		<Unit filename="mthPlantas.cpp" />
