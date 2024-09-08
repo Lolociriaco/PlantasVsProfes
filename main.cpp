@@ -31,7 +31,7 @@ int main()
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("pvzfondoinicio.jpg");
+    texInicio.loadFromFile("UTNfondoInicio.jpeg");
 
     fondoInicio.setTexture(texInicio);
 
