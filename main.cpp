@@ -21,35 +21,6 @@ int main()
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
     mainMenu menu(window.getSize().x, window.getSize().y);
 
-
-    ///sprite lanzaguisante
-    sf::Sprite lanzaguisanteSprite;
-    sf::Texture lanzaguisante_text;
-
-    lanzaguisante_text.loadFromFile("lanzaguisantevioleta.png");
-
-    lanzaguisanteSprite.setTexture(lanzaguisante_text);
-    lanzaguisanteSprite.setPosition(322, 515);
-
-    ///sprite nuez
-    sf::Sprite nuezSprite;
-    sf::Texture nuez_text;
-
-    nuez_text.loadFromFile("nuezpvp.png");
-
-    nuezSprite.setTexture(nuez_text);
-    nuezSprite.setPosition(470, 540);
-
-    ///sprite de vikingo
-    sf::Sprite vikingoSprite;
-    sf::Texture vikingo_text;
-
-    vikingo_text.loadFromFile("vikingo.png");
-
-    vikingoSprite.setTexture(vikingo_text);
-    vikingoSprite.setPosition(1720,200);
-
-
     ///sprite fondo de partida
     sf::Sprite fondo;
     sf::Texture tex;
@@ -60,13 +31,18 @@ int main()
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("fondoinicio.jpg");
+    texInicio.loadFromFile("pvzfondoinicio.jpg");
 
     fondoInicio.setTexture(texInicio);
 
     EstadoJuego estado = MENU;
 
     window.setFramerateLimit(60);
+
+    Gameplay juego;
+
+    sf::Texture vikingoTex;
+    vikingoTex.loadFromFile("vikingo.png");  // Cambia por el nombre de tu archivo de textura
 
     while (window.isOpen())
     {
@@ -95,6 +71,7 @@ int main()
                         int opcionElegida = menu.mainMenuPressed();
                         if (opcionElegida == 0)
                         {
+                            juego.reiniciar();
                             estado = JUEGO;
                         }
                         else if (opcionElegida == 1)
@@ -135,18 +112,13 @@ int main()
             }
             else if (estado == JUEGO)
             {
-                Gameplay zb;
-                zb.cmd();
+                juego.cmd();
 
-                zb.update();
+                juego.update();
 
                 window.draw(fondo);
-                zb.draw(window);
-
-                window.draw(lanzaguisanteSprite);
-                window.draw(nuezSprite);
-                window.draw(vikingoSprite);
-                vikingoSprite.move(-0.5,0);
+                juego.draw(window);
+                juego.setZombieTexture(vikingoTex);
             }
             else if (estado == OPCIONES)
             {

@@ -30,7 +30,8 @@ public:
     void update();
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
-
+    void setZombieTexture (const sf::Texture& texture);
+    void reiniciar();
     void checkCollisions();
 
 
@@ -106,12 +107,24 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     for(int i = 0; i < _contadorZombies; i++)
     {
-        window.draw(zombies[i].getDraw());
+        window.draw(zombies[i].getShape());
+        window.draw(zombies[i].getSprite());
     }
 
     for(int i = 0; i < _plantSpace; i++)
     {
-        plant[i].getDraw(window);
+        // Dibuja la forma geométrica
+        window.draw(plant[i].getShape());
+        for (auto& guis : plant[i].getGuisantes())
+        {
+            window.draw(guis.getDraw());
+        }
+
+        window.draw(plant[i].getSprite());
+
+        // Dibuja los guisantes
+
+        //plant[i].getDraw(window);
         // Dibuja las balas de cada planta
         //for(int j = 0; j < 100; j++){xz
         //    window.draw(plant[i].getBalas()[j].getDraw());
@@ -120,12 +133,46 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     for(int i = 0; i < _nuezSpace; i++)
     {
-        nuez[i].getDraw(window);
+        window.draw(nuez[i].getShape());
+        window.draw(nuez[i].getSprite());
     }
 
 }
 
+void Gameplay::setZombieTexture(const sf::Texture& texture)
+{
+    for (int i = 0; i < _contadorZombies; i++)
+    {
+        zombies[i].setTexture(texture);
+    }
+}
 
+void Gameplay::reiniciar()
+{
+    _ticsGm = 0;
+    _contadorZombies = 0;
+    _plantSpace = 0;
+    _nuezSpace = 0;
+
+    // Reiniciar zombies
+    for (int i = 0; i < 100; ++i)
+    {
+        zombies[i].reiniciar();  // Volver a posicionar zombies
+    }
+
+    // Reiniciar plantas
+    for (int i = 0; i < 5; ++i)
+    {
+        plant[i].posInicio(i + 1);  // Volver a posicionar plantas
+    }
+
+    // Reiniciar nueces
+    for (int i = 0; i < 10; ++i)
+    {
+        nuez[i].posInicio(i + 1);  // Volver a posicionar nueces
+    }
+
+}
 
 void Gameplay::checkCollisions()
 {
@@ -142,10 +189,10 @@ void Gameplay::checkCollisions()
             {
 
                 // Verificar si los límites del guisante intersectan con los del zombie
-                if (guis.getDraw().getGlobalBounds().intersects(z.getDraw().getGlobalBounds()))
+                if (guis.getDraw().getGlobalBounds().intersects(z.getShape().getGlobalBounds()))
                 {
                     // Aquí puedes manejar la colisión
-                    std::cout << "Colisión detectada!" << std::endl;
+                    std::cout << "Colision detectada!" << std::endl;
                     p.removeGuisante(guis);
 
                     z.golpe();

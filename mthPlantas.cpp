@@ -4,10 +4,14 @@
 #include <iostream>
 
 
-Planta::Planta()
+Planta::Planta() : _ticsPL(0)
 {
     _plant.setFillColor(sf::Color::Transparent);
     _plant.setSize(sf::Vector2f(3.f, 3.f));
+
+    _plantaTexture.loadFromFile("lanzaguisantevioleta.png");
+    _spritePlanta.setTexture(_plantaTexture);
+    _spritePlanta.setScale(1.f, 1.f);
 }
 
 
@@ -35,18 +39,35 @@ void Planta::update()
 
 void Planta::posInicio(int y)
 {
-    _plant.setPosition(400, y * 200);
+    sf::Vector2f position(322, y * 175);
+    _plant.setPosition(position);
+    _spritePlanta.setPosition(position);
 }
 
-sf::RectangleShape& Planta::getDraw(sf::RenderWindow &window)  //cambiar para que reciba la ventana y dibuje
+sf::RectangleShape& Planta::getShape()
 {
-    for(auto &guis : _guisante)
-    {
-        guis.drawBall(window);
-
-    }
-
-
-    window.draw(_plant);
     return _plant;
 }
+
+sf::Sprite& Planta::getSprite()
+{
+    return _spritePlanta;
+}
+
+std::vector<Lanzaguisantes>& Planta::getGuisantes()
+{
+    return _guisante;
+}
+
+//sf::RectangleShape& Planta::getDraw(sf::RenderWindow &window)  //cambiar para que reciba la ventana y dibuje
+//{
+//    for(auto &guis : _guisante)
+//    {
+//        guis.drawBall(window);
+//
+//    }
+//
+//
+//    window.draw(_plant);
+//    return _plant;
+//}

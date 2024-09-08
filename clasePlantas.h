@@ -7,6 +7,8 @@ class Planta
 private:
     //Lanzaguisantes balas[100];
     sf::RectangleShape _plant;
+    sf::Sprite _spritePlanta;
+    sf::Texture _plantaTexture;
     int _vida;
     int _danio;
     unsigned int _ticsPL = 0;
@@ -18,12 +20,10 @@ public:
     void cmd();
     void update();
     void posInicio(int y);
-    sf::RectangleShape& getDraw(sf::RenderWindow &window);
+    sf::RectangleShape& getShape();
+    sf::Sprite& getSprite();
 
-    std::vector<Lanzaguisantes>& getGuisantes()
-    {
-        return _guisante;
-    }
+    std::vector<Lanzaguisantes>& getGuisantes();
 
 
     void removeGuisante(Lanzaguisantes& guisanteToRemove)
