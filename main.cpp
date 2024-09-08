@@ -5,6 +5,13 @@
 
 using namespace std;
 
+enum EstadoJuego
+{
+    MENU,
+    JUEGO,
+    OPCIONES
+};
+
 int main()
 {
     // Obtener la resolución de pantalla actual
@@ -12,7 +19,7 @@ int main()
 
     // Crear una ventana en pantalla completa
     sf::RenderWindow window(desktopMode, "Pantalla Completa", sf::Style::Fullscreen);
-    mainMenu mainMenu(window.getSize().x, window.getSize().y);
+    mainMenu menu(window.getSize().x, window.getSize().y);
 
 
     ///sprite lanzaguisante
@@ -57,6 +64,8 @@ int main()
 
     fondoInicio.setTexture(texInicio);
 
+    EstadoJuego estado = MENU;
+
     window.setFramerateLimit(60);
 
     while (window.isOpen())
@@ -69,119 +78,91 @@ int main()
                 window.close();
             }
 
-            if (event.type == sf::Event::KeyReleased)
+            if(estado == MENU)
             {
-                if (event.key.code == sf::Keyboard::Up)
+                if (event.type == sf::Event::KeyPressed)
                 {
-                    mainMenu.moveUp();
-                    break;
-                }
-                if (event.key.code == sf::Keyboard::Down)
-                {
-                    mainMenu.moveDown();
-                    break;
-                }
-                if (event.key.code == sf::Keyboard::Return)
-                {
-                    sf::RenderWindow Jugar(sf::VideoMode(desktopMode), "Plantas VS Profes");
-                    sf::RenderWindow Opciones(sf::VideoMode(desktopMode), "Opciones");
-                    sf::RenderWindow Salir(sf::VideoMode(desktopMode), "Salir");
-
-                    int x = mainMenu.mainMenuPressed();
-                    if (x == 0)
+                    if (event.key.code == sf::Keyboard::Up)
                     {
-                        while (Jugar.isOpen())
-                        {
-                            sf::Event aevent;
-
-                            while (Jugar.pollEvent(aevent))
-                            {
-                                if (aevent.type == sf::Event::Closed)
-                                {
-                                    Jugar.close();
-                                }
-                                if (aevent.type == sf::Event::KeyPressed)
-                                {
-                                    if (aevent.type == sf::Keyboard::Escape)
-                                    {
-                                        Jugar.close();
-                                    }
-                                }
-                            }
-                                    window.clear();
-
-                                    Gameplay zb;
-                                    zb.cmd();
-
-                                    zb.update();
-
-                                    window.draw(fondo);
-                                    zb.draw(window);
-
-                                    window.draw(lanzaguisanteSprite);
-                                    window.draw(nuezSprite);
-                                    window.draw(vikingoSprite);
-                                    vikingoSprite.move(-0.5,0);
-
-                                    window.display();
-                            Opciones.close();
-                            Salir.close();
-                            Jugar.clear();
-                            Jugar.display();
-                        }
+                        menu.moveUp();
                     }
-                    if (x == 1)
+                    else if (event.key.code == sf::Keyboard::Down)
                     {
-                        while (Opciones.isOpen())
-                        {
-                            sf::Event aevent;
-                            while (Opciones.pollEvent(aevent))
-                            {
-                                if (aevent.type == sf::Event::Closed)
-                                {
-                                    Opciones.close();
-                                }
-                                if (aevent.type == sf::Event::KeyPressed)
-                                {
-                                    if (aevent.key.code == sf::Keyboard::Escape)
-                                    {
-                                        Opciones.close();
-                                    }
-                                }
-                            }
-                            Jugar.close();
-                            Opciones.clear();
-                            Salir.close();
-                            Opciones.display();
-                        }
+                        menu.moveDown();
                     }
-                    if (x == 2)
+                    else if (event.key.code == sf::Keyboard::Return)
                     {
-                        window.close();
-                        break;
+                        int opcionElegida = menu.mainMenuPressed();
+                        if (opcionElegida == 0)
+                        {
+                            estado = JUEGO;
+                        }
+                        else if (opcionElegida == 1)
+                        {
+                            estado = OPCIONES;
+                        }
+                        else if (opcionElegida == 2)
+                        {
+                            window.close();
+                        }
                     }
                 }
             }
-            window.clear();
-            window.draw(fondoInicio);
-            mainMenu.draw(window);
-            window.display();
+            else if (estado == JUEGO)
+            {
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                {
+                    estado = MENU;
+                }
+
+            }
+            else if (estado == OPCIONES)
+            {
+                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
+                {
+                    estado = MENU;
+                }
+            }
         }
 
+        window.clear();
 
+            if (estado == MENU)
+            {
+                window.draw(fondoInicio);
+                menu.draw(window);
 
+            }
+            else if (estado == JUEGO)
+            {
+                Gameplay zb;
+                zb.cmd();
 
-//        window.clear();
-//
-//        window.draw(fondo);
-//        zb.draw(window);
-//
-//        window.draw(lanzaguisanteSprite);
-//        window.draw(nuezSprite);
-//        window.draw(vikingoSprite);
-//
-//        window.display();
-    }
+                zb.update();
+
+                window.draw(fondo);
+                zb.draw(window);
+
+                window.draw(lanzaguisanteSprite);
+                window.draw(nuezSprite);
+                window.draw(vikingoSprite);
+                vikingoSprite.move(-0.5,0);
+            }
+            else if (estado == OPCIONES)
+            {
+                sf::Font opciones;
+                sf::Text opcionesmenu;
+                opciones.loadFromFile("Samdan.ttf");
+                opcionesmenu.setFont(opciones);
+                opcionesmenu.setFillColor(sf::Color::White);
+                opcionesmenu.setString("NO DISPARES SOY IMBECIL :V");
+                opcionesmenu.setCharacterSize(130);
+                opcionesmenu.setPosition(580, 100);
+                window.draw(opcionesmenu);
+            }
+
+                window.display();
+        }
 
     return 0;
 }

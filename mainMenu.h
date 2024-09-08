@@ -1,5 +1,6 @@
 #ifndef MAINMENU_H_INCLUDED
 #define MAINMENU_H_INCLUDED
+#pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
 

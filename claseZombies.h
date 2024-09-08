@@ -37,5 +37,6 @@ public:
 
     void zombieRemove(){
         _shape.setFillColor(sf::Color::Black);
+
     }
 };
