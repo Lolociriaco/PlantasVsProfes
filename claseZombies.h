@@ -10,6 +10,8 @@ class Zombie
 {
 private:
     sf::RectangleShape _shape;
+    sf::Sprite _spriteVikingo;
+    sf::Texture _vikingoTexture;
     int _vida = 100;
     int _danio;
     ESTADOS_ZOMBIES _estado;
@@ -21,8 +23,10 @@ public:
     void update();
     void atacando();
     void posInicio();
-    sf::RectangleShape& getDraw();
-
+    sf::RectangleShape& getShape();
+    sf::Sprite& getSprite();
+    void setTexture(const sf::Texture& texture);
+    void reiniciar();
     sf::FloatRect getBounds() const {
         return _shape.getGlobalBounds();
     }
@@ -35,7 +39,9 @@ public:
         if(_vida < 1) zombieRemove();
     }
 
-    void zombieRemove(){
-        _shape.setFillColor(sf::Color::Black);
+    void zombieRemove()
+    {
+        _shape.setFillColor(sf::Color::Transparent);
+        _spriteVikingo.setColor(sf::Color::Black);
     }
 };

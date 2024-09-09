@@ -5,6 +5,8 @@ class Nuez
 {
 private:
     sf::CircleShape _nuez;
+    sf::Sprite _spriteNuez;
+    sf::Texture _nuezTexture;
     int _vida;
     unsigned int _ticsNU = 0;
 
@@ -15,7 +17,8 @@ public:
     void cmd();
     void update();
     void posInicio(int y);
-    sf::CircleShape& getDraw(sf::RenderWindow &window);
+    sf::CircleShape& getShape();
+    sf::Sprite& getSprite();
 };
 
 

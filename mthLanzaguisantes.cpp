@@ -4,8 +4,8 @@
 Lanzaguisantes::Lanzaguisantes(float y)
 {
     _shape.setFillColor(sf::Color::Green);
-    _shape.setRadius(20);
-    _shape.setPosition(400,y);
+    _shape.setRadius(15);
+    _shape.setPosition(335,y+85);
 }
 
 
