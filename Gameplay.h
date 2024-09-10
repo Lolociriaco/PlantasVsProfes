@@ -10,12 +10,12 @@ class Gameplay
 {
 private:
 
-    Zombie zombies[100];            // Array de pelotas
+    //Zombie zombies[100];            // Array de pelotas
     unsigned int _ticsGm = 0;        // Contador de tiempo
     int _contadorZombies = 0;       // Contador de pelotas "activas"
 
     //std::vector<Planta> plant;  // Todas las plantas
-    //std::vector<Zombie> zombies;  // Todos los zombies
+    std::vector<Zombie> zombies;  // Todos los zombies
 
 
     Planta plant[5];
@@ -60,9 +60,12 @@ void Gameplay::cmd()
 
 void Gameplay::update()
 {
+
+    ///PLANTA UPDATE
+
     _ticsGm++;
 
-    if (_ticsGm % (60*2) == 0 && _plantSpace < 5)
+    if (_ticsGm % (60*4) == 0 && _plantSpace < 5)
     {
         plant[_plantSpace].posInicio(_plantSpace+1);
         _plantSpace++;
@@ -74,18 +77,31 @@ void Gameplay::update()
 
     }
 
-    // Crear un nuevo zombie cada 3 segundos (180 tics si 60 fps)
-    if (_ticsGm % (60*1) == 0 && _contadorZombies < 100)
-    {
-        zombies[_contadorZombies].posInicio();  // Posición inicial de la nueva pelota
-        _contadorZombies++;  // Incrementar el contador de pelotas activas
+    ///ZOMBIES UPDATE
+
+    /// Crear un nuevo zombie cada 3 segundos (180 tics si 60 fps)
+    if (_ticsGm % (60 * 2) == 0) {
+        Zombie newZombie;
+        newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
+        zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinámico.
     }
 
-    for(int i = 0; i < _contadorZombies; i++)
+    for(Zombie &z : zombies)
     {
-        zombies[i].update();
+        z.update();
 
     }
+
+    for (size_t i = 0; i < zombies.size(); ++i) {
+        if (!zombies[i].isAlive()) {
+            zombies.erase(zombies.begin() + i);  // Eliminar zombies con vida 0
+            i--;  // Ajustar el índice porque hemos eliminado un elemento
+        }
+    }
+
+
+    ///NUEZ UPDATE
+
 
     if (_ticsGm % (60*1) == 0 && _nuezSpace < 5)
     {
@@ -105,10 +121,9 @@ void Gameplay::update()
 void Gameplay::draw(sf::RenderWindow &window)
 {
 
-    for(int i = 0; i < _contadorZombies; i++)
-    {
-        window.draw(zombies[i].getShape());
-        window.draw(zombies[i].getSprite());
+    for (Zombie& z : zombies) {
+        window.draw(z.getShape());
+        window.draw(z.getSprite());
     }
 
     for(int i = 0; i < _plantSpace; i++)
@@ -141,9 +156,9 @@ void Gameplay::draw(sf::RenderWindow &window)
 
 void Gameplay::setZombieTexture(const sf::Texture& texture)
 {
-    for (int i = 0; i < _contadorZombies; i++)
+    for (Zombie &z : zombies)
     {
-        zombies[i].setTexture(texture);
+        z.setTexture(texture);
     }
 }
 
@@ -155,10 +170,10 @@ void Gameplay::reiniciar()
     _nuezSpace = 0;
 
     // Reiniciar zombies
-    for (int i = 0; i < 100; ++i)
-    {
-        zombies[i].reiniciar();  // Volver a posicionar zombies
-    }
+
+
+    zombies.clear();  // Vacía el vector de zombies.
+
 
     // Reiniciar plantas
     for (int i = 0; i < 5; ++i)
@@ -195,7 +210,7 @@ void Gameplay::checkCollisions()
                     std::cout << "Colision detectada!" << std::endl;
                     p.removeGuisante(guis);
 
-                    z.golpe();
+                    z.punchZombie();
 
                 }
             }

@@ -27,6 +27,10 @@ public:
     sf::Sprite& getSprite();
     void setTexture(const sf::Texture& texture);
     void reiniciar();
+    void punchZombie();
+
+    bool isAlive(){ return _vida > 0;}
+
     sf::FloatRect getBounds() const {
         return _shape.getGlobalBounds();
     }
@@ -34,14 +38,5 @@ public:
 
     //METODOS PROVISORIOS PARA MATAR AL ZOMBIE
 
-    void golpe(){
-        _vida -= 50;
-        if(_vida < 1) zombieRemove();
-    }
 
-    void zombieRemove()
-    {
-        _shape.setFillColor(sf::Color::Transparent);
-        _spriteVikingo.setColor(sf::Color::Black);
-    }
 };

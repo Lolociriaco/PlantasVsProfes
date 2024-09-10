@@ -37,7 +37,7 @@ mainMenu::mainMenu(float ancho, float alto)
     MainMenu[2].setCharacterSize(80);
     MainMenu[2].setPosition(880, 800);
 
-    mainMenuSelected = -1;
+    mainMenuSelected = 0;
 
 }
 
@@ -66,11 +66,6 @@ void mainMenu::moveUp()
         mainMenuSelected--;
         MainMenu[mainMenuSelected].setFillColor(sf::Color::Blue);
 
-        if (mainMenuSelected == -1)
-        {
-            mainMenuSelected = Max_main_menu;
-        }
-
     }
 }
 
@@ -83,11 +78,6 @@ void mainMenu::moveDown()
          MainMenu[mainMenuSelected].setFillColor(sf::Color::Black);
          mainMenuSelected++;
          MainMenu[mainMenuSelected].setFillColor(sf::Color::Blue);
-
-         if (mainMenuSelected == Max_main_menu+4)
-         {
-             mainMenuSelected = 0;
-         }
 
      }
 }

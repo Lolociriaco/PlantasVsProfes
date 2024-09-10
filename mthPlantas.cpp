@@ -26,7 +26,7 @@ void Planta::update()
 
     _ticsPL++;
 
-    if(_ticsPL % (60*2) == 0)
+    if(_ticsPL % (60*3) == 0)
     {
         _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 65));  //65 = size planta / 2
     }
