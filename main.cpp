@@ -127,10 +127,41 @@ int main()
                 opciones.loadFromFile("Samdan.ttf");
                 opcionesmenu.setFont(opciones);
                 opcionesmenu.setFillColor(sf::Color::White);
-                opcionesmenu.setString("NO DISPARES SOY IMBECIL :V");
-                opcionesmenu.setCharacterSize(130);
-                opcionesmenu.setPosition(580, 100);
+                opcionesmenu.setString("VOLUMEN");
+                opcionesmenu.setCharacterSize(80);
+                opcionesmenu.setPosition(870, 300);
+
+                sf::Font opciones2;
+                sf::Text opcionesmenu2;
+                opciones2.loadFromFile("Samdan.ttf");
+                opcionesmenu2.setFont(opciones2);
+                opcionesmenu2.setFillColor(sf::Color::White);
+                opcionesmenu2.setString("CONTROLES");
+                opcionesmenu2.setCharacterSize(80);
+                opcionesmenu2.setPosition(860, 450);
+
+                sf::Font opciones3;
+                sf::Text opcionesmenu3;
+                opciones3.loadFromFile("Samdan.ttf");
+                opcionesmenu3.setFont(opciones3);
+                opcionesmenu3.setFillColor(sf::Color::White);
+                opcionesmenu3.setString("CREDITOS");
+                opcionesmenu3.setCharacterSize(80);
+                opcionesmenu3.setPosition(880, 600);
+
+                sf::Font opciones4;
+                sf::Text opcionesmenu4;
+                opciones4.loadFromFile("Samdan.ttf");
+                opcionesmenu4.setFont(opciones4);
+                opcionesmenu4.setFillColor(sf::Color::White);
+                opcionesmenu4.setString("VOLVER");
+                opcionesmenu4.setCharacterSize(80);
+                opcionesmenu4.setPosition(900, 750);
+
                 window.draw(opcionesmenu);
+                window.draw(opcionesmenu2);
+                window.draw(opcionesmenu3);
+                window.draw(opcionesmenu4);
             }
 
                 window.display();
