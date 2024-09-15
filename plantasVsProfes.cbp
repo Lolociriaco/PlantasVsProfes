@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="Gameplay.h" />
 		<Unit filename="clasLanzaguisantes.h" />
+		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
 		<Unit filename="clasePersonaje.cpp" />
 		<Unit filename="clasePlantas.h" />
@@ -44,10 +45,10 @@
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
 		<Unit filename="mthLanzaguisantes.cpp" />
+		<Unit filename="mthMenuOpciones.cpp" />
 		<Unit filename="mthNuez.cpp" />
 		<Unit filename="mthPlantas.cpp" />
 		<Unit filename="mthZombies.cpp" />
-		<Unit filename="pantallaInicio.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

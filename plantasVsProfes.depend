@@ -53,11 +53,12 @@
 
 1725394092 
 
-1725837421 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1726368768 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
 	"mainMenu.h"
+	"claseMenuOpciones.h"
 
 1725930091 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
@@ -139,4 +140,13 @@
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>
+
+1726368017 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthmenuopciones.cpp
+	<iostream>
+	"claseMenuOpciones.h"
+	<SFML/Graphics.hpp>
+
+1726367441 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
+	<SFML/Graphics.hpp>
+	<iostream>
 
