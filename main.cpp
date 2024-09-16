@@ -39,6 +39,13 @@ int main()
 
     fondoInicio.setTexture(texInicio);
 
+    ///sprite fondo de opciones
+    sf::Sprite fondoOpciones;
+    sf::Texture texfondoOpciones;
+    texfondoOpciones.loadFromFile("fondomenuopciones.jpeg");
+
+    fondoOpciones.setTexture(texfondoOpciones);
+
     EstadoJuego estado = MENU;
 
     window.setFramerateLimit(60);
@@ -100,6 +107,7 @@ int main()
             }
             else if (estado == OPCIONES)
             {
+
                 if (event.type == sf::Event::KeyPressed)
                 {
                     if (event.key.code == sf::Keyboard::Up)
@@ -153,6 +161,7 @@ int main()
             }
             else if (estado == OPCIONES)
             {
+                window.draw(fondoOpciones);
                 muestraOpciones.drawOpciones(window);
             }
 

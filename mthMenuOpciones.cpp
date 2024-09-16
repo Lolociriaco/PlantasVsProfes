@@ -20,13 +20,13 @@ menuOpciones::menuOpciones(float width, float height)
     Opciones[0].setPosition(840, 300);
     //opciones
     Opciones[1].setFont(fuente);
-    Opciones[1].setFillColor(sf::Color::White);
+    Opciones[1].setFillColor(sf::Color::Black);
     Opciones[1].setString("Controles");
     Opciones[1].setCharacterSize(80);
     Opciones[1].setPosition(830, 450);
     //salir
     Opciones[2].setFont(fuente);
-    Opciones[2].setFillColor(sf::Color::White);
+    Opciones[2].setFillColor(sf::Color::Black);
     Opciones[2].setString("Volver");
     Opciones[2].setCharacterSize(80);
     Opciones[2].setPosition(870, 600);
@@ -55,7 +55,7 @@ void menuOpciones::moveUp()
     if (opcionElegida -1 >= 0)
     {
 
-        Opciones[opcionElegida].setFillColor(sf::Color::White);
+        Opciones[opcionElegida].setFillColor(sf::Color::Black);
         opcionElegida--;
         Opciones[opcionElegida].setFillColor(sf::Color::Blue);
 
@@ -68,7 +68,7 @@ void menuOpciones::moveDown()
      if (opcionElegida + 1 < MenuOpciones)
      {
 
-         Opciones[opcionElegida].setFillColor(sf::Color::White);
+         Opciones[opcionElegida].setFillColor(sf::Color::Black);
          opcionElegida++;
          Opciones[opcionElegida].setFillColor(sf::Color::Blue);
 
