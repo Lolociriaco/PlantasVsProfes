@@ -72,11 +72,12 @@
 
 1725059327 shed changes
 
-1725930091 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1726521646 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
 	"claseNuez.h"
+	"claseGirasol.h"
 	<iostream>
 	<vector>
 	<algorithm>
@@ -93,17 +94,17 @@
 	<stdlib.h>
 	<time.h>
 
-1725817661 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
+1726519440 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 	<iostream>
 
-1725930091 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
+1726519404 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1725817803 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthnuez.cpp
+1726519404 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthnuez.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseNuez.h"
@@ -127,7 +128,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1725930091 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
+1726445089 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>
@@ -149,4 +150,11 @@
 1726367441 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
+
+1726520493 c:\users\scott\onedrive\documentos\plantasvsprofes\clasegirasol.h
+
+1726521708 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"claseGirasol.h"
 

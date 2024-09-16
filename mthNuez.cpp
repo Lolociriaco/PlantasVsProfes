@@ -29,7 +29,7 @@ void Nuez::posInicio(int y)
 {
     if (_ticsNU % (60*2) == 0)
     {
-        sf::Vector2f position(470, y * 180);
+        sf::Vector2f position(620, y * 180);
         _nuez.setPosition(position);
         _spriteNuez.setPosition(position);
     }

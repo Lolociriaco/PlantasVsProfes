@@ -34,16 +34,17 @@
 		</Compiler>
 		<Unit filename="Gameplay.h" />
 		<Unit filename="clasLanzaguisantes.h" />
+		<Unit filename="claseGirasol.h" />
 		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
 		<Unit filename="clasePersonaje.cpp" />
 		<Unit filename="clasePlantas.h" />
 		<Unit filename="claseZombies.h" />
 		<Unit filename="funciones.h" />
-		<Unit filename="funcionesSprites.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
+		<Unit filename="mthGirasol.cpp" />
 		<Unit filename="mthLanzaguisantes.cpp" />
 		<Unit filename="mthMenuOpciones.cpp" />
 		<Unit filename="mthNuez.cpp" />

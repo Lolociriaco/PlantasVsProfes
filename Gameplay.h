@@ -2,6 +2,7 @@
 #include "claseZombies.h" // Asegúrate de que shape.h declare la clase Pelota
 #include "clasePlantas.h"
 #include "claseNuez.h"
+#include "claseGirasol.h"
 #include <iostream>
 #include <vector>
 #include <algorithm>
@@ -23,6 +24,9 @@ private:
 
     Nuez nuez [10];
     int _nuezSpace = 0;
+
+    Girasol girasol [10];
+    int _girasolSpace = 0;
 
 public:
 
@@ -55,6 +59,11 @@ void Gameplay::cmd()
     {
         n.cmd();
     }
+
+    for(Girasol &g : girasol)
+    {
+        g.cmd();
+    }
 }
 
 
@@ -65,7 +74,7 @@ void Gameplay::update()
 
     _ticsGm++;
 
-    if (_ticsGm % (60*4) == 0 && _plantSpace < 5)
+    if (_ticsGm % (60*1) == 0 && _plantSpace < 5)
     {
         plant[_plantSpace].posInicio(_plantSpace+1);
         _plantSpace++;
@@ -79,7 +88,7 @@ void Gameplay::update()
 
     ///ZOMBIES UPDATE
 
-    /// Crear un nuevo zombie cada 3 segundos (180 tics si 60 fps)
+    // Crear un nuevo zombie cada 3 segundos (180 tics si 60 fps)
     if (_ticsGm % (60 * 2) == 0) {
         Zombie newZombie;
         newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
@@ -99,9 +108,7 @@ void Gameplay::update()
         }
     }
 
-
     ///NUEZ UPDATE
-
 
     if (_ticsGm % (60*1) == 0 && _nuezSpace < 5)
     {
@@ -114,6 +121,19 @@ void Gameplay::update()
         nuez[i].update();
     }
 
+    ///GIRASOL UPDATE
+
+    if (_ticsGm % (60*1) == 0 && _girasolSpace < 5)
+    {
+        girasol[_girasolSpace].posInicio(_girasolSpace+1);
+        _girasolSpace++;
+    }
+
+    for(int i = 0; i < _nuezSpace; i++)
+    {
+        girasol[i].update();
+    }
+
     checkCollisions();
 }
 
@@ -121,7 +141,8 @@ void Gameplay::update()
 void Gameplay::draw(sf::RenderWindow &window)
 {
 
-    for (Zombie& z : zombies) {
+    for (Zombie& z : zombies)
+    {
         window.draw(z.getShape());
         window.draw(z.getSprite());
     }
@@ -137,19 +158,18 @@ void Gameplay::draw(sf::RenderWindow &window)
 
         window.draw(plant[i].getSprite());
 
-        // Dibuja los guisantes
-
-        //plant[i].getDraw(window);
-        // Dibuja las balas de cada planta
-        //for(int j = 0; j < 100; j++){xz
-        //    window.draw(plant[i].getBalas()[j].getDraw());
-        //}
     }
 
     for(int i = 0; i < _nuezSpace; i++)
     {
         window.draw(nuez[i].getShape());
         window.draw(nuez[i].getSprite());
+    }
+
+    for(int i = 0; i < _girasolSpace; i++)
+    {
+        window.draw(girasol[i].getShape());
+        window.draw(girasol[i].getSprite());
     }
 
 }
@@ -168,6 +188,7 @@ void Gameplay::reiniciar()
     _contadorZombies = 0;
     _plantSpace = 0;
     _nuezSpace = 0;
+    _girasolSpace = 0;
 
     // Reiniciar zombies
 
@@ -185,6 +206,12 @@ void Gameplay::reiniciar()
     for (int i = 0; i < 10; ++i)
     {
         nuez[i].posInicio(i + 1);  // Volver a posicionar nueces
+    }
+
+    // Reiniciar girasoles
+    for (int i = 0; i < 10; ++i)
+    {
+        girasol[i].posInicio(i + 1);  // Volver a posicionar girasoles
     }
 
 }

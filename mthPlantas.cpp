@@ -39,7 +39,7 @@ void Planta::update()
 
 void Planta::posInicio(int y)
 {
-    sf::Vector2f position(322, y * 175);
+    sf::Vector2f position(472, y * 175);
     _plant.setPosition(position);
     _spritePlanta.setPosition(position);
 }
