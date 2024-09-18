@@ -1,30 +1,32 @@
 # depslib dependency file v1.0
-1725922490 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1726604038 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
 	"mainMenu.h"
+	"claseMenuOpciones.h"
 
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1725927322 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1726608119 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<SFML/Graphics.hpp>
 	"funciones.h"
 	<stdlib.h>
 	<time.h>
 
-1725927322 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1726610546 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
 1725320241 ated upstream
 
-1725927420 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1726617266 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
 	"claseNuez.h"
+	"claseGirasol.h"
 	<iostream>
 	<vector>
 	<algorithm>
@@ -33,13 +35,13 @@
 	<stdlib.h>
 	<time.h>
 
-1725927420 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
+1726617087 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1725922490 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
+1726616019 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
 	<SFML/Graphics.hpp>
 	"clasLanzaguisantes.h"
 	<vector>
@@ -47,7 +49,7 @@
 1725646817 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
 
-1725922490 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
+1726604038 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 	<iostream>
 
@@ -119,7 +121,7 @@
 
 1725922490 d:\documentos\utn\programacion\plantasvsprofes\clasenuez.h
 
-1725922490 source:d:\documentos\utn\programacion\plantasvsprofes\mthnuez.cpp
+1726604038 source:d:\documentos\utn\programacion\plantasvsprofes\mthnuez.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseNuez.h"
@@ -157,4 +159,20 @@
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
+
+1726604038 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
+
+1726604038 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1726604038 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
+	<iostream>
+	<SFML/Graphics.hpp>
+	"claseGirasol.h"
+
+1726604038 source:d:\documentos\utn\programacion\plantasvsprofes\mthmenuopciones.cpp
+	<iostream>
+	"claseMenuOpciones.h"
+	<SFML/Graphics.hpp>
 

@@ -5,9 +5,10 @@
 #include <time.h>    // Necesario para time()
 
 
+
 Zombie::Zombie() : _estado (CAMINANDO)
 {
-    _shape.setFillColor(sf::Color::Transparent);
+    _shape.setFillColor(sf::Color::Red);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
 
     _vikingoTexture.loadFromFile("vikingo.png");
@@ -27,12 +28,11 @@ void Zombie::update()
     switch (_estado)
     {
     case CAMINANDO:
-        _shape.move(-0.5,0);
-        _spriteVikingo.move(-0.5,0);
+        _shape.move(-3,0);
+        _spriteVikingo.move(-3,0);
         break;
 
     case ATACANDO:
-
         break;
     }
 

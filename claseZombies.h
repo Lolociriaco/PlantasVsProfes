@@ -29,12 +29,18 @@ public:
     void reiniciar();
     void punchZombie();
 
+
     bool isAlive(){ return _vida > 0;}
 
     sf::FloatRect getBounds() const {
         return _shape.getGlobalBounds();
     }
 
+
+    void setEstado(ESTADOS_ZOMBIES estado){_estado = estado;}  // Método para modificar el estado
+
+
+    ESTADOS_ZOMBIES getEstado(){return _estado;}  // Método para obtener el estado
 
     //METODOS PROVISORIOS PARA MATAR AL ZOMBIE
 
