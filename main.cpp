@@ -50,11 +50,13 @@ int main()
 
     window.setFramerateLimit(60);
 
-
     Gameplay juego;
 
     sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("vikingo.png");  // Cambia por el nombre de tu archivo de textura
+    vikingoTex.loadFromFile("vikingo.png"); // Cambia por el nombre de tu archivo de textura
+
+    sf::Texture plantaTex;
+    plantaTex.loadFromFile("lanzaguisantevioleta.png");
 
     while (window.isOpen())
     {
@@ -157,6 +159,7 @@ int main()
 
                 window.draw(fondo);
                 juego.draw(window);
+                juego.setPlantTexture(plantaTex);
                 juego.setZombieTexture(vikingoTex);
             }
             else if (estado == OPCIONES)

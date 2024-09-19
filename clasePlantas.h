@@ -22,18 +22,17 @@ public:
     void update();
     void posInicio(int y);
     void hitPlant();
+    void setTexture(const sf::Texture& textura);
     sf::RectangleShape& getShape();
     sf::Sprite& getSprite();
-
+//    sf::RectangleShape& getDraw(sf::RenderWindow &window);
 
     std::vector<Lanzaguisantes>& getGuisantes();
 
-    sf::FloatRect getBounds() const {
+    sf::FloatRect getBounds() const
+    {
         return _plant.getGlobalBounds();
     }
-
-
-
 
     void removeGuisante(Lanzaguisantes& guisanteToRemove)
     {
@@ -45,7 +44,8 @@ public:
         _guisante.erase(it, _guisante.end());
     }
 
-    bool isAlive(){
+    bool isAlive()
+    {
         return _vida > 0;
     }
 
