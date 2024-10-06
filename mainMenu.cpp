@@ -17,7 +17,7 @@ mainMenu::mainMenu(float ancho, float alto)
     tituloInicio.setFillColor(sf::Color::Black);
     tituloInicio.setString("PLANTAS  VS  PROFES");
     tituloInicio.setCharacterSize(130);
-    tituloInicio.setPosition(470, 200);
+    tituloInicio.setPosition(480, 100);
     //jugar
     MainMenu[0].setFont(font);
     MainMenu[0].setFillColor(sf::Color::Blue);

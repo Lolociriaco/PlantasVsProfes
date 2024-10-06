@@ -16,10 +16,10 @@ Planta::Planta() : _ticsPL(0)
     }
     else
     {
-        ///lo comentado es para la opacidad
-//    sf::Color color = _spritePlanta.getColor();  // Obtener el color actual
-//    color.a = 128;  // 128 es 50% de opacidad (0 completamente transparente, 255 completamente opaco)
-//    _spritePlanta.setColor(color);
+    ///lo comentado es para la opacidad
+    sf::Color color = _spritePlanta.getColor();  // Obtener el color actual
+    color.a = 255;  // 128 es 50% de opacidad (0 completamente transparente, 255 completamente opaco)
+    _spritePlanta.setColor(color);
     _spritePlanta.setTexture(_plantaTexture);
     _spritePlanta.setScale(1.f, 1.f);
 

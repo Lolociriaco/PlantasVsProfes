@@ -35,7 +35,7 @@ int main()
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("UTNfondoInicio.jpeg");
+    texInicio.loadFromFile("utnINICIO.jpg");
 
     fondoInicio.setTexture(texInicio);
 
@@ -53,7 +53,7 @@ int main()
     Gameplay juego;
 
     sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("vikingo.png"); // Cambia por el nombre de tu archivo de textura
+    vikingoTex.loadFromFile("dirube.png"); // Cambia por el nombre de tu archivo de textura
 
     sf::Texture plantaTex;
     plantaTex.loadFromFile("lanzaguisantevioleta.png");
