@@ -4,8 +4,9 @@
 
 Nuez::Nuez()
 {
-    _nuez.setFillColor(sf::Color::Transparent);
-    _nuez.setRadius(10);
+    _nuez.setFillColor(sf::Color::Yellow);
+    _nuez.setSize(sf::Vector2f(50.f, 100.f));
+
 
     _nuezTexture.loadFromFile("nuezpvp.png");
     _spriteNuez.setTexture(_nuezTexture);
@@ -35,7 +36,7 @@ void Nuez::posInicio(int y)
     }
 }
 
-sf::CircleShape& Nuez::getShape() //cambiar para que reciba la ventana y dibuje
+sf::RectangleShape& Nuez::getShape() //cambiar para que reciba la ventana y dibuje
 {
     return _nuez;
 }
@@ -43,5 +44,20 @@ sf::CircleShape& Nuez::getShape() //cambiar para que reciba la ventana y dibuje
 sf::Sprite& Nuez::getSprite()
 {
     return _spriteNuez;
+}
+
+
+void Nuez::hitNutt(){
+    _hitTime++;
+
+    if(_hitTime % (60) == 0){
+        _vida-=25;
+    }
+}
+
+
+void Nuez::setTexture(const sf::Texture& texture)
+{
+    _spriteNuez.setTexture(texture);
 }
 

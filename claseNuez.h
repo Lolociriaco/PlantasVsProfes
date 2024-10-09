@@ -4,11 +4,12 @@
 class Nuez
 {
 private:
-    sf::CircleShape _nuez;
+    sf::RectangleShape _nuez;
     sf::Sprite _spriteNuez;
     sf::Texture _nuezTexture;
     int _vida;
     unsigned int _ticsNU = 0;
+    unsigned int _hitTime = 0;
 
 
 public:
@@ -17,8 +18,20 @@ public:
     void cmd();
     void update();
     void posInicio(int y);
-    sf::CircleShape& getShape();
+    sf::RectangleShape& getShape();
     sf::Sprite& getSprite();
+    void hitNutt();
+    void setTexture(const sf::Texture& texture);
+
+
+    bool isAlive(){
+        return _vida > 0;
+    }
+
+
+    sf::FloatRect getBounds() const {
+        return _nuez.getGlobalBounds();
+    }
 };
 
 

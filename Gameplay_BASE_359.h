@@ -22,10 +22,10 @@ private:
     std::vector<Planta> plant;
     int _plantSpace = 0;
 
-    std::vector<Nuez> nuez;
+    Nuez nuez [10];
     int _nuezSpace = 0;
 
-    std::vector<Girasol> girasol;
+    Girasol girasol [10];
     int _girasolSpace = 0;
 
 public:
@@ -35,9 +35,6 @@ public:
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
     void setZombieTexture (const sf::Texture& texture);
-    void setPlantaTexture (const sf::Texture& texture);
-    void setGirasolTexture (const sf::Texture& texture);
-    void setNuezTexture (const sf::Texture& texture);
     void reiniciar();
     void checkCollisions();
     void guisCollisions();
@@ -142,52 +139,27 @@ void Gameplay::update()
 
     if (_ticsGm % (60*1) == 0 && _nuezSpace < 5)
     {
-        Nuez newNuez;
-        newNuez.posInicio(_nuezSpace+1);  // Configura la posición inicial de la nueva nuez.
-        nuez.push_back(newNuez);  // Agrega la nuez al vector dinámico.
+        nuez[_nuezSpace].posInicio(_nuezSpace+1);
         _nuezSpace++;
     }
 
-    for (unsigned int i = 0; i < nuez.size(); ++i)
+    for(int i = 0; i < _nuezSpace; i++)
     {
-        if (!nuez[i].isAlive())
-        {
-            nuez.erase(nuez.begin() + i);  // Eliminar plantas con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
-        }
-    }
-
-    for(Nuez &n : nuez)
-    {
-        n.update();
+        nuez[i].update();
     }
 
     ///GIRASOL UPDATE
 
     if (_ticsGm % (60*1) == 0 && _girasolSpace < 5)
     {
-        Girasol newGirasol;
-        newGirasol.posInicio(_girasolSpace+1);
-        girasol.push_back(newGirasol);
+        girasol[_girasolSpace].posInicio(_girasolSpace+1);
         _girasolSpace++;
     }
 
-    for (unsigned int i = 0; i < girasol.size(); ++i)
+    for(int i = 0; i < _nuezSpace; i++)
     {
-        if (!girasol[i].isAlive())
-        {
-            girasol.erase(girasol.begin() + i);  // Eliminar plantas con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
-        }
+        girasol[i].update();
     }
-
-    for(Girasol &g : girasol)/// no es nuez space MODIFICAR
-    {
-        g.update();
-    }
-
-
-    ///PREGUNTO POR COLLISIONES
 
     checkCollisions();
 }
@@ -219,24 +191,19 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     }
 
-    for(Nuez &n : nuez)
+    for(int i = 0; i < _nuezSpace; i++)
     {
-        window.draw(n.getShape());
-        window.draw(n.getSprite());
+        window.draw(nuez[i].getShape());
+        window.draw(nuez[i].getSprite());
     }
 
-    for(Girasol &g : girasol)
+    for(int i = 0; i < _girasolSpace; i++)
     {
-        window.draw(g.getShape());
-        window.draw(g.getSprite());
+        window.draw(girasol[i].getShape());
+        window.draw(girasol[i].getSprite());
     }
 
 }
-
-
-
-///SETEO DE TEXTURAS
-
 
 void Gameplay::setZombieTexture(const sf::Texture& texture)
 {
@@ -245,35 +212,6 @@ void Gameplay::setZombieTexture(const sf::Texture& texture)
         z.setTexture(texture);
     }
 }
-
-
-void Gameplay::setPlantaTexture(const sf::Texture& texture)
-{
-    for (Planta &p : plant)
-    {
-        p.setTexture(texture);
-    }
-}
-
-
-void Gameplay::setGirasolTexture(const sf::Texture& texture)
-{
-    for (Girasol &g : girasol)
-    {
-        g.setTexture(texture);
-    }
-}
-
-
-void Gameplay::setNuezTexture(const sf::Texture& texture)
-{
-    for (Nuez &n : nuez)
-    {
-        n.setTexture(texture);
-    }
-}
-
-
 
 
 ///-----------------RESTART----------------------
@@ -325,9 +263,6 @@ void Gameplay::checkCollisions()
 
     plantsCollisions();
 
-//    nuttCollisions();
-//
-//    sunflowerCollisions();
 }
 
 
@@ -335,11 +270,9 @@ void Gameplay::checkCollisions()
 
 void Gameplay::plantsCollisions()
 {
-    for (Zombie &z : zombies) ///ITERO SOBRE TODOS LOS ZOMBIES
+    for (Zombie &z : zombies)
     {
         bool enColision = false;  // Bandera para detectar colisión para cada zombie
-
-        /// PREGUNTO SI HAY COLISION CON PLANTAS
 
         for (Planta &p : plant)
         {
@@ -360,61 +293,6 @@ void Gameplay::plantsCollisions()
                 break;  // No hace falta seguir verificando otras plantas para este zombie
             }
         }
-
-        /// SI NO HAY COLISION CON PLANTAS PREGUNTO SI HAY COLISION CON NUECES
-
-        if(!enColision)
-        {
-            for (Nuez &n : nuez)
-            {
-                if (n.getBounds().intersects(z.getBounds()))
-                {
-                    enColision = true;  // Si colisiona con alguna planta, se marca como true
-
-                    if (enColision)
-                    {
-                        n.hitNutt();
-                        if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
-                        {
-                            z.setEstado(ESTADOS_ZOMBIES::ATACANDO);
-                            std::cout << "Zombie esta atacando\n";
-                        }
-                    }
-
-                    break;  // No hace falta seguir verificando otras plantas para este zombie
-                }
-
-            }
-        }
-
-
-        /// SI NO HAY COLISION CON PLANTAS NI CON NUECES PREGUNTO SI HAY COLISION CON GIRASOLES
-
-        if(!enColision)
-        {
-            for (Girasol &g : girasol)
-            {
-                if (g.getBounds().intersects(z.getBounds()))
-                {
-                    enColision = true;  // Si colisiona con alguna planta, se marca como true
-
-                    if (enColision)
-                    {
-                        g.hitGirasol();
-                        if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
-                        {
-                            z.setEstado(ESTADOS_ZOMBIES::ATACANDO);
-                            std::cout << "Zombie esta atacando\n";
-                        }
-                    }
-
-                    break;  // No hace falta seguir verificando otras plantas para este zombie
-                }
-
-            }
-        }
-
-
         if(!enColision)
         {
             if (z.getEstado() != ESTADOS_ZOMBIES::CAMINANDO)

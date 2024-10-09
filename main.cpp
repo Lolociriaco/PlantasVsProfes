@@ -35,7 +35,7 @@ int main()
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("utnINICIO.jpg");
+    texInicio.loadFromFile("UTNfondoInicio.jpeg");
 
     fondoInicio.setTexture(texInicio);
 
@@ -50,13 +50,20 @@ int main()
 
     window.setFramerateLimit(60);
 
+
     Gameplay juego;
 
     sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("dirube.png"); // Cambia por el nombre de tu archivo de textura
+    vikingoTex.loadFromFile("vikingo.png");  // Cambia por el nombre de tu archivo de textura
 
-    sf::Texture plantaTex;
-    plantaTex.loadFromFile("lanzaguisantevioleta.png");
+    sf::Texture plantaTexture;
+    plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
+
+    sf::Texture nuezTexture;
+    nuezTexture.loadFromFile("nuezpvp.png");  // Cambia por el nombre de tu archivo de textura
+
+    sf::Texture girasolTexture;
+    girasolTexture.loadFromFile("girasole.png");  // Cambia por el nombre de tu archivo de textura
 
     while (window.isOpen())
     {
@@ -159,8 +166,12 @@ int main()
 
                 window.draw(fondo);
                 juego.draw(window);
-                juego.setPlantTexture(plantaTex);
+
                 juego.setZombieTexture(vikingoTex);
+                juego.setPlantaTexture(plantaTexture);
+                juego.setGirasolTexture(girasolTexture);
+                juego.setNuezTexture(nuezTexture);
+
             }
             else if (estado == OPCIONES)
             {

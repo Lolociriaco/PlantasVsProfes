@@ -15,11 +15,10 @@ private:
     unsigned int _ticsGm = 0;        // Contador de tiempo
     int _contadorZombies = 0;       // Contador de pelotas "activas"
 
-    //std::vector<Planta> plant;  // Todas las plantas
     std::vector<Zombie> zombies;  // Todos los zombies
-
-
     std::vector<Planta> plant;
+
+
     int _plantSpace = 0;
 
     std::vector<Nuez> nuez;
@@ -33,11 +32,15 @@ public:
     void cmd();
     void update();
     void draw(sf::RenderWindow &);
-    void drawPlant(sf::RenderWindow &);
+//    void drawPlant(sf::RenderWindow &);
     void setZombieTexture (const sf::Texture& texture);
+<<<<<<< HEAD
+    void setPlantTexture (const sf::Texture& textura);
+=======
     void setPlantaTexture (const sf::Texture& texture);
     void setGirasolTexture (const sf::Texture& texture);
     void setNuezTexture (const sf::Texture& texture);
+>>>>>>> colisionPlantas
     void reiniciar();
     void checkCollisions();
     void guisCollisions();
@@ -208,14 +211,13 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     for(Planta &p : plant)
     {
-        // Dibuja la forma geométrica
-        window.draw(p.getShape());
+
         for (auto& guis : p.getGuisantes())
         {
             window.draw(guis.getDraw());
         }
-
-        window.draw(p.getSprite());
+            window.draw(p.getShape());
+            window.draw(p.getSprite());
 
     }
 
@@ -243,6 +245,14 @@ void Gameplay::setZombieTexture(const sf::Texture& texture)
     for (Zombie &z : zombies)
     {
         z.setTexture(texture);
+    }
+}
+
+void Gameplay::setPlantTexture(const sf::Texture& textura)
+{
+    for (Planta &p : plant)
+    {
+        p.setTexture(textura);
     }
 }
 
@@ -299,18 +309,22 @@ void Gameplay::reiniciar()
 //    {
 //        plant[i].posInicio(i + 1);  // Volver a posicionar plantas
 //    }
-//
-//    // Reiniciar nueces
-//    for (int i = 0; i < 10; ++i)
+//    int cont=0;
+//    for (Planta &p : plant)
 //    {
-//        nuez[i].posInicio(i + 1);  // Volver a posicionar nueces
+//        p.posInicio(++cont);
 //    }
-//
-//    // Reiniciar girasoles
-//    for (int i = 0; i < 10; ++i)
-//    {
-//        girasol[i].posInicio(i + 1);  // Volver a posicionar girasoles
-//    }
+    // Reiniciar nueces
+    for (int i = 0; i < 10; ++i)
+    {
+        nuez[i].posInicio(i + 1);  // Volver a posicionar nueces
+    }
+
+    // Reiniciar girasoles
+    for (int i = 0; i < 10; ++i)
+    {
+        girasol[i].posInicio(i + 1);  // Volver a posicionar girasoles
+    }
 
 }
 
