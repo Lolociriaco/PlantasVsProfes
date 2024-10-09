@@ -452,7 +452,7 @@ void Gameplay::guisCollisions()
                     std::cout << "Colision detectada!" << std::endl;
                     p.removeGuisante(guis);
 
-                    z.punchZombie();
+                    z.punchZombie(); //majo
 
                 }
             }
