@@ -8,7 +8,7 @@ Planta::Planta() : _ticsPL(0)
 {
 
     _plant.setFillColor(sf::Color::Red);
-    _plant.setSize(sf::Vector2f(50.f, 60.f));
+    _plant.setSize(sf::Vector2f(80.f, 60.f));
 
     sf::Texture _plantaTexture;
     _plantaTexture.loadFromFile("lanzaguisantevioleta.png");

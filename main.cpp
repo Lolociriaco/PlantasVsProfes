@@ -35,7 +35,7 @@ int main()
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("UTNfondoInicio.jpeg");
+    texInicio.loadFromFile("utnINICIO.jpg");
 
     fondoInicio.setTexture(texInicio);
 
@@ -46,6 +46,7 @@ int main()
 
     fondoOpciones.setTexture(texfondoOpciones);
 
+
     EstadoJuego estado = MENU;
 
     window.setFramerateLimit(60);
@@ -54,7 +55,7 @@ int main()
     Gameplay juego;
 
     sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("vikingo.png");  // Cambia por el nombre de tu archivo de textura
+    vikingoTex.loadFromFile("dirube.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
@@ -160,6 +161,7 @@ int main()
             }
             else if (estado == JUEGO)
             {
+
                 juego.cmd();
 
                 juego.update();

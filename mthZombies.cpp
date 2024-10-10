@@ -10,7 +10,8 @@ Zombie::Zombie() : _estado (CAMINANDO)
 {
     _shape.setFillColor(sf::Color::Red);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
-
+    _vikingoTexture.loadFromFile("dirube.png");
+    _spriteVikingo.setTexture(_vikingoTexture);
     _spriteVikingo.setScale(1.f, 1.f);
 }
 
@@ -27,7 +28,8 @@ void Zombie::update()
     {
     case CAMINANDO:
         _shape.move(-3,0);
-        _spriteVikingo.move(-3,0);
+//        _spriteVikingo.setPosition(_shape.getPosition());
+        _spriteVikingo.move(-3, 0);
         break;
 
     case ATACANDO:
@@ -41,15 +43,16 @@ void Zombie::reiniciar() {
     _shape.setFillColor(sf::Color::Transparent);  // O cualquier color inicial
     _shape.setSize(sf::Vector2f(50.f, 130.f));
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
-    _shape.setPosition(1920, randomNum() * 175);  // O cualquier posición inicial
+    _shape.setPosition(1920, randomNum() * 167);  // O cualquier posición inicial
     _spriteVikingo.setColor(sf::Color::White);
 }
 
 
 void Zombie::posInicio()
 {
-    _shape.setPosition(1920,randomNum()*175);
-    _spriteVikingo.setPosition(_shape.getPosition());
+    _shape.setPosition(1920, randomNum() * 167);
+//    _spriteVikingo.setPosition(_shape.getPosition());
+    _spriteVikingo.setPosition(1870, randomNum() * 167);
 }
 
 
