@@ -16,6 +16,14 @@ private:
     int _danio;
     ESTADOS_ZOMBIES _estado;
 
+    // Variables para la animación del sprite
+    int _frameWidth;        // Ancho de un cuadro del sprite
+    int _frameHeight;       // Alto de un cuadro del sprite
+    int _totalFrames;       // Total de cuadros en la animación
+    int _currentFrame;      // Cuadro actual que se está mostrando
+    float _frameDuration;   // Duración de cada cuadro en segundos
+    sf::Clock _clock;       // Reloj para controlar el tiempo entre cuadros
+
 public:
     Zombie();
 
@@ -44,5 +52,6 @@ public:
 
     //METODOS PROVISORIOS PARA MATAR AL ZOMBIE
 
+    void updateAnimation();
 
 };

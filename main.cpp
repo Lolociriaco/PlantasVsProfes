@@ -55,7 +55,7 @@ int main()
     Gameplay juego;
 
     sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("dirube.png");  // Cambia por el nombre de tu archivo de textura
+    vikingoTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura

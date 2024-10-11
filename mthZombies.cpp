@@ -6,13 +6,14 @@
 
 
 
-Zombie::Zombie() : _estado (CAMINANDO)
+Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _totalFrames(10), _currentFrame(0), _frameDuration(0.1f)
 {
     _shape.setFillColor(sf::Color::Red);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
-    _vikingoTexture.loadFromFile("dirube.png");
+    _vikingoTexture.loadFromFile("dirubecaminando.png");
     _spriteVikingo.setTexture(_vikingoTexture);
-    _spriteVikingo.setScale(1.f, 1.f);
+    _spriteVikingo.setScale(2.f, 2.f);
+    _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
 }
 
 
@@ -27,17 +28,31 @@ void Zombie::update()
     switch (_estado)
     {
     case CAMINANDO:
-        _shape.move(-3,0);
-//        _spriteVikingo.setPosition(_shape.getPosition());
-        _spriteVikingo.move(-3, 0);
+        _shape.move(-2, 0);
+        _spriteVikingo.move(-2, 0);
+        updateAnimation();
         break;
 
     case ATACANDO:
         break;
     }
-
 }
 
+void Zombie::updateAnimation()
+{
+
+    // Verifica si ha pasado el tiempo necesario para cambiar de cuadro
+    if (_clock.getElapsedTime().asSeconds() > _frameDuration) {
+        _currentFrame++;
+        if (_currentFrame >= _totalFrames) {
+            _currentFrame = 0;  // Vuelve al primer cuadro si se supera el último
+        }
+
+        _spriteVikingo.setTextureRect(sf::IntRect((_totalFrames - _currentFrame - 1) * _frameWidth, 0, _frameWidth, _frameHeight));
+
+        _clock.restart();  // Reinicia el reloj para el siguiente cuadro
+    }
+}
 
 void Zombie::reiniciar() {
     _shape.setFillColor(sf::Color::Transparent);  // O cualquier color inicial
@@ -51,8 +66,11 @@ void Zombie::reiniciar() {
 void Zombie::posInicio()
 {
     _shape.setPosition(1920, randomNum() * 167);
-//    _spriteVikingo.setPosition(_shape.getPosition());
-    _spriteVikingo.setPosition(1870, randomNum() * 167);
+
+    float offsetX = -75.f;
+    float offsetY = -100.f;
+
+    _spriteVikingo.setPosition(_shape.getPosition().x + offsetX, _shape.getPosition().y + offsetY);
 }
 
 
