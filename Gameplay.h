@@ -126,7 +126,6 @@ void Gameplay::update()
     for(Zombie &z : zombies)
     {
         z.update();
-
     }
 
     for (unsigned int i = 0; i < zombies.size(); ++i)

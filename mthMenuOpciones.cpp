@@ -12,24 +12,34 @@ menuOpciones::menuOpciones(float width, float height)
     {
         cout<<"PEPE"<<endl;
     }
+
+    sf::Color darkGreen(0, 100, 0);
+    sf::Color softYellow(255, 223, 0);
+
     //jugar
     Opciones[0].setFont(fuente);
-    Opciones[0].setFillColor(sf::Color::Blue);
+    Opciones[0].setFillColor(softYellow);
     Opciones[0].setString("Volumen");
     Opciones[0].setCharacterSize(80);
     Opciones[0].setPosition(840, 300);
+    Opciones[0].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
+    Opciones[0].setOutlineThickness(3);
     //opciones
     Opciones[1].setFont(fuente);
-    Opciones[1].setFillColor(sf::Color::Black);
+    Opciones[1].setFillColor(darkGreen);
     Opciones[1].setString("Controles");
     Opciones[1].setCharacterSize(80);
     Opciones[1].setPosition(830, 450);
+    Opciones[1].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
+    Opciones[1].setOutlineThickness(3);
     //salir
     Opciones[2].setFont(fuente);
-    Opciones[2].setFillColor(sf::Color::Black);
+    Opciones[2].setFillColor(darkGreen);
     Opciones[2].setString("Volver");
     Opciones[2].setCharacterSize(80);
     Opciones[2].setPosition(870, 600);
+    Opciones[2].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
+    Opciones[2].setOutlineThickness(3);
 
     opcionElegida = 0;
 
@@ -52,12 +62,14 @@ void menuOpciones::drawOpciones(sf::RenderWindow& window)
 ///mover arriba
 void menuOpciones::moveUp()
 {
+    sf::Color darkGreen(0, 100, 0);
+    sf::Color softYellow(255, 223, 0);
     if (opcionElegida -1 >= 0)
     {
 
-        Opciones[opcionElegida].setFillColor(sf::Color::Black);
+        Opciones[opcionElegida].setFillColor(darkGreen);
         opcionElegida--;
-        Opciones[opcionElegida].setFillColor(sf::Color::Blue);
+        Opciones[opcionElegida].setFillColor(softYellow);
 
     }
 }
@@ -65,12 +77,14 @@ void menuOpciones::moveUp()
 ///mover abajo
 void menuOpciones::moveDown()
 {
+    sf::Color darkGreen(0, 100, 0);
+    sf::Color softYellow(255, 223, 0);
      if (opcionElegida + 1 < MenuOpciones)
      {
 
-         Opciones[opcionElegida].setFillColor(sf::Color::Black);
+         Opciones[opcionElegida].setFillColor(darkGreen);
          opcionElegida++;
-         Opciones[opcionElegida].setFillColor(sf::Color::Blue);
+         Opciones[opcionElegida].setFillColor(softYellow);
 
      }
 }

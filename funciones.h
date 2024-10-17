@@ -11,29 +11,5 @@ int randomNum()
     return random_number;
 }
 
-void cargarSprites();
 
-//void cargarSprites()
-//{
-//    ///sprite fondo de partida
-//    sf::Sprite fondo;
-//    sf::Texture tex;
-//    tex.loadFromFile("fondop.jpg");
-//
-//    fondo.setTexture(tex);
-//
-//    ///sprite fondo de inicio
-//    sf::Sprite fondoInicio;
-//    sf::Texture texInicio;
-//    texInicio.loadFromFile("utnINICIO.jpg");
-//
-//    fondoInicio.setTexture(texInicio);
-//
-//    ///sprite fondo de opciones
-//    sf::Sprite fondoOpciones;
-//    sf::Texture texfondoOpciones;
-//    texfondoOpciones.loadFromFile("fondomenuopciones.jpeg");
-//
-//    fondoOpciones.setTexture(texfondoOpciones);
-//}
 

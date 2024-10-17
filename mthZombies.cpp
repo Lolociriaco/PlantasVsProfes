@@ -14,6 +14,20 @@ Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _to
     _spriteVikingo.setTexture(_vikingoTexture);
     _spriteVikingo.setScale(2.f, 2.f);
     _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
+
+//    _shape.setFillColor(sf::Color::Red);
+//    _shape.setSize(sf::Vector2f(50.f, 130.f));
+//    _maxiTexture.loadFromFile("maxicaminando.png");
+//    _spriteMaxi.setTexture(_maxiTexture);
+//    _spriteMaxi.setScale(2.f, 2.f);
+//    _spriteMaxi.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
+//
+//    _shape.setFillColor(sf::Color::Red);
+//    _shape.setSize(sf::Vector2f(50.f, 130.f));
+//    _vastagTexture.loadFromFile("vastagcaminando.png");
+//    _spriteVastag.setTexture(_vastagTexture);
+//    _spriteVastag.setScale(2.f, 2.f);
+//    _spriteVastag.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
 }
 
 
