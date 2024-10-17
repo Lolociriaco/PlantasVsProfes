@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1729105928 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1729182759 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -9,19 +9,20 @@
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1729048072 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1729185406 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
+	<iostream>
 	<SFML/Graphics.hpp>
 	"funciones.h"
 	<stdlib.h>
 	<time.h>
 
-1729048072 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1729182150 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
 1725320241 ated upstream
 
-1729128754 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1729185771 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -31,11 +32,11 @@
 	<vector>
 	<algorithm>
 
-1729048072 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
+1729183197 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
-1729127964 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
+1729128910 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
@@ -139,7 +140,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1728494911 source:d:\documentos\utn\programacion\plantasvsprofes\mainmenu.cpp
+1729136795 source:d:\documentos\utn\programacion\plantasvsprofes\mainmenu.cpp
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>

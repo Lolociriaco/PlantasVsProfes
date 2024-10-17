@@ -2,7 +2,7 @@
 #include <time.h>    // Necesario para time()
 
 
-int randomNum()
+int randomNumber()
 {
     std::srand(std::time(NULL));
 

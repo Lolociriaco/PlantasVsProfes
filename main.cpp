@@ -15,6 +15,7 @@ enum EstadoJuego
 
 int main()
 {
+
     // Obtener la resolución de pantalla actual
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
 
@@ -54,14 +55,14 @@ int main()
 
     Gameplay juego;
 
-    sf::Texture vikingoTex;
-    vikingoTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
+    sf::Texture matiTex;
+    matiTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
 
-//    sf::Texture maxiTex;
-//    maxiTex.loadFromFile("maxicaminando.png");
-//
-//    sf::Texture vastagTex;
-//    vastagTex.loadFromFile("vastagcaminando.png");
+    sf::Texture maxiTex;
+    maxiTex.loadFromFile("maxicaminando.png");
+
+    sf::Texture vastagTex;
+    vastagTex.loadFromFile("vastagcaminando.png");
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
@@ -176,7 +177,7 @@ int main()
                 window.draw(fondo);
                 juego.draw(window);
 
-                juego.setZombieTexture(vikingoTex);
+                juego.setZombieTexture(matiTex, maxiTex,vastagTex);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture);
                 juego.setNuezTexture(nuezTexture);

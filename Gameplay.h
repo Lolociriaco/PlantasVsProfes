@@ -36,7 +36,7 @@ public:
     void update(const sf::Event& event, sf::RenderWindow &window);
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
-    void setZombieTexture (const sf::Texture& texture);
+    void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag );
     void setPlantaTexture (const sf::Texture& texture);
     void setGirasolTexture (const sf::Texture& texture);
     void setNuezTexture (const sf::Texture& texture);
@@ -44,7 +44,17 @@ public:
     void checkCollisions();
     void guisCollisions();
     void plantsCollisions();
+    int randomZombie(){
+        std::srand(std::time(NULL));
 
+        int random = std::rand() % 100 + 1;
+
+        if(random > 60) return 1;
+
+        else if(random < 20) return 2;
+
+        else return 3;
+    }
 
 
 };
@@ -266,11 +276,23 @@ void Gameplay::draw(sf::RenderWindow &window)
 ///SETEO DE TEXTURAS
 
 
-void Gameplay::setZombieTexture(const sf::Texture& texture)
+void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag)
 {
-    for (Zombie &z : zombies)
+    int random = randomZombie();
+
+    for (size_t i = 0; i < zombies.size(); ++i)
     {
-        z.setTexture(texture);
+        int random = randomZombie();  // Genera un número aleatorio para cada zombie
+
+        if (random == 1) {
+            zombies[i].setTexture(mati);  // Aplica la textura a cada zombie
+        }
+        else if (random == 2) {
+            zombies[i].setTexture(vastag);
+        }
+        else {
+            zombies[i].setTexture(maxi);
+        }
     }
 }
 
