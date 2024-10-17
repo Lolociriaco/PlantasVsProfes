@@ -8,7 +8,7 @@ Planta::Planta() : _ticsPL(0)
 {
 
     _plant.setFillColor(sf::Color::Red);
-    _plant.setSize(sf::Vector2f(80.f, 60.f));
+    _plant.setSize(sf::Vector2f(50.f, 130.f));
 
     sf::Texture _plantaTexture;
     _plantaTexture.loadFromFile("lanzaguisantevioleta.png");
@@ -39,7 +39,7 @@ void Planta::update()
 
     if(_ticsPL % (60*3) == 0)
     {
-        _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 65));  //65 = size planta / 2
+        _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 95, _plant.getPosition().x + 25));  //95 = cabeza de la planta || 25 = ancho planta/2
     }
 
     for(Lanzaguisantes &guis : _guisante)
@@ -60,12 +60,19 @@ void Planta::hitPlant(){
 
 
 
-void Planta::posInicio(int y)
+void Planta::posInicio(int x, int y)
 {
     std::cout << "\n y: " << y << std::endl;
 //    sf::Vector2f position(472, y * 175);
-    _plant.setPosition(472, y * 170);
-    _spritePlanta.setPosition(472, y * 175);
+    _plant.setPosition(y*145 + 45, x*175);
+    _spritePlanta.setPosition(y*145 + 45, x*175);
+    posicionMatriz(x,y);
+}
+
+
+void Planta::posicionMatriz(int x, int y){
+    fila = x-1;
+    columna = y-2;
 }
 
 

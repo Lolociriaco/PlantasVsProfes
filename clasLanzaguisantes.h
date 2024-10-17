@@ -9,7 +9,7 @@ private:
     sf::CircleShape _shape;
 
 public:
-    Lanzaguisantes(float y);
+    Lanzaguisantes(float y, float x);
 
 
     void disparando();

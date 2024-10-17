@@ -14,18 +14,22 @@ private:
     unsigned int _ticsPL = 0;
     unsigned int _hitTime = 0;
     std::vector<Lanzaguisantes> _guisante;
+    int fila;
+    int columna;
 
 public:
     Planta();
 
     void cmd();
     void update();
-    void posInicio(int y);
+    void posInicio(int x, int y);
     void hitPlant();
     sf::RectangleShape& getShape();
     sf::Sprite& getSprite();
     void setTexture(const sf::Texture& texture);
-
+    void posicionMatriz(int x, int y);
+    int getFila(){return fila;}
+    int getColumna(){return columna;}
 
 
     std::vector<Lanzaguisantes>& getGuisantes();

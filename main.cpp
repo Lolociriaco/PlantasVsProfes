@@ -164,7 +164,7 @@ int main()
 
                 juego.cmd();
 
-                juego.update();
+                juego.update(event, window);
 
                 window.draw(fondo);
                 juego.draw(window);

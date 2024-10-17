@@ -1,11 +1,11 @@
 #include "clasLanzaguisantes.h"
 #include <iostream>
 
-Lanzaguisantes::Lanzaguisantes(float y)
+Lanzaguisantes::Lanzaguisantes(float y, float x)
 {
     _shape.setFillColor(sf::Color::Magenta);
     _shape.setRadius(15);
-    _shape.setPosition(490, y+40);
+    _shape.setPosition(x, y);
 }
 
 

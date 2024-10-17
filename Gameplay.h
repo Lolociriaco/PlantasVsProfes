@@ -28,10 +28,12 @@ private:
     std::vector<Girasol> girasol;
     int _girasolSpace = 0;
 
+    bool matriz[5][9] = {false};
+
 public:
 
     void cmd();
-    void update();
+    void update(const sf::Event& event, sf::RenderWindow &window);
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
     void setZombieTexture (const sf::Texture& texture);
@@ -77,22 +79,49 @@ void Gameplay::cmd()
 ///-----------------UPDATE----------------------
 
 
-void Gameplay::update()
+void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
+
+
 
     ///PLANTA UPDATE
 
     _ticsGm++;
 
-    if (_ticsGm % (60*1) == 0 && _plantSpace < 5)
-    {
-        std::cout<<"si entro xd \n";
-        Planta newPlanta;
-        newPlanta.posInicio(_plantSpace+1);
-        plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
-        std::cout<<"plant space:"<<_plantSpace;
-        _plantSpace++;
+    if (event.type == sf::Event::MouseButtonPressed) {
+        if(event.mouseButton.button == sf::Mouse::Left){
+            sf::Vector2i mousePos = sf::Mouse::getPosition(window);
+            int fila = mousePos.y / 175; //ancho de un casillero
+            int columna = mousePos.x / 145; // largo de un casillero
+
+            if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10){
+                if(matriz[fila-1][columna-2] == false)
+                {
+                    Planta newPlanta;
+                    newPlanta.posInicio(fila, columna);
+                    plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
+
+                    matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
+                    for(int x = 0; x < 5;x++){
+                        for(int i = 0; i < 9; i++){
+                            std::cout<<" "<<matriz[x][i];
+                        }
+                        std::cout<<std::endl;
+                    }
+                }
+            }
+        }
     }
+
+//    if (_ticsGm % (60*1) == 0 && _plantSpace < 5)
+//    {
+//        std::cout<<"si entro xd \n";
+//        Planta newPlanta;
+//        newPlanta.posInicio(_plantSpace+1);
+//        plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
+//        std::cout<<"plant space:"<<_plantSpace;
+//        _plantSpace++;
+//    }
 
     for(Planta &p : plant)
     {
@@ -102,9 +131,9 @@ void Gameplay::update()
 
     for (unsigned int i = 0; i < plant.size(); ++i)
     {
-
         if (!plant[i].isAlive())
         {
+            matriz[plant[i].getFila()][plant[i].getColumna()] = false;
             plant.erase(plant.begin() + i);  // Eliminar plantas con vida 0
             i--;  // Ajustar el índice porque hemos eliminado un elemento
             std::cout<<"IS ALIVE 2 \n";
