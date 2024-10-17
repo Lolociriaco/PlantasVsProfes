@@ -12,6 +12,10 @@ private:
     sf::RectangleShape _shape;
     sf::Sprite _spriteVikingo;
     sf::Texture _vikingoTexture;
+//    sf::Sprite _spriteMaxi;
+//    sf::Texture _maxiTexture;
+//    sf::Sprite _spriteVastag;
+//    sf::Texture _vastagTexture;
     int _vida = 100;
     int _danio;
     ESTADOS_ZOMBIES _estado;

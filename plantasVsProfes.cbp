@@ -37,7 +37,6 @@
 		<Unit filename="claseGirasol.h" />
 		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
-		<Unit filename="clasePersonaje.cpp" />
 		<Unit filename="clasePlantas.h" />
 		<Unit filename="claseZombies.h" />
 		<Unit filename="funciones.h" />

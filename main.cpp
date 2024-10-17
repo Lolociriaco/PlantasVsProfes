@@ -42,7 +42,7 @@ int main()
     ///sprite fondo de opciones
     sf::Sprite fondoOpciones;
     sf::Texture texfondoOpciones;
-    texfondoOpciones.loadFromFile("fondomenuopciones.jpeg");
+    texfondoOpciones.loadFromFile("OpcionesMenu.jpg");
 
     fondoOpciones.setTexture(texfondoOpciones);
 
@@ -57,6 +57,12 @@ int main()
     sf::Texture vikingoTex;
     vikingoTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
 
+//    sf::Texture maxiTex;
+//    maxiTex.loadFromFile("maxicaminando.png");
+//
+//    sf::Texture vastagTex;
+//    vastagTex.loadFromFile("vastagcaminando.png");
+
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
 
@@ -65,6 +71,7 @@ int main()
 
     sf::Texture girasolTexture;
     girasolTexture.loadFromFile("girasole.png");  // Cambia por el nombre de tu archivo de textura
+
 
     while (window.isOpen())
     {

@@ -155,7 +155,6 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     for(Zombie &z : zombies)
     {
         z.update();
-
     }
 
     for (unsigned int i = 0; i < zombies.size(); ++i)
