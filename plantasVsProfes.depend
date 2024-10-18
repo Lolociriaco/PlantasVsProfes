@@ -56,7 +56,7 @@
 
 1725394092 
 
-1729135110 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -66,8 +66,9 @@
 1729135110 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
-1729134817 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
+1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
+	<iostream>
 	<SFML/Graphics.hpp>
 	"funciones.h"
 	<stdlib.h>
@@ -75,7 +76,7 @@
 
 1725059327 shed changes
 
-1729134637 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1729290490 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -85,23 +86,23 @@
 	<vector>
 	<algorithm>
 
-1728515608 c:\users\scott\onedrive\documentos\plantasvsprofes\claseplantas.h
+1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\claseplantas.h
 	<SFML/Graphics.hpp>
 	"clasLanzaguisantes.h"
 	<vector>
 
-1725657009 c:\users\scott\onedrive\documentos\plantasvsprofes\claslanzaguisantes.h
+1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
 
-1729122533 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
+1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
-1726711906 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
+1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 	<iostream>
 
-1728526324 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
+1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
@@ -150,7 +151,7 @@
 	"claseMenuOpciones.h"
 	<SFML/Graphics.hpp>
 
-1726367441 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
+1729291404 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 

@@ -45,7 +45,6 @@
 		<Unit filename="mainMenu.h" />
 		<Unit filename="mthGirasol.cpp" />
 		<Unit filename="mthLanzaguisantes.cpp" />
-		<Unit filename="mthMenuOpciones.cpp" />
 		<Unit filename="mthNuez.cpp" />
 		<Unit filename="mthPlantas.cpp" />
 		<Unit filename="mthZombies.cpp" />
