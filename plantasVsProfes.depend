@@ -56,17 +56,18 @@
 
 1725394092 
 
-1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1729302881 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
 	"mainMenu.h"
 	"claseMenuOpciones.h"
+	"claseMenuIngame.h"
 
-1729135110 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
+1729306113 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
-1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
+1729306113 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -76,7 +77,7 @@
 
 1725059327 shed changes
 
-1729290490 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1729306091 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -177,4 +178,8 @@
 	<iostream>
 	"claseMenuOpciones.h"
 	<SFML/Graphics.hpp>
+
+1729298504 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuingame.h
+	<SFML/Graphics.hpp>
+	<iostream>
 
