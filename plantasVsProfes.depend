@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1729479429 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1729482248 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
 	"mainMenu.h"
 	"claseMenuOpciones.h"
+	"claseMenuIngame.h"
 
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
@@ -165,7 +166,7 @@
 
 1729481955 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
 
-1729048371 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
+1729482248 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
@@ -179,14 +180,22 @@
 	"claseMenuOpciones.h"
 	<SFML/Graphics.hpp>
 
-<<<<<<< HEAD
+1726604038 D
+
 1729481611 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
-=======
+
+1729481611 h"
+
 1729298504 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuingame.h
 	<SFML/Graphics.hpp>
 	<iostream>
->>>>>>> 811382dfcfc712696341c2630fba2ac1b1687ddd
+
+1729298504 382dfcfc712696341c2630fba2ac1b1687ddd
+
+1729482248 d:\documentos\utn\programacion\plantasvsprofes\clasemenuingame.h
+	<SFML/Graphics.hpp>
+	<iostream>
 

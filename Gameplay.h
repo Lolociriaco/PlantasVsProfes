@@ -45,22 +45,16 @@ public:
 
 private:
 
-    //Zombie zombies[100];            // Array de pelotas
     unsigned int _ticsGm = 0;        // Contador de tiempo
-    int _contadorZombies = 0;       // Contador de pelotas "activas"
+    int _contadorZombies = 0;
 
-    //std::vector<Planta> plant;  // Todas las plantas
-    std::vector<Zombie> zombies;  // Todos los zombies
-
+    std::vector<Zombie> zombies;
 
     std::vector<Planta> plant;
-    int _plantSpace = 0;
 
     std::vector<Nuez> nuez;
-    int _nuezSpace = 0;
 
     std::vector<Girasol> girasol;
-    int _girasolSpace = 0;
 
     bool matriz[5][9] = {false};
     int fila;

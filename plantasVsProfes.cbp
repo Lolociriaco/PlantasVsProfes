@@ -32,10 +32,10 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="Gameplay.cpp" />
 		<Unit filename="Gameplay.h" />
 		<Unit filename="clasLanzaguisantes.h" />
 		<Unit filename="claseGirasol.h" />
-		<Unit filename="claseMenuIngame.h" />
 		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
 		<Unit filename="clasePlantas.h" />

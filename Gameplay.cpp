@@ -320,34 +320,13 @@ void Gameplay::setNuezTexture(const sf::Texture& texture)
 void Gameplay::reiniciar()
 {
     _ticsGm = 0;
-    _contadorZombies = 0;
-    _plantSpace = 0;
-    _nuezSpace = 0;
-    _girasolSpace = 0;
 
-    // Reiniciar zombies
-
+    // Reiniciar todos los vectores
 
     zombies.clear();  // Vacía el vector de zombies.
-
-
-//    // Reiniciar plantas
-//    for (int i = 0; i < 5; ++i)
-//    {
-//        plant[i].posInicio(i + 1);  // Volver a posicionar plantas
-//    }
-//
-//    // Reiniciar nueces
-//    for (int i = 0; i < 10; ++i)
-//    {
-//        nuez[i].posInicio(i + 1);  // Volver a posicionar nueces
-//    }
-//
-//    // Reiniciar girasoles
-//    for (int i = 0; i < 10; ++i)
-//    {
-//        girasol[i].posInicio(i + 1);  // Volver a posicionar girasoles
-//    }
+    plant.clear();  // Vacía el vector de zombies.
+    girasol.clear();  // Vacía el vector de zombies.
+    nuez.clear();
 
 }
 
@@ -362,9 +341,6 @@ void Gameplay::checkCollisions()
 
     plantsCollisions();
 
-//    nuttCollisions();
-//
-//    sunflowerCollisions();
 }
 
 
