@@ -25,15 +25,19 @@ void Girasol::update()
 
 }
 
-void Girasol::posInicio(int y)
+void Girasol::posInicio(int x, int y)
 {
-    if (_ticsGI % (60*2) == 0)
-    {
-        sf::Vector2f position(322, y * 175);
-        _girasol.setPosition(position);
-        _spriteGirasol.setPosition(position);
-    }
+    _girasol.setPosition(y*145 + 45, x*175);
+    _spriteGirasol.setPosition(y*145 + 45, x*175);
+    posicionMatriz(x,y);
 }
+
+
+void Girasol::posicionMatriz(int x, int y){
+    fila = x-1;
+    columna = y-2;
+}
+
 
 sf::RectangleShape& Girasol::getShape() //cambiar para que reciba la ventana y dibuje
 {

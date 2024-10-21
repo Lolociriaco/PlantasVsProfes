@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1729182759 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1729479429 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -22,7 +22,7 @@
 
 1725320241 ated upstream
 
-1729185771 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1729481832 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -120,9 +120,9 @@
 1725630789 source:d:\documentos\utn\programacion\plantasvsprofes\clasepersonaje.cpp
 	<iostream>
 
-1728494132 d:\documentos\utn\programacion\plantasvsprofes\clasenuez.h
+1729481928 d:\documentos\utn\programacion\plantasvsprofes\clasenuez.h
 
-1728494133 source:d:\documentos\utn\programacion\plantasvsprofes\mthnuez.cpp
+1729477738 source:d:\documentos\utn\programacion\plantasvsprofes\mthnuez.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseNuez.h"
@@ -161,13 +161,13 @@
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
 
-1728494137 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
+1729481955 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
 
 1729048371 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729108429 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
+1729480432 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -176,4 +176,9 @@
 	<iostream>
 	"claseMenuOpciones.h"
 	<SFML/Graphics.hpp>
+
+1729481611 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+	<SFML/Graphics.hpp>
+	<iostream>
+	"Gameplay.h"
 
