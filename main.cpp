@@ -3,6 +3,7 @@
 #include "Gameplay.h"
 #include "mainMenu.h"
 #include "claseMenuOpciones.h"
+#include "claseMenuIngame.h"
 
 using namespace std;
 
@@ -10,7 +11,8 @@ enum EstadoJuego
 {
     MENU,
     JUEGO,
-    OPCIONES
+    OPCIONES,
+    PAUSAINGAME
 };
 
 int main()
@@ -25,6 +27,8 @@ int main()
     mainMenu menu(window.getSize().x, window.getSize().y);
 
     menuOpciones muestraOpciones(window.getSize().x, window.getSize().y);
+
+    menuIngame ingameMenu(window.getSize().x, window.getSize().y);
 
     ///sprite fondo de partida
     sf::Sprite fondo;
@@ -49,6 +53,7 @@ int main()
 
 
     EstadoJuego estado = MENU;
+    EstadoJuego estadoAnterior = MENU;
 
     window.setFramerateLimit(60);
 
@@ -106,6 +111,7 @@ int main()
                         }
                         else if (opcionElegida == 1)
                         {
+                            estadoAnterior = MENU;
                             estado = OPCIONES;
                         }
                         else if (opcionElegida == 2)
@@ -119,9 +125,39 @@ int main()
             {
                 if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 {
-                    estado = MENU;
+                    estado = PAUSAINGAME;
                 }
-
+            }
+            else if (estado == PAUSAINGAME)
+            {
+                if (event.type == sf::Event::KeyPressed)
+                {
+                    if (event.key.code == sf::Keyboard::Up)
+                    {
+                        ingameMenu.moveUp();
+                    }
+                    else if (event.key.code == sf::Keyboard::Down)
+                    {
+                        ingameMenu.moveDown();
+                    }
+                    else if (event.key.code == sf::Keyboard::Return)
+                    {
+                        int choosenOption = ingameMenu.opcionPresionada();
+                        if (choosenOption == 0)
+                        {
+                            estado = JUEGO; // Regresa al juego
+                        }
+                        else if (choosenOption == 1)
+                        {
+                            estadoAnterior = PAUSAINGAME;
+                            estado = OPCIONES; // Cambiar a menú de opciones
+                        }
+                        else if (choosenOption == 2)
+                        {
+                            estado = MENU; // Volver al menú principal
+                        }
+                    }
+                }
             }
             else if (estado == OPCIONES)
             {
@@ -149,12 +185,12 @@ int main()
                         }
                         else if (choosenOption == 2)
                         {
-                            estado = MENU;
+                            estado = estadoAnterior;
                         }
                     }
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                     {
-                        estado = MENU;
+                        estado = estadoAnterior;
                     }
                 }
             }
@@ -187,6 +223,11 @@ int main()
             {
                 window.draw(fondoOpciones);
                 muestraOpciones.drawOpciones(window);
+            }
+            else if (estado == PAUSAINGAME)
+            {
+                window.draw(fondoOpciones);
+                ingameMenu.drawOpciones(window);
             }
 
                 window.display();
