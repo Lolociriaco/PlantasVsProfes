@@ -65,9 +65,12 @@ private:
     sf::Sprite planta0;
     sf::Sprite planta1;
     sf::Sprite planta2;
+    sf::RectangleShape borde0, borde1, borde2; // Bordes para las plantas
+    sf::Texture texturaGirasol, texturaLanzaguisantes, texturaNuez;
+
     int _indicePlantaSeleccionada;
 
-//    CompraPlanta compraPlanta;
+    CompraPlanta compraPlanta;
 
 };
 

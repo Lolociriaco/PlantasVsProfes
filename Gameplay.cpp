@@ -36,24 +36,53 @@ void Gameplay::cmd()
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
 
-    sf::Color colorNormal(255, 255, 255, 255); // Opacidad al 50%
-    sf::Color colorSeleccionada(255, 255, 255, 255); // Opacidad al 100%
+    borde0.setSize(sf::Vector2f(90, 125)); // Ajusta el tamaño según sea necesario
+    borde0.setFillColor(sf::Color::Transparent);
+    borde0.setOutlineColor(sf::Color::Yellow);
+//    borde0.setOutlineThickness(0);
+
+    borde1.setSize(sf::Vector2f(90, 125));
+    borde1.setFillColor(sf::Color::Transparent);
+    borde1.setOutlineColor(sf::Color::Yellow);
+//    borde1.setOutlineThickness(0);
+
+    borde2.setSize(sf::Vector2f(90, 125));
+    borde2.setFillColor(sf::Color::Transparent);
+    borde2.setOutlineColor(sf::Color::Yellow);
+//    borde2.setOutlineThickness(0);
+
+    compraPlanta.update();
+
+//    borde0.setOutlineThickness(0);
+//    borde1.setOutlineThickness(0);
+//    borde2.setOutlineThickness(0);
+
+    borde0.setPosition(412, 11);
+    borde1.setPosition(517, 11);
+    borde2.setPosition(622, 11);
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
-        std::cout << "Has presionado el número 1: "<< std::endl;
         _plantaSeleccionada = GIRASOL;
-
+        std::cout << "Has presionado el número 1: "<< std::endl;
+        borde0.setOutlineThickness(7);
+        borde1.setOutlineThickness(0);
+        borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         _plantaSeleccionada = LANZAGUISANTES;
         std::cout << "Has presionado el número 2, lanza: "<< std::endl;
-
+        borde1.setOutlineThickness(7);
+        borde0.setOutlineThickness(0);
+        borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
         _plantaSeleccionada = NUEZ;
         std::cout << "Has presionado el número 3, nuez: "<< std::endl;
-
+        borde2.setOutlineThickness(7);
+        borde0.setOutlineThickness(0);
+        borde1.setOutlineThickness(0);
     }
+
 
     ///PLANTA UPDATE
 
@@ -237,6 +266,12 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
 void Gameplay::draw(sf::RenderWindow &window)
 {
+
+    compraPlanta.draw(window);
+
+    window.draw(borde0);
+    window.draw(borde1);
+    window.draw(borde2);
 
     for (Zombie& z : zombies)
     {

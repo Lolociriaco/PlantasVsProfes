@@ -25,12 +25,13 @@ class CompraPlanta
         sf::RectangleShape cuadroContador;
 
         sf::Clock reloj; // Reloj para medir el tiempo
-        int segundos; // Contador de segundos
+        int segundos = 0;
+        int minutos = 0;
 
     public:
         CompraPlanta();
         void draw(sf::RenderWindow& window);
         void setColor(const sf::Color& color);
-        void actualizarContador();
+        void update();
 };
 #endif // CLASECOMPRAPLANTAS_H_INCLUDED
