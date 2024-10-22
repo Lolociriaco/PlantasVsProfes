@@ -6,7 +6,7 @@
 #include <iostream>
 #include <vector>
 #include <algorithm>
-
+#include "claseCompraPlantas.h"
 
 class Gameplay
 {
@@ -62,7 +62,12 @@ private:
 
     PLANTA_SELECCIONADA _plantaSeleccionada = NINGUNA;
 
+    sf::Sprite planta0;
+    sf::Sprite planta1;
+    sf::Sprite planta2;
+    int _indicePlantaSeleccionada;
 
+//    CompraPlanta compraPlanta;
 
 };
 

@@ -35,6 +35,7 @@
 		<Unit filename="Gameplay.cpp" />
 		<Unit filename="Gameplay.h" />
 		<Unit filename="clasLanzaguisantes.h" />
+		<Unit filename="claseCompraPlantas.h" />
 		<Unit filename="claseGirasol.h" />
 		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
@@ -44,6 +45,7 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
+		<Unit filename="mthCompraPlanta.cpp" />
 		<Unit filename="mthGirasol.cpp" />
 		<Unit filename="mthLanzaguisantes.cpp" />
 		<Unit filename="mthNuez.cpp" />

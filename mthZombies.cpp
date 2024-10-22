@@ -88,7 +88,6 @@ void Zombie::posInicio()
     _spriteVikingo.setPosition(_shape.getPosition().x + offsetX, _shape.getPosition().y + offsetY);
 }
 
-
 sf::RectangleShape& Zombie::getShape()
 {
     return _shape;

@@ -36,19 +36,24 @@ void Gameplay::cmd()
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
 
+    sf::Color colorNormal(255, 255, 255, 255); // Opacidad al 50%
+    sf::Color colorSeleccionada(255, 255, 255, 255); // Opacidad al 100%
+
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
         std::cout << "Has presionado el número 1: "<< std::endl;
         _plantaSeleccionada = GIRASOL;
+
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         _plantaSeleccionada = LANZAGUISANTES;
         std::cout << "Has presionado el número 2, lanza: "<< std::endl;
+
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
         _plantaSeleccionada = NUEZ;
         std::cout << "Has presionado el número 3, nuez: "<< std::endl;
-    }
 
+    }
 
     ///PLANTA UPDATE
 

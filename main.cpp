@@ -4,6 +4,7 @@
 #include "mainMenu.h"
 #include "claseMenuOpciones.h"
 #include "claseMenuIngame.h"
+#include "claseCompraPlantas.h"
 
 using namespace std;
 
@@ -50,6 +51,29 @@ int main()
     texfondoOpciones.loadFromFile("OpcionesMenu.jpg");
 
     fondoOpciones.setTexture(texfondoOpciones);
+
+    ///carga de texturas de menu compra
+    CompraPlanta compra;
+
+    sf::Sprite tableroCompra;
+    sf::Texture texTableroCompra;
+    texTableroCompra.loadFromFile("tableroCompra.jpg");
+    tableroCompra.setTexture(texTableroCompra);
+
+    sf::Sprite nuezMenu;
+    sf::Texture texNuezMenu;
+    texNuezMenu.loadFromFile("nuezMenu.jpg");
+    nuezMenu.setTexture(texNuezMenu);
+
+    sf::Sprite lanzaguisanteMenu;
+    sf::Texture texLanzaguisanteMenu;
+    texLanzaguisanteMenu.loadFromFile("guisantevioletaMenu.jpg");
+    lanzaguisanteMenu.setTexture(texLanzaguisanteMenu);
+
+    sf::Sprite girasolMenu;
+    sf::Texture texGirasolMenu;
+    texGirasolMenu.loadFromFile("girasolMenu.jpg");
+    girasolMenu.setTexture(texGirasolMenu);
 
 
     EstadoJuego estado = MENU;
@@ -211,8 +235,9 @@ int main()
                 juego.update(event, window);
 
                 window.draw(fondo);
-                juego.draw(window);
+                compra.draw(window);
 
+                juego.draw(window);
                 juego.setZombieTexture(matiTex, maxiTex,vastagTex);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture);
