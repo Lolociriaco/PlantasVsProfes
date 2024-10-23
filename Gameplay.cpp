@@ -39,23 +39,16 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     borde0.setSize(sf::Vector2f(90, 125)); // Ajusta el tamaño según sea necesario
     borde0.setFillColor(sf::Color::Transparent);
     borde0.setOutlineColor(sf::Color::Yellow);
-//    borde0.setOutlineThickness(0);
 
     borde1.setSize(sf::Vector2f(90, 125));
     borde1.setFillColor(sf::Color::Transparent);
     borde1.setOutlineColor(sf::Color::Yellow);
-//    borde1.setOutlineThickness(0);
 
     borde2.setSize(sf::Vector2f(90, 125));
     borde2.setFillColor(sf::Color::Transparent);
     borde2.setOutlineColor(sf::Color::Yellow);
-//    borde2.setOutlineThickness(0);
 
     compraPlanta.update();
-
-//    borde0.setOutlineThickness(0);
-//    borde1.setOutlineThickness(0);
-//    borde2.setOutlineThickness(0);
 
     borde0.setPosition(412, 11);
     borde1.setPosition(517, 11);
@@ -89,28 +82,37 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     _ticsGm++;
 
     if(_plantaSeleccionada == LANZAGUISANTES){
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
         std::cout << "ENTRO EN LANZAGUISTANES "<< std::endl;
             sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10){
+                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                {
                     if(matriz[fila-1][columna-2] == false)
                     {
+                        if (_totalSoles>=150)
+                        {
+                            _totalSoles-=150;
+
                         Planta newPlanta;
                         newPlanta.posInicio(fila, columna);
                         plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
 
                         matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++){
-                            for(int i = 0; i < 9; i++){
+                        for(int x = 0; x < 5;x++)
+                        {
+                            for(int i = 0; i < 9; i++)
+                            {
                                 std::cout<<" "<<matriz[x][i];
                             }
                             std::cout<<std::endl;
                         }
                         //_plantaSeleccionada = NINGUNA;
-                }
+                        }
+                    }
             }
         }
     }
@@ -163,28 +165,36 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     if(_plantaSeleccionada == NUEZ){
 
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        {
                     std::cout << "ENTRO EN NUEZ "<< std::endl;
                 sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10){
+                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                {
                     if(matriz[fila-1][columna-2] == false)
                     {
+                        if (_totalSoles>=50)
+                        {
+                            _totalSoles-=50;
+
                         Nuez newNuez;
                         newNuez.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
                         nuez.push_back(newNuez);  // Agrega la nuez al vector dinámico.
 
                         matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++){
-                            for(int i = 0; i < 9; i++){
+                        for(int x = 0; x < 5;x++)
+                        {
+                            for(int i = 0; i < 9; i++)
+                            {
                                 std::cout<<" "<<matriz[x][i];
                             }
                             std::cout<<std::endl;
                         }
                     //_plantaSeleccionada = NINGUNA;
-
+                        }
                     }
                 }
         }
@@ -207,31 +217,40 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     }
 
     ///GIRASOL UPDATE
-
-        if(_plantaSeleccionada == GIRASOL){
-        if (event.type == sf::Event::MouseButtonPressed) {
+    if(_plantaSeleccionada == GIRASOL)
+    {
+        if (event.type == sf::Event::MouseButtonPressed)
+        {
             std::cout << "ENTRO EN GIRASOL "<< std::endl;
-            if(event.mouseButton.button == sf::Mouse::Left){
+            if(event.mouseButton.button == sf::Mouse::Left)
+            {
                 sf::Vector2i mousePos = sf::Mouse::getPosition(window);
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10){
+                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                {
                     if(matriz[fila-1][columna-2] == false)
                     {
+                        if (_totalSoles>=50)
+                        {
+                            _totalSoles-=50;
+
                         Girasol newGirasol;
                         newGirasol.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
                         girasol.push_back(newGirasol);  // Agrega la nuez al vector dinámico.
 
                         matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++){
-                            for(int i = 0; i < 9; i++){
+                        for(int x = 0; x < 5;x++)
+                        {
+                            for(int i = 0; i < 9; i++)
+                            {
                                 std::cout<<" "<<matriz[x][i];
                             }
                             std::cout<<std::endl;
                         }
                         //_plantaSeleccionada = NINGUNA;
-
+                        }
                     }
                 }
             }
@@ -250,6 +269,10 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     for(Girasol &g : girasol)/// no es nuez space MODIFICAR
     {
+        if (_ticsGm % (60 * 2) == 0)
+        {
+            _totalSoles+=50;
+        }
         g.update();
     }
 
@@ -272,6 +295,27 @@ void Gameplay::draw(sf::RenderWindow &window)
     window.draw(borde0);
     window.draw(borde1);
     window.draw(borde2);
+
+    sf::Color marron(139, 69, 19);
+    sf::Color marronBordes(190, 89, 47);
+
+    sf::RectangleShape cuadroSoles;
+    cuadroSoles.setFillColor(marron);
+    cuadroSoles.setSize(sf::Vector2f(110.f, 41.f));
+    cuadroSoles.setPosition(274, 109);
+    cuadroSoles.setOutlineColor(marronBordes);
+    cuadroSoles.setOutlineThickness(3);
+
+    sf::Text solesText;
+    font.loadFromFile("Samdan.ttf");
+    solesText.setFont(font);
+    solesText.setString(std::to_string(_totalSoles));
+    solesText.setCharacterSize(30);
+    solesText.setFillColor(sf::Color::Black);
+    solesText.setPosition(310, 110);
+
+    window.draw(cuadroSoles);
+    window.draw(solesText);
 
     for (Zombie& z : zombies)
     {

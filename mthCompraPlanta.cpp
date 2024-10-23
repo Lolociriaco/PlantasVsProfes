@@ -33,7 +33,6 @@ CompraPlanta::CompraPlanta()
 
     contadorRondas.setFillColor(sf::Color(255, 223, 0));
     contadorRondas.setCharacterSize(75);
-//    contadorRondas.setString(std::to_string(segundos));
     contadorRondas.setPosition(750, 35);
     contadorRondas.setOutlineColor(sf::Color::Black);
     contadorRondas.setOutlineThickness(5);
