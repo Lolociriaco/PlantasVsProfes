@@ -48,6 +48,10 @@ public:
         return _shape.getGlobalBounds();
     }
 
+    float getXPosition() const {
+        return getBounds().left;
+    }
+
 
     void setEstado(ESTADOS_ZOMBIES estado){_estado = estado;}  // Método para modificar el estado
 

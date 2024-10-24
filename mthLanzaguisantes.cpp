@@ -1,5 +1,4 @@
 #include "clasLanzaguisantes.h"
-#include <iostream>
 
 Lanzaguisantes::Lanzaguisantes(float y, float x)
 {
@@ -16,8 +15,4 @@ void Lanzaguisantes::disparando()
 }
 
 
-void Lanzaguisantes::drawBall(sf::RenderWindow &window)
-{
-    window.draw(_shape);
-}
 

@@ -18,11 +18,21 @@ void Girasol::cmd()
 
 }
 
+std::vector<Soles>& Girasol::getSoles()
+{
+    return _sol;
+}
+
 
 void Girasol::update()
 {
     _ticsGI++;
 
+    if(_ticsGI % 210 == 0)
+    {
+     _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
+     std::cout<<"ENTRO AL GIRASOLJDKSFJKSDJF";
+    }
 }
 
 void Girasol::posInicio(int x, int y)
@@ -52,7 +62,7 @@ sf::Sprite& Girasol::getSprite()
 void Girasol::hitGirasol(){
     _hitTime++;
 
-    if(_hitTime % (60) == 0){
+    if(_hitTime % 60 == 0){
         _vida-=25;
     }
 }

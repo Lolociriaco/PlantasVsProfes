@@ -33,5 +33,8 @@ class CompraPlanta
         void draw(sf::RenderWindow& window);
         void setColor(const sf::Color& color);
         void update();
+//        void sumarRonda(){
+//            contadorRondas++;
+//        }
 };
 #endif // CLASECOMPRAPLANTAS_H_INCLUDED

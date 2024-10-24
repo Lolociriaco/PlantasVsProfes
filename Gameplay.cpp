@@ -1,7 +1,28 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include "Gameplay.h"
+#include <thread>
 
+///-----------------CONSTRUCTOR----------------------
+
+Gameplay::Gameplay()
+{
+    borde0.setSize(sf::Vector2f(90, 125)); // Ajusta el tamaño según sea necesario
+    borde0.setFillColor(sf::Color::Transparent);
+    borde0.setOutlineColor(sf::Color::Yellow);
+
+    borde1.setSize(sf::Vector2f(90, 125));
+    borde1.setFillColor(sf::Color::Transparent);
+    borde1.setOutlineColor(sf::Color::Yellow);
+
+    borde2.setSize(sf::Vector2f(90, 125));
+    borde2.setFillColor(sf::Color::Transparent);
+    borde2.setOutlineColor(sf::Color::Yellow);
+
+    borde0.setPosition(412, 11);
+    borde1.setPosition(517, 11);
+    borde2.setPosition(622, 11);
+}
 
 ///-----------------CMD----------------------
 
@@ -31,28 +52,7 @@ void Gameplay::cmd()
 
 
 ///-----------------UPDATE----------------------
-
-
-void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
-{
-
-    borde0.setSize(sf::Vector2f(90, 125)); // Ajusta el tamaño según sea necesario
-    borde0.setFillColor(sf::Color::Transparent);
-    borde0.setOutlineColor(sf::Color::Yellow);
-
-    borde1.setSize(sf::Vector2f(90, 125));
-    borde1.setFillColor(sf::Color::Transparent);
-    borde1.setOutlineColor(sf::Color::Yellow);
-
-    borde2.setSize(sf::Vector2f(90, 125));
-    borde2.setFillColor(sf::Color::Transparent);
-    borde2.setOutlineColor(sf::Color::Yellow);
-
-    compraPlanta.update();
-
-    borde0.setPosition(412, 11);
-    borde1.setPosition(517, 11);
-    borde2.setPosition(622, 11);
+void Gameplay::selectPlantas(){
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
         _plantaSeleccionada = GIRASOL;
@@ -75,6 +75,16 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         borde0.setOutlineThickness(0);
         borde1.setOutlineThickness(0);
     }
+}
+
+void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
+{
+
+    ///COMPRA PLANTA UPDATE
+    compraPlanta.update();
+
+    ///SELECCIONADOR DE PLANTAS
+    selectPlantas();
 
 
     ///PLANTA UPDATE
@@ -139,13 +149,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     ///ZOMBIES UPDATE
 
 
-    // Crear un nuevo zombie cada 3 segundos (180 tics si 60 fps)
-    if (_ticsGm % (60 * 2) == 0)
-    {
-        Zombie newZombie;
-        newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
-        zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinámico.
-    }
+    generadorZombie();
 
     for(Zombie &z : zombies)
     {
@@ -267,12 +271,13 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         }
     }
 
-    for(Girasol &g : girasol)/// no es nuez space MODIFICAR
+    for(Girasol &g : girasol)
     {
-        if (_ticsGm % (60 * 2) == 0)
+        if (_ticsGm % 210 == 0) // 210 ticks es igual a 3.5 segundos
         {
-            _totalSoles+=50;
+            _totalSoles+=25;
         }
+        //if(g.picked()) _totalSoles+=25
         g.update();
     }
 
@@ -282,6 +287,162 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     checkCollisions();
 }
 
+
+///-----------------RONDAS----------------------
+
+bool Gameplay::round1()
+{
+    if (8 < _ticsGm / 60){//PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _ticsGm / 60){
+            if (_ticsGm % (60 * 5) == 0)
+            {
+                crearZombie();
+            }
+        }
+        else{
+            if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
+                if(60 < _ticsGm / 60){
+                    _ronda++;
+                    reiniciar();
+                }
+            }
+        }
+    }
+    if(gameLost()) return false;
+                    return true;
+}
+
+bool Gameplay::round2()
+{
+    if (6 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _ticsGm / 60){
+            if (_ticsGm % (60 * 5) == 0)
+            {
+                crearZombie();
+            }
+        }
+        else{
+            if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
+                if(60 < _ticsGm / 60){
+                    _ronda++;
+                    reiniciar();
+                }
+            }
+        }
+    }
+    if(gameLost()) return false;
+                    return true;
+}
+
+bool Gameplay::round3()
+{
+    if (5.8 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _ticsGm / 60){
+            if (_ticsGm % (60 * 5) == 0)
+            {
+                crearZombie();
+            }
+        }
+        else{
+            if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
+                if(60 < _ticsGm / 60){
+                    _ronda++;
+                    reiniciar();
+                }
+            }
+        }
+    }
+    if(gameLost()) return false;
+                    return true;
+}
+
+bool Gameplay::round4()
+{
+    if (5.5 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (45 > _ticsGm / 60){
+            if (_ticsGm % (60 * 5) == 0)
+            {
+                crearZombie();
+            }
+        }
+        else{
+            if (_ticsGm % (70 * 4) == 0){
+                crearZombie();
+                if(60 < _ticsGm / 60){
+                    _ronda++;
+                    reiniciar();
+                }
+            }
+        }
+    }
+    if(gameLost()) return false;
+                    return true;
+}
+
+bool Gameplay::round5()
+{
+    if (5.1 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _ticsGm / 60){
+            if (_ticsGm % (60 * 4) == 0)
+            {
+                crearZombie();
+            }
+        }
+        else{
+            if (_ticsGm % (60 * 3) == 0){
+                crearZombie();
+                if(60 < _ticsGm / 60){
+                    _ronda++;
+                    reiniciar();
+                }
+            }
+        }
+    }
+    if(gameLost()) return false;
+                    return true;
+}
+
+
+bool Gameplay::gameLost(){
+
+    for (Zombie& z : zombies)
+    {
+        if(z.getXPosition() < -50){
+            return true;
+        }
+    }
+    return false;
+}
+
+
+///-----------------GENERADOR DE ZOMBIES POR RONDA----------------------
+
+
+void Gameplay::generadorZombie()
+{
+    if (_ronda == 1) {
+        if(!round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    } else if (_ronda == 2) {
+        if(!round2()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    } else if (_ronda == 3) {
+        if(!round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    } else if (_ronda == 4) {
+        if(!round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    } else if (_ronda == 5) {
+        if(!round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+
+}
+
+
+void Gameplay::crearZombie(){
+    Zombie newZombie;
+    newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
+    zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinámico.
+}
 
 ///-----------------DRAW----------------------
 
@@ -346,6 +507,10 @@ void Gameplay::draw(sf::RenderWindow &window)
     {
         window.draw(g.getShape());
         window.draw(g.getSprite());
+
+            for(Soles &s :  g.getSoles()){
+                window.draw(s.getDraw());
+            }
     }
 
 }
@@ -395,8 +560,6 @@ void Gameplay::setNuezTexture(const sf::Texture& texture)
 }
 
 
-
-
 ///-----------------RESTART----------------------
 
 
@@ -411,9 +574,31 @@ void Gameplay::reiniciar()
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
+    _totalSoles = 100;
 
+    for(int x = 0; x < 5;x++)
+    {
+        for(int i = 0; i < 9; i++)
+        {
+
+            std::cout<<" "<<matriz[x][i];
+            matriz[x][i] = 0;
+        }
+            std::cout<<std::endl;
+    }
 }
 
+
+///-----------------RANDOM ZOMBIE----------------------
+
+int Gameplay::randomZombie()
+{
+        std::srand(std::time(NULL));
+        int random = std::rand() % 100 + 1;
+        if(random > 60) return 1;
+        else if(random < 20) return 2;
+        else return 3;
+}
 
 ///-----------------CHECKCOLLISIONS----------------------
 

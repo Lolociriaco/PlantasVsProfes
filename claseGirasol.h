@@ -1,5 +1,6 @@
 #ifndef CLASEGIRASOL_H_INCLUDED
 #define CLASEGIRASOL_H_INCLUDED
+#include "clasSoles.h"
 
 class Girasol
 {
@@ -12,6 +13,7 @@ private:
     unsigned int _hitTime = 0;
     int fila;
     int columna;
+    std::vector<Soles> _sol;
 
 public:
     Girasol();
@@ -26,6 +28,7 @@ public:
     void posicionMatriz(int x, int y);
     int getFila(){return fila;}
     int getColumna(){return columna;}
+    std::vector<Soles>& getSoles();
 
 
     sf::FloatRect getBounds() const {

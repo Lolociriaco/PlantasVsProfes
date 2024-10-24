@@ -1,16 +1,17 @@
 # depslib dependency file v1.0
-1729482248 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1729709426 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
 	"mainMenu.h"
 	"claseMenuOpciones.h"
 	"claseMenuIngame.h"
+	"claseCompraPlantas.h"
 
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1729185406 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1729710675 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -18,12 +19,12 @@
 	<stdlib.h>
 	<time.h>
 
-1729182150 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1729736768 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
 1725320241 ated upstream
 
-1729481832 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1729738057 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -32,8 +33,9 @@
 	<iostream>
 	<vector>
 	<algorithm>
+	"claseCompraPlantas.h"
 
-1729183197 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
+1729709426 d:\documentos\utn\programacion\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
@@ -48,12 +50,11 @@
 	"clasLanzaguisantes.h"
 	<vector>
 
-1729107733 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
+1729739169 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
 
-1729107838 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
+1729743121 source:d:\documentos\utn\programacion\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
-	<iostream>
 
 1725394092 
 
@@ -166,13 +167,14 @@
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
 
-1729481955 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
+1729743405 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
+	"clasSoles.h"
 
 1729482248 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729480432 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
+1729743540 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -184,10 +186,11 @@
 
 1726604038 D
 
-1729481611 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+1729743441 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
+	<thread>
 
 1729481611 h"
 
@@ -212,4 +215,14 @@
 
 1729698770 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthcompraplanta.cpp
 	"claseCompraPlantas.h"
+
+1729710524 d:\documentos\utn\programacion\plantasvsprofes\clasecompraplantas.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1729710524 source:d:\documentos\utn\programacion\plantasvsprofes\mthcompraplanta.cpp
+	"claseCompraPlantas.h"
+
+1729743565 d:\documentos\utn\programacion\plantasvsprofes\classoles.h
+	<SFML/Graphics.hpp>
 

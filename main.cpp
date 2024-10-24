@@ -18,6 +18,7 @@ enum EstadoJuego
 
 int main()
 {
+    std::srand(std::time(NULL));
 
     // Obtener la resolución de pantalla actual
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();

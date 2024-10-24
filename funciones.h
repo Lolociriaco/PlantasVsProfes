@@ -4,7 +4,6 @@
 
 int randomNumber()
 {
-    std::srand(std::time(NULL));
 
     // Generar un número aleatorio entre 1 y 5
     int random_number = std::rand() % 5 + 1;

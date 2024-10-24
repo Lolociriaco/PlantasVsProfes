@@ -64,7 +64,9 @@ void CompraPlanta::update()
         std::string texto = (minutos < 10 ? "0" : "") + std::to_string(minutos) + ":" + (segundos < 10 ? "0" : "") + std::to_string(segundos) + " - ROUND 1";
         contadorRondas.setString(texto);
 
-        std::cout << "Segundos transcurridos: " << segundos << std::endl;
+        //std::cout << "Segundos transcurridos: " << segundos << std::endl;
+
+
 
 }
 

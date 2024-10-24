@@ -12,6 +12,7 @@ class Gameplay
 {
 public:
 
+    Gameplay();
     void cmd();
     void update(const sf::Event& event, sf::RenderWindow &window);
     void draw(sf::RenderWindow &);
@@ -24,17 +25,16 @@ public:
     void checkCollisions();
     void guisCollisions();
     void plantsCollisions();
-    int randomZombie(){
-        std::srand(std::time(NULL));
-
-        int random = std::rand() % 100 + 1;
-
-        if(random > 60) return 1;
-
-        else if(random < 20) return 2;
-
-        else return 3;
-    }
+    void selectPlantas();
+    int randomZombie();
+    void generadorZombie();
+    void crearZombie();
+    bool round1();
+    bool round2();
+    bool round3();
+    bool round4();
+    bool round5();
+    bool gameLost();
 
     enum PLANTA_SELECCIONADA{
         NINGUNA,
@@ -45,8 +45,9 @@ public:
 
 private:
 
-    unsigned int _ticsGm = 0;        // Contador de tiempo
+    int _ticsGm = 0;        // Contador de tiempo
     int _contadorZombies = 0;
+    int _ronda = 1;
 
     std::vector<Zombie> zombies;
 
@@ -71,6 +72,6 @@ private:
 
     sf::Font font;
 
-    int _totalSoles = 150;
+    int _totalSoles = 100;
 };
 
