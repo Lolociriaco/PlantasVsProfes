@@ -80,6 +80,21 @@ void Gameplay::selectPlantas(){
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
 
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        // Obtener la posición del mouse en la ventana
+        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
+        sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));  // Convertir a float
+
+        for(Girasol &g : girasol){
+            if (g.checkSolClick(mousePosF)) {
+                std::cout << "¡Hiciste clic en un sol!" << std::endl;
+                _totalSoles+=25;
+                // Aquí puedes eliminar el sol o realizar otra acción
+            }
+        }
+        // Verificar si se hizo clic en algún sol
+    }
+
     ///COMPRA PLANTA UPDATE
     compraPlanta.update();
 
@@ -273,10 +288,10 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     for(Girasol &g : girasol)
     {
-        if (_ticsGm % 210 == 0) // 210 ticks es igual a 3.5 segundos
-        {
-            _totalSoles+=25;
-        }
+//        if (_ticsGm % 210 == 0) // 210 ticks es igual a 3.5 segundos
+//        {
+//            _totalSoles+=25;
+//        }
         //if(g.picked()) _totalSoles+=25
         g.update();
     }
@@ -294,21 +309,24 @@ bool Gameplay::round1()
 {
     if (8 < _ticsGm / 60){//PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
-            if (_ticsGm % (60 * 5) == 0)
+            if (_ticsGm % (60 * 6) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if (_ticsGm % (60 * 4) == 0){
-                crearZombie();
-                if(60 < _ticsGm / 60){
+            if(60 < _ticsGm / 60){
+                if(zombies.size() == 0){
                     _ronda++;
                     reiniciar();
                 }
             }
+            else if (_ticsGm % (60 * 5) == 0){
+                crearZombie();
+            }
         }
     }
+
     if(gameLost()) return false;
                     return true;
 }
@@ -323,12 +341,14 @@ bool Gameplay::round2()
             }
         }
         else{
-            if (_ticsGm % (60 * 4) == 0){
-                crearZombie();
-                if(60 < _ticsGm / 60){
+            if(70 < _ticsGm / 60){
+                if(zombies.size() == 0){
                     _ronda++;
                     reiniciar();
                 }
+            }
+            else if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
             }
         }
     }
@@ -346,12 +366,14 @@ bool Gameplay::round3()
             }
         }
         else{
-            if (_ticsGm % (60 * 4) == 0){
-                crearZombie();
-                if(60 < _ticsGm / 60){
+            if(70 < _ticsGm / 60){
+                if(zombies.size() == 0){
                     _ronda++;
                     reiniciar();
                 }
+            }
+            else if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
             }
         }
     }
@@ -369,12 +391,14 @@ bool Gameplay::round4()
             }
         }
         else{
-            if (_ticsGm % (70 * 4) == 0){
-                crearZombie();
-                if(60 < _ticsGm / 60){
+            if(70 < _ticsGm / 60){
+                if(zombies.size() == 0){
                     _ronda++;
                     reiniciar();
                 }
+            }
+            else if (_ticsGm % (60 * 4) == 0){
+                crearZombie();
             }
         }
     }
@@ -392,12 +416,14 @@ bool Gameplay::round5()
             }
         }
         else{
-            if (_ticsGm % (60 * 3) == 0){
-                crearZombie();
-                if(60 < _ticsGm / 60){
+            if(70 < _ticsGm / 60){
+                if(zombies.size() == 0){
                     _ronda++;
                     reiniciar();
                 }
+            }
+            else if (_ticsGm % (60 * 3) == 0){
+                crearZombie();
             }
         }
     }

@@ -33,6 +33,7 @@ void Girasol::update()
      _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
      std::cout<<"ENTRO AL GIRASOLJDKSFJKSDJF";
     }
+
 }
 
 void Girasol::posInicio(int x, int y)
@@ -46,6 +47,19 @@ void Girasol::posInicio(int x, int y)
 void Girasol::posicionMatriz(int x, int y){
     fila = x-1;
     columna = y-2;
+}
+
+bool Girasol::checkSolClick(sf::Vector2f mousePos) {
+    bool clicked = false;
+    for (auto it = _sol.begin(); it != _sol.end(); /* vacío */) {
+        if (it->isClicked(mousePos)) {
+            it = _sol.erase(it);  // Elimina el sol y ajusta el iterador
+            clicked = true;  // Marcamos que hubo un clic exitoso
+        } else {
+            ++it;
+        }
+    }
+    return clicked;  // Devuelve true si un sol fue clickeado y eliminado
 }
 
 

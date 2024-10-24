@@ -29,6 +29,7 @@ public:
     int getFila(){return fila;}
     int getColumna(){return columna;}
     std::vector<Soles>& getSoles();
+    bool checkSolClick(sf::Vector2f mousePos);
 
 
     sf::FloatRect getBounds() const {

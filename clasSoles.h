@@ -22,6 +22,11 @@ public:
     sf::FloatRect getBounds() const { //parte de la colision
         return _shape.getGlobalBounds();
     }
+
+    bool isClicked(sf::Vector2f mousePos){
+    // Verifica si la posición del mouse está dentro de los límites de la forma del sol
+    return _shape.getGlobalBounds().contains(mousePos);
+    }
 };
 
 
