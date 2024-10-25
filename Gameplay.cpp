@@ -52,7 +52,7 @@ void Gameplay::cmd()
 }
 
 
-///-----------------UPDATE----------------------
+///-----------------SELECIONADOR DE PLANAS CON 1,2 O 3----------------------
 void Gameplay::selectPlantas(){
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
@@ -78,8 +78,18 @@ void Gameplay::selectPlantas(){
     }
 }
 
+///-----------------UPDATE----------------------
+
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
+    generadorZombie(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
+    _ticsGm++;
+
+    if(pausarTodo){
+        compraPlanta.enCero();
+        return;
+    }
+
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         // Obtener la posición del mouse en la ventana
         sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
@@ -101,12 +111,8 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     ///SELECCIONADOR DE PLANTAS
     selectPlantas();
 
-    _ticsGm++;
 
-    if (_ticsGm - inicioTicsCartel >= duracionCartel)
-    {
-        mostrarCartel = false;
-    }
+
 
     ///PLANTA UPDATE
 
@@ -167,8 +173,6 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     ///ZOMBIES UPDATE
 
-
-    generadorZombie();
 
     for(Zombie &z : zombies)
     {
@@ -308,9 +312,11 @@ bool Gameplay::round1()
 {
     if (mostrarCartel)
     {
-        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+        pausarTodo = true;
+
+        if (_ticsGm > (2 * 60)) {
             mostrarCartel = false;
-            inicioTicsCartel = _ticsGm;
+            pausarTodo = false;
         }
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
@@ -325,7 +331,7 @@ bool Gameplay::round1()
         else{
             if(60 < _ticsGm / 60){
                 if(zombies.size() == 0){
-                     win = true;
+                    //win = true;
                     _ronda++;
                     reiniciar();
                 }
@@ -347,19 +353,17 @@ bool Gameplay::round1()
 
 bool Gameplay::round2()
 {
-    if (!mostrarCartel && vecesMostradasR2 == 0)
-    {
-        mostrarCartel = true;
-    }
     if (mostrarCartel)
     {
-        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+        pausarTodo = true;
+
+        if (_ticsGm > (2 * 60)) {
             mostrarCartel = false;
-            vecesMostradasR2 = 1;
-            inicioTicsCartel = _ticsGm;
+            pausarTodo = false;
         }
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
+
 
     if (6 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
@@ -389,16 +393,13 @@ bool Gameplay::round2()
 
 bool Gameplay::round3()
 {
-    if (!mostrarCartel && vecesMostradasR3 == 0)
-    {
-        mostrarCartel = true;
-    }
     if (mostrarCartel)
     {
-        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+        pausarTodo = true;
+
+        if (_ticsGm > (3 * 60)) {
             mostrarCartel = false;
-            vecesMostradasR3 = 1;
-            inicioTicsCartel = _ticsGm;
+            pausarTodo = false;
         }
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
@@ -432,16 +433,13 @@ bool Gameplay::round3()
 
 bool Gameplay::round4()
 {
-    if (!mostrarCartel && vecesMostradasR4 == 0)
-    {
-        mostrarCartel = true;
-    }
     if (mostrarCartel)
     {
-        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+        pausarTodo = true;
+
+        if (_ticsGm > (3 * 60)) {
             mostrarCartel = false;
-            vecesMostradasR4 = 1;
-            inicioTicsCartel = _ticsGm;
+            pausarTodo = false;
         }
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
@@ -474,16 +472,13 @@ bool Gameplay::round4()
 
 bool Gameplay::round5()
 {
-    if (!mostrarCartel && vecesMostradasR5 == 0)
-    {
-        mostrarCartel = true;
-    }
     if (mostrarCartel)
     {
-        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+        pausarTodo = true;
+
+        if (_ticsGm > (3 * 60)) {
             mostrarCartel = false;
-            vecesMostradasR5 = 1;
-            inicioTicsCartel = _ticsGm;
+            pausarTodo = false;
         }
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
@@ -530,7 +525,7 @@ bool Gameplay::gameLost(){
 
 bool Gameplay::gameWon(){
 
-    if (_ronda == 1 && win == true)
+    if (_ronda == 1 && win)
     {
         return true;
     }
@@ -543,15 +538,15 @@ bool Gameplay::gameWon(){
 void Gameplay::generadorZombie()
 {
     if (_ronda == 1) {
-        if(!round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     } else if (_ronda == 2) {
-        if(!round2()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round2()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     } else if (_ronda == 3) {
-        if(!round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     } else if (_ronda == 4) {
-        if(!round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     } else if (_ronda == 5) {
-        if(!round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
 
 }
@@ -576,10 +571,6 @@ void Gameplay::draw(sf::RenderWindow &window)
         readySetPlant.setScale(1.f, 1.f);
         readySetPlant.setPosition(800, 300);
         window.draw(readySetPlant);
-        if (_ticsGm - inicioTicsCartel >= duracionCartel)
-        {
-            mostrarCartel = false;
-        }
     }
 
     compraPlanta.draw(window);
@@ -686,7 +677,7 @@ void Gameplay::draw(sf::RenderWindow &window)
         window.draw(pressAnyKey);
     }
 
-    if (gameWon())
+    if (win)
     {
         texGameOver.loadFromFile("fondoGameOver.jpg");
         fondoGameOver.setTexture(texGameOver);
@@ -704,7 +695,7 @@ void Gameplay::draw(sf::RenderWindow &window)
         salvastePlantasText.setString("¡HAS RECHAZADO LAS OLEADAS DE PROFES ENOJADOS!");
         salvastePlantasText.setCharacterSize(110);
         salvastePlantasText.setFillColor(sf::Color::Green);
-        salvastePlantasText.setPosition(650, 360);
+        salvastePlantasText.setPosition(700, 450);
         salvastePlantasText.setOutlineColor(sf::Color::Black);
         salvastePlantasText.setOutlineThickness(12);
 
@@ -712,7 +703,7 @@ void Gameplay::draw(sf::RenderWindow &window)
         pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
         pressAnyKey.setCharacterSize(45);
         pressAnyKey.setFillColor(sf::Color::Green);
-        pressAnyKey.setPosition(695, 850);
+        pressAnyKey.setPosition(695, 700);
         pressAnyKey.setOutlineColor(sf::Color::Black);
         pressAnyKey.setOutlineThickness(12);
 
@@ -783,13 +774,9 @@ void Gameplay::reiniciar()
     nuez.clear();
     _totalSoles = 650;
     compraPlanta.reiniciarContador();
-    inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
     duracionCartel = 180;
     mostrarCartel = true;
-    vecesMostradasR2 = 0;
-    vecesMostradasR3 = 0;
-    vecesMostradasR4 = 0;
-    vecesMostradasR5 = 0;
+
 
     for(int x = 0; x < 5;x++)
     {

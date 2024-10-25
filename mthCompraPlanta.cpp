@@ -107,6 +107,15 @@ void CompraPlanta::update()
 
 }
 
+
+void CompraPlanta::enCero()
+{
+    std::string texto = "00:00 -";
+    contadorRondas.setString(texto);
+
+}
+
+
 void CompraPlanta::draw(sf::RenderWindow& window)
 {
 

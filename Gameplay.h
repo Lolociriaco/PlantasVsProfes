@@ -36,7 +36,6 @@ public:
     bool round5();
     bool gameLost();
     bool gameWon();
-
     enum PLANTA_SELECCIONADA{
         NINGUNA,
         LANZAGUISANTES,
@@ -88,10 +87,9 @@ private:
     int inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
     int duracionCartel = 180;
     bool mostrarCartel = true;
-    int vecesMostradasR2 = 0;
-    int vecesMostradasR3 = 0;
-    int vecesMostradasR4 = 0;
-    int vecesMostradasR5 = 0;
+    bool roundWin = false;
+
+    bool pausarTodo = false;
 
     bool win = false;
 };

@@ -7,7 +7,7 @@ private:
     sf::RectangleShape _nuez;
     sf::Sprite _spriteNuez;
     sf::Texture _nuezTexture;
-    int _vida = 100;
+    int _vida = 180;
     unsigned int _ticsNU = 0;
     unsigned int _hitTime = 0;
     int fila;

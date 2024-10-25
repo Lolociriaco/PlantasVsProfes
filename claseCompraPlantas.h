@@ -40,6 +40,7 @@ class CompraPlanta
         void draw(sf::RenderWindow& window);
         void update();
         void reiniciarContador();
+        void enCero();
 
 };
 #endif // CLASECOMPRAPLANTAS_H_INCLUDED
