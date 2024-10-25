@@ -53,11 +53,6 @@ int main()
 
     fondoOpciones.setTexture(texfondoOpciones);
 
-    sf::Sprite fondoGameOver;
-    sf::Texture texGameOver;
-    texGameOver.loadFromFile("fondoGameOver.jpeg");
-    fondoGameOver.setTexture(texGameOver);
-
     ///carga de texturas de menu compra
     CompraPlanta compra;
 
@@ -264,11 +259,6 @@ int main()
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture);
                 juego.setNuezTexture(nuezTexture);
-
-                if (juego.gameLost())
-                {
-                    window.draw(fondoGameOver);
-                }
 
             }
             else if (estado == OPCIONES)

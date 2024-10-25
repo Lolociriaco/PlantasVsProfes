@@ -35,7 +35,6 @@ public:
     bool round4();
     bool round5();
     bool gameLost();
-//    void cartelGameOver();
 
     enum PLANTA_SELECCIONADA{
         NINGUNA,
@@ -79,5 +78,15 @@ private:
     sf::Text pressAnyKey;
     sf::Text gameOverText;
 
+    sf::Sprite readySetPlant;
+    sf::Texture texReadySetPlant;
+
+    int inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
+    int duracionCartel = 180;
+    bool mostrarCartel = true;
+    int vecesMostradasR2 = 0;
+    int vecesMostradasR3 = 0;
+    int vecesMostradasR4 = 0;
+    int vecesMostradasR5 = 0;
 };
 

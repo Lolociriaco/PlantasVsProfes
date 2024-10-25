@@ -80,7 +80,6 @@ void Gameplay::selectPlantas(){
 
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
-
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         // Obtener la posición del mouse en la ventana
         sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
@@ -102,10 +101,14 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     ///SELECCIONADOR DE PLANTAS
     selectPlantas();
 
+    _ticsGm++;
+
+    if (_ticsGm - inicioTicsCartel >= duracionCartel)
+    {
+        mostrarCartel = false;
+    }
 
     ///PLANTA UPDATE
-
-    _ticsGm++;
 
     if(_plantaSeleccionada == LANZAGUISANTES){
         if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
@@ -303,6 +306,15 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
 bool Gameplay::round1()
 {
+    if (mostrarCartel)
+    {
+        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+            mostrarCartel = false;
+            inicioTicsCartel = _ticsGm;
+        }
+        return false; // No continua la ronda hasta que el cartel desaparezca
+    }
+
     if (8 < _ticsGm / 60){//PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
             if (_ticsGm % (60 * 6) == 0)
@@ -322,7 +334,6 @@ bool Gameplay::round1()
             }
         }
     }
-
     if(gameLost())
     {
         return true;
@@ -332,6 +343,20 @@ bool Gameplay::round1()
 
 bool Gameplay::round2()
 {
+    if (!mostrarCartel && vecesMostradasR2 == 0)
+    {
+        mostrarCartel = true;
+    }
+    if (mostrarCartel)
+    {
+        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+            mostrarCartel = false;
+            vecesMostradasR2 = 1;
+            inicioTicsCartel = _ticsGm;
+        }
+        return false; // No continua la ronda hasta que el cartel desaparezca
+    }
+
     if (6 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
             if (_ticsGm % (60 * 5) == 0)
@@ -360,6 +385,20 @@ bool Gameplay::round2()
 
 bool Gameplay::round3()
 {
+    if (!mostrarCartel && vecesMostradasR3 == 0)
+    {
+        mostrarCartel = true;
+    }
+    if (mostrarCartel)
+    {
+        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+            mostrarCartel = false;
+            vecesMostradasR3 = 1;
+            inicioTicsCartel = _ticsGm;
+        }
+        return false; // No continua la ronda hasta que el cartel desaparezca
+    }
+
     if (5.8 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
             if (_ticsGm % (60 * 5) == 0)
@@ -389,6 +428,20 @@ bool Gameplay::round3()
 
 bool Gameplay::round4()
 {
+    if (!mostrarCartel && vecesMostradasR4 == 0)
+    {
+        mostrarCartel = true;
+    }
+    if (mostrarCartel)
+    {
+        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+            mostrarCartel = false;
+            vecesMostradasR4 = 1;
+            inicioTicsCartel = _ticsGm;
+        }
+        return false; // No continua la ronda hasta que el cartel desaparezca
+    }
+
     if (5.5 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (45 > _ticsGm / 60){
             if (_ticsGm % (60 * 5) == 0)
@@ -417,6 +470,20 @@ bool Gameplay::round4()
 
 bool Gameplay::round5()
 {
+    if (!mostrarCartel && vecesMostradasR5 == 0)
+    {
+        mostrarCartel = true;
+    }
+    if (mostrarCartel)
+    {
+        if (_ticsGm >= inicioTicsCartel + (3 * 60)) {
+            mostrarCartel = false;
+            vecesMostradasR5 = 1;
+            inicioTicsCartel = _ticsGm;
+        }
+        return false; // No continua la ronda hasta que el cartel desaparezca
+    }
+
     if (5.1 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
         if (35 > _ticsGm / 60){
             if (_ticsGm % (60 * 4) == 0)
@@ -476,7 +543,6 @@ void Gameplay::generadorZombie()
 
 }
 
-
 void Gameplay::crearZombie(){
     Zombie newZombie;
     newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
@@ -489,6 +555,19 @@ void Gameplay::crearZombie(){
 
 void Gameplay::draw(sf::RenderWindow &window)
 {
+
+    if (mostrarCartel)
+    {
+        texReadySetPlant.loadFromFile("cartelReady.png");
+        readySetPlant.setTexture(texReadySetPlant);
+        readySetPlant.setScale(1.f, 1.f);
+        readySetPlant.setPosition(800, 300);
+        window.draw(readySetPlant);
+        if (_ticsGm - inicioTicsCartel >= duracionCartel)
+        {
+            mostrarCartel = false;
+        }
+    }
 
     compraPlanta.draw(window);
 
@@ -530,7 +609,6 @@ void Gameplay::draw(sf::RenderWindow &window)
     window.draw(solesText);
     window.draw(roundText);
 
-
     for (Zombie& z : zombies)
     {
         window.draw(z.getShape());
@@ -564,6 +642,7 @@ void Gameplay::draw(sf::RenderWindow &window)
         for(Soles &s :  g.getSoles())
         {
             window.draw(s.getDraw());
+
         }
     }
 
@@ -656,6 +735,13 @@ void Gameplay::reiniciar()
     nuez.clear();
     _totalSoles = 250;
     compraPlanta.reiniciarContador();
+    inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
+    duracionCartel = 180;
+    mostrarCartel = true;
+    vecesMostradasR2 = 0;
+    vecesMostradasR3 = 0;
+    vecesMostradasR4 = 0;
+    vecesMostradasR5 = 0;
 
     for(int x = 0; x < 5;x++)
     {
