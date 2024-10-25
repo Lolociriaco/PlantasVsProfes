@@ -8,6 +8,7 @@ private:
     sf::RectangleShape _girasol;
     sf::Sprite _spriteGirasol;
     sf::Texture _girasolTexture;
+
     int _vida = 100;
     unsigned int _ticsGI = 0;
     unsigned int _hitTime = 0;

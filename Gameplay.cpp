@@ -7,21 +7,22 @@
 
 Gameplay::Gameplay()
 {
-    borde0.setSize(sf::Vector2f(90, 125)); // Ajusta el tamaño según sea necesario
+    borde0.setSize(sf::Vector2f(88, 124)); // Ajusta el tamaño según sea necesario
     borde0.setFillColor(sf::Color::Transparent);
     borde0.setOutlineColor(sf::Color::Yellow);
 
-    borde1.setSize(sf::Vector2f(90, 125));
+    borde1.setSize(sf::Vector2f(88, 124));
     borde1.setFillColor(sf::Color::Transparent);
     borde1.setOutlineColor(sf::Color::Yellow);
 
-    borde2.setSize(sf::Vector2f(90, 125));
+    borde2.setSize(sf::Vector2f(88, 124));
     borde2.setFillColor(sf::Color::Transparent);
     borde2.setOutlineColor(sf::Color::Yellow);
 
-    borde0.setPosition(412, 11);
-    borde1.setPosition(517, 11);
-    borde2.setPosition(622, 11);
+    borde0.setPosition(413, 12);
+    borde1.setPosition(518, 12);
+    borde2.setPosition(623, 12);
+
 }
 
 ///-----------------CMD----------------------
@@ -122,20 +123,20 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                         {
                             _totalSoles-=150;
 
-                        Planta newPlanta;
-                        newPlanta.posInicio(fila, columna);
-                        plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
+                            Planta newPlanta;
+                            newPlanta.posInicio(fila, columna);
+                            plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
 
-                        matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++)
-                        {
-                            for(int i = 0; i < 9; i++)
+                            matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
+                            for(int x = 0; x < 5;x++)
                             {
-                                std::cout<<" "<<matriz[x][i];
+                                for(int i = 0; i < 9; i++)
+                                {
+                                    std::cout<<" "<<matriz[x][i];
+                                }
+                                std::cout<<std::endl;
                             }
-                            std::cout<<std::endl;
-                        }
-                        //_plantaSeleccionada = NINGUNA;
+
                         }
                     }
             }
@@ -199,20 +200,20 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                         {
                             _totalSoles-=50;
 
-                        Nuez newNuez;
-                        newNuez.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
-                        nuez.push_back(newNuez);  // Agrega la nuez al vector dinámico.
+                            Nuez newNuez;
+                            newNuez.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
+                            nuez.push_back(newNuez);  // Agrega la nuez al vector dinámico.
 
-                        matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++)
-                        {
-                            for(int i = 0; i < 9; i++)
+                            matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
+                            for(int x = 0; x < 5;x++)
                             {
-                                std::cout<<" "<<matriz[x][i];
+                                for(int i = 0; i < 9; i++)
+                                {
+                                    std::cout<<" "<<matriz[x][i];
+                                }
+                                std::cout<<std::endl;
                             }
-                            std::cout<<std::endl;
-                        }
-                    //_plantaSeleccionada = NINGUNA;
+
                         }
                     }
                 }
@@ -255,20 +256,20 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                         {
                             _totalSoles-=50;
 
-                        Girasol newGirasol;
-                        newGirasol.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
-                        girasol.push_back(newGirasol);  // Agrega la nuez al vector dinámico.
+                            Girasol newGirasol;
+                            newGirasol.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
+                            girasol.push_back(newGirasol);  // Agrega la nuez al vector dinámico.
 
-                        matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
-                        for(int x = 0; x < 5;x++)
-                        {
-                            for(int i = 0; i < 9; i++)
+                            matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
+                            for(int x = 0; x < 5;x++)
                             {
-                                std::cout<<" "<<matriz[x][i];
+                                for(int i = 0; i < 9; i++)
+                                {
+                                    std::cout<<" "<<matriz[x][i];
+                                }
+                                std::cout<<std::endl;
                             }
-                            std::cout<<std::endl;
-                        }
-                        //_plantaSeleccionada = NINGUNA;
+
                         }
                     }
                 }
@@ -288,11 +289,6 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     for(Girasol &g : girasol)
     {
-//        if (_ticsGm % 210 == 0) // 210 ticks es igual a 3.5 segundos
-//        {
-//            _totalSoles+=25;
-//        }
-        //if(g.picked()) _totalSoles+=25
         g.update();
     }
 
@@ -327,8 +323,11 @@ bool Gameplay::round1()
         }
     }
 
-    if(gameLost()) return false;
-                    return true;
+    if(gameLost())
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Gameplay::round2()
@@ -352,8 +351,11 @@ bool Gameplay::round2()
             }
         }
     }
-    if(gameLost()) return false;
-                    return true;
+    if(gameLost())
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Gameplay::round3()
@@ -377,8 +379,12 @@ bool Gameplay::round3()
             }
         }
     }
-    if(gameLost()) return false;
-                    return true;
+
+    if(gameLost())
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Gameplay::round4()
@@ -402,8 +408,11 @@ bool Gameplay::round4()
             }
         }
     }
-    if(gameLost()) return false;
-                    return true;
+    if(gameLost())
+    {
+        return true;
+    }
+    return false;
 }
 
 bool Gameplay::round5()
@@ -427,8 +436,11 @@ bool Gameplay::round5()
             }
         }
     }
-    if(gameLost()) return false;
-                    return true;
+    if(gameLost())
+    {
+        return true;
+    }
+    return false;
 }
 
 
@@ -436,7 +448,8 @@ bool Gameplay::gameLost(){
 
     for (Zombie& z : zombies)
     {
-        if(z.getXPosition() < -50){
+        if(z.getXPosition() < -50)
+        {
             return true;
         }
     }
@@ -499,10 +512,24 @@ void Gameplay::draw(sf::RenderWindow &window)
     solesText.setString(std::to_string(_totalSoles));
     solesText.setCharacterSize(30);
     solesText.setFillColor(sf::Color::Black);
-    solesText.setPosition(310, 110);
+    solesText.setPosition(313, 114);
+    solesText.setOutlineColor(sf::Color::Yellow);
+    solesText.setOutlineThickness(2);
+
+    sf::Text roundText;
+    font.loadFromFile("Samdan.ttf");
+    roundText.setFont(font);
+    roundText.setString("ROUND " + std::to_string(_ronda));
+    roundText.setCharacterSize(75);
+    roundText.setFillColor(sf::Color(255, 223, 0));
+    roundText.setPosition(950, 35);
+    roundText.setOutlineColor(sf::Color::Black);
+    roundText.setOutlineThickness(5);
 
     window.draw(cuadroSoles);
     window.draw(solesText);
+    window.draw(roundText);
+
 
     for (Zombie& z : zombies)
     {
@@ -534,9 +561,37 @@ void Gameplay::draw(sf::RenderWindow &window)
         window.draw(g.getShape());
         window.draw(g.getSprite());
 
-            for(Soles &s :  g.getSoles()){
-                window.draw(s.getDraw());
-            }
+        for(Soles &s :  g.getSoles())
+        {
+            window.draw(s.getDraw());
+        }
+    }
+
+    if (gameLost())
+    {
+        texGameOver.loadFromFile("fondoGameOver.jpg");
+        fondoGameOver.setTexture(texGameOver);
+        font.loadFromFile("Samdan.ttf");
+
+        gameOverText.setFont(font);
+        gameOverText.setString("GAME OVER");
+        gameOverText.setCharacterSize(110);
+        gameOverText.setFillColor(sf::Color::Red);
+        gameOverText.setPosition(760, 350);
+        gameOverText.setOutlineColor(sf::Color::Black);
+        gameOverText.setOutlineThickness(12);
+
+        pressAnyKey.setFont(font);
+        pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
+        pressAnyKey.setCharacterSize(45);
+        pressAnyKey.setFillColor(sf::Color::Red);
+        pressAnyKey.setPosition(695, 850);
+        pressAnyKey.setOutlineColor(sf::Color::Black);
+        pressAnyKey.setOutlineThickness(12);
+
+        window.draw(fondoGameOver);
+        window.draw(gameOverText);
+        window.draw(pressAnyKey);
     }
 
 }
@@ -593,14 +648,14 @@ void Gameplay::setNuezTexture(const sf::Texture& texture)
 void Gameplay::reiniciar()
 {
     _ticsGm = 0;
-
     // Reiniciar todos los vectores
 
     zombies.clear();  // Vacía el vector de zombies.
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
-    _totalSoles = 100;
+    _totalSoles = 250;
+    compraPlanta.reiniciarContador();
 
     for(int x = 0; x < 5;x++)
     {

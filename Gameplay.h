@@ -35,6 +35,7 @@ public:
     bool round4();
     bool round5();
     bool gameLost();
+//    void cartelGameOver();
 
     enum PLANTA_SELECCIONADA{
         NINGUNA,
@@ -66,12 +67,17 @@ private:
     sf::RectangleShape borde0, borde1, borde2;
     sf::Texture texturaGirasol, texturaLanzaguisantes, texturaNuez;
 
-    int _indicePlantaSeleccionada;
-
     CompraPlanta compraPlanta;
 
     sf::Font font;
 
-    int _totalSoles = 100;
+    int _totalSoles = 250;
+
+    sf::Sprite fondoGameOver;
+    sf::Texture texGameOver;
+
+    sf::Text pressAnyKey;
+    sf::Text gameOverText;
+
 };
 

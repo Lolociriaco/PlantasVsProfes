@@ -4,7 +4,6 @@ CompraPlanta::CompraPlanta()
 {
     sf::Color marron(139, 69, 19);
     sf::Color marronBordes(190, 89, 47);
-    sf::Color colorNormal(255, 255, 255, 128); // Opacidad al 50%
     sf::Color colorSeleccionada(255, 255, 255, 255); // Opacidad al 100%
 
     texTableroCompra.loadFromFile("tableroCompra.jpg");
@@ -19,6 +18,13 @@ CompraPlanta::CompraPlanta()
     girasolMenu.setTexture(texGirasolMenu);
 
     contadorRondas.setFont(contador);
+
+    cartaGirasol.setFont(contador);
+    cartaLanzaguisante.setFont(contador);
+    cartaNuez.setFont(contador);
+
+    tapaUTN.setFont(contador);
+    tapaLevels.setFont(contador);
 
     tableroCompra.setPosition(260, 0);
     nuezMenu.setPosition(622, 11);
@@ -43,6 +49,41 @@ CompraPlanta::CompraPlanta()
     cuadroContador.setOutlineColor(marronBordes);
     cuadroContador.setOutlineThickness(12);
 
+    cartaGirasol.setFillColor(sf::Color(255, 223, 0));
+    cartaGirasol.setCharacterSize(20);
+    cartaGirasol.setPosition(420, 15);
+    cartaGirasol.setString("1");
+    cartaGirasol.setOutlineColor(sf::Color::Black);
+    cartaGirasol.setOutlineThickness(3);
+
+    cartaLanzaguisante.setFillColor(sf::Color(255, 223, 0));
+    cartaLanzaguisante.setCharacterSize(20);
+    cartaLanzaguisante.setPosition(525, 15);
+    cartaLanzaguisante.setString("2");
+    cartaLanzaguisante.setOutlineColor(sf::Color::Black);
+    cartaLanzaguisante.setOutlineThickness(3);
+
+    cartaNuez.setFillColor(sf::Color(255, 223, 0));
+    cartaNuez.setCharacterSize(20);
+    cartaNuez.setPosition(630, 15);
+    cartaNuez.setString("3");
+    cartaNuez.setOutlineColor(sf::Color::Black);
+    cartaNuez.setOutlineThickness(3);
+
+    tapaLevels.setFillColor(sf::Color::Black);
+    tapaLevels.setCharacterSize(40);
+    tapaLevels.setPosition(1504, 1030);
+    tapaLevels.setString("Waves 1-5");
+    tapaLevels.setOutlineColor(sf::Color::White);
+    tapaLevels.setOutlineThickness(3);
+
+    tapaUTN.setFillColor(sf::Color::Black);
+    tapaUTN.setCharacterSize(40);
+    tapaUTN.setPosition(1510, 0);
+    tapaUTN.setString("UTN|FRGP");
+    tapaUTN.setOutlineColor(sf::Color::White);
+    tapaUTN.setOutlineThickness(3);
+
 }
 
 void CompraPlanta::update()
@@ -61,24 +102,9 @@ void CompraPlanta::update()
         }
     }
 
-        std::string texto = (minutos < 10 ? "0" : "") + std::to_string(minutos) + ":" + (segundos < 10 ? "0" : "") + std::to_string(segundos) + " - ROUND 1";
+        std::string texto = (minutos < 10 ? "0" : "") + std::to_string(minutos) + ":" + (segundos < 10 ? "0" : "") + std::to_string(segundos) + " - ";
         contadorRondas.setString(texto);
 
-        //std::cout << "Segundos transcurridos: " << segundos << std::endl;
-
-
-
-}
-
-void CompraPlanta::setColor(const sf::Color& color)
-{
-    sf::Color colorNormal(255, 255, 255, 128); // Opacidad al 50%
-    sf::Color colorSeleccionada(255, 255, 255, 255); // Opacidad al 100%
-
-
-    nuezMenu.setColor(colorNormal);
-    lanzaguisanteMenu.setColor(colorNormal);
-    girasolMenu.setColor(colorNormal);
 }
 
 void CompraPlanta::draw(sf::RenderWindow& window)
@@ -99,5 +125,15 @@ void CompraPlanta::draw(sf::RenderWindow& window)
 
     window.draw(cuadroContador);
     window.draw(contadorRondas);
+    window.draw(cartaGirasol);
+    window.draw(cartaLanzaguisante);
+    window.draw(cartaNuez);
+    window.draw(tapaLevels);
+    window.draw(tapaUTN);
 }
 
+void CompraPlanta::reiniciarContador()
+{
+    minutos=0;
+    segundos=0;
+}

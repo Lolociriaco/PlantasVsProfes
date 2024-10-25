@@ -35,6 +35,7 @@
 		<Unit filename="Gameplay.cpp" />
 		<Unit filename="Gameplay.h" />
 		<Unit filename="clasLanzaguisantes.h" />
+		<Unit filename="clasSoles.h" />
 		<Unit filename="claseCompraPlantas.h" />
 		<Unit filename="claseGirasol.h" />
 		<Unit filename="claseMenuOpciones.h" />

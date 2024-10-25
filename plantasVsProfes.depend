@@ -58,7 +58,7 @@
 
 1725394092 
 
-1729695346 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1729827295 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -67,10 +67,10 @@
 	"claseMenuIngame.h"
 	"claseCompraPlantas.h"
 
-1729306113 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
+1729805097 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 
-1729560343 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
+1729805097 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -80,7 +80,7 @@
 
 1725059327 shed changes
 
-1729699643 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1729826463 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -99,13 +99,12 @@
 1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
 
-1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
+1729805097 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
-1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
+1729805097 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
-	<iostream>
 
 1729290491 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
@@ -160,9 +159,10 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729548258 c:\users\scott\onedrive\documentos\plantasvsprofes\clasegirasol.h
+1729805097 c:\users\scott\onedrive\documentos\plantasvsprofes\clasegirasol.h
+	"clasSoles.h"
 
-1729548258 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
+1729805097 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -204,16 +204,17 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729702568 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
+1729826838 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
+	<thread>
 
-1729606354 c:\users\scott\onedrive\documentos\plantasvsprofes\clasecompraplantas.h
+1729811048 c:\users\scott\onedrive\documentos\plantasvsprofes\clasecompraplantas.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729698770 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthcompraplanta.cpp
+1729812192 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthcompraplanta.cpp
 	"claseCompraPlantas.h"
 
 1729710524 d:\documentos\utn\programacion\plantasvsprofes\clasecompraplantas.h
@@ -224,5 +225,8 @@
 	"claseCompraPlantas.h"
 
 1729745880 d:\documentos\utn\programacion\plantasvsprofes\classoles.h
+	<SFML/Graphics.hpp>
+
+1729805097 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
 

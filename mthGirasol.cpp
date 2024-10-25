@@ -10,6 +10,7 @@ Girasol::Girasol()
     _girasolTexture.loadFromFile("girasole.png");
     _spriteGirasol.setTexture(_girasolTexture);
     _spriteGirasol.setScale(1.f, 1.f);
+
 }
 
 
@@ -30,8 +31,8 @@ void Girasol::update()
 
     if(_ticsGI % 210 == 0)
     {
-     _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
-     std::cout<<"ENTRO AL GIRASOLJDKSFJKSDJF";
+        _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
+
     }
 
 }

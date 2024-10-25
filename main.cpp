@@ -53,6 +53,11 @@ int main()
 
     fondoOpciones.setTexture(texfondoOpciones);
 
+    sf::Sprite fondoGameOver;
+    sf::Texture texGameOver;
+    texGameOver.loadFromFile("fondoGameOver.jpeg");
+    fondoGameOver.setTexture(texGameOver);
+
     ///carga de texturas de menu compra
     CompraPlanta compra;
 
@@ -103,6 +108,8 @@ int main()
     sf::Texture girasolTexture;
     girasolTexture.loadFromFile("girasole.png");  // Cambia por el nombre de tu archivo de textura
 
+    sf::Texture solTexture;
+    solTexture.loadFromFile("solpvz.png");
 
     while (window.isOpen())
     {
@@ -133,6 +140,13 @@ int main()
                         {
                             juego.reiniciar();
                             estado = JUEGO;
+                            if (juego.gameLost())
+                            {
+                                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
+                                {
+                                    estado = MENU;
+                                }
+                            }
                         }
                         else if (opcionElegida == 1)
                         {
@@ -148,6 +162,13 @@ int main()
             }
             else if (estado == JUEGO)
             {
+                if (juego.gameLost())
+                {
+                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
+                    {
+                        estado = MENU;
+                    }
+                }
                 if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape)
                 {
                     estado = PAUSAINGAME;
@@ -243,6 +264,11 @@ int main()
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture);
                 juego.setNuezTexture(nuezTexture);
+
+                if (juego.gameLost())
+                {
+                    window.draw(fondoGameOver);
+                }
 
             }
             else if (estado == OPCIONES)

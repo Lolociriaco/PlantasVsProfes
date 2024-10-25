@@ -1,16 +1,20 @@
 #include <SFML/Graphics.hpp>
 
-
 class Soles
 {
 private:
     sf::CircleShape _shape;
-
+    sf::Sprite _spriteSol;
+    sf::Texture _solTexture;
 public:
     Soles(float y, float x){
         _shape.setFillColor(sf::Color::Yellow);
         _shape.setRadius(28);
         _shape.setPosition(x, y);
+
+        _solTexture.loadFromFile("solpvz.png");
+        _spriteSol.setTexture(_solTexture);
+        _spriteSol.setScale(1.f, 1.f);
     }
 
     bool picked();
