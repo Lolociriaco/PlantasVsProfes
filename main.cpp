@@ -142,6 +142,13 @@ int main()
                                     estado = MENU;
                                 }
                             }
+                            if (juego.gameWon())
+                            {
+                                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
+                                {
+                                    estado = MENU;
+                                }
+                            }
                         }
                         else if (opcionElegida == 1)
                         {
@@ -157,6 +164,13 @@ int main()
             }
             else if (estado == JUEGO)
             {
+                if (juego.gameLost())
+                {
+                    if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
+                    {
+                        estado = MENU;
+                    }
+                }
                 if (juego.gameLost())
                 {
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)

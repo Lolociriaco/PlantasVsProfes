@@ -35,6 +35,7 @@ public:
     bool round4();
     bool round5();
     bool gameLost();
+    bool gameWon();
 
     enum PLANTA_SELECCIONADA{
         NINGUNA,
@@ -70,13 +71,16 @@ private:
 
     sf::Font font;
 
-    int _totalSoles = 250;
+    int _totalSoles = 650;
 
     sf::Sprite fondoGameOver;
     sf::Texture texGameOver;
 
     sf::Text pressAnyKey;
     sf::Text gameOverText;
+
+    sf::Text youWonText;
+    sf::Text salvastePlantasText;
 
     sf::Sprite readySetPlant;
     sf::Texture texReadySetPlant;
@@ -88,5 +92,7 @@ private:
     int vecesMostradasR3 = 0;
     int vecesMostradasR4 = 0;
     int vecesMostradasR5 = 0;
+
+    bool win = false;
 };
 

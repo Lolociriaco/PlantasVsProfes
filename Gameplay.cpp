@@ -325,6 +325,7 @@ bool Gameplay::round1()
         else{
             if(60 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                     win = true;
                     _ronda++;
                     reiniciar();
                 }
@@ -334,11 +335,14 @@ bool Gameplay::round1()
             }
         }
     }
+
+
     if(gameLost())
     {
         return true;
     }
     return false;
+
 }
 
 bool Gameplay::round2()
@@ -508,6 +512,7 @@ bool Gameplay::round5()
         return true;
     }
     return false;
+
 }
 
 
@@ -523,6 +528,14 @@ bool Gameplay::gameLost(){
     return false;
 }
 
+bool Gameplay::gameWon(){
+
+    if (_ronda == 1 && win == true)
+    {
+        return true;
+    }
+    return false;
+}
 
 ///-----------------GENERADOR DE ZOMBIES POR RONDA----------------------
 
@@ -673,6 +686,41 @@ void Gameplay::draw(sf::RenderWindow &window)
         window.draw(pressAnyKey);
     }
 
+    if (gameWon())
+    {
+        texGameOver.loadFromFile("fondoGameOver.jpg");
+        fondoGameOver.setTexture(texGameOver);
+        font.loadFromFile("Samdan.ttf");
+
+        youWonText.setFont(font);
+        youWonText.setString("¡GANASTE!");
+        youWonText.setCharacterSize(110);
+        youWonText.setFillColor(sf::Color::Green);
+        youWonText.setPosition(740, 330);
+        youWonText.setOutlineColor(sf::Color::Black);
+        youWonText.setOutlineThickness(12);
+
+        salvastePlantasText.setFont(font);
+        salvastePlantasText.setString("¡HAS RECHAZADO LAS OLEADAS DE PROFES ENOJADOS!");
+        salvastePlantasText.setCharacterSize(110);
+        salvastePlantasText.setFillColor(sf::Color::Green);
+        salvastePlantasText.setPosition(650, 360);
+        salvastePlantasText.setOutlineColor(sf::Color::Black);
+        salvastePlantasText.setOutlineThickness(12);
+
+        pressAnyKey.setFont(font);
+        pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
+        pressAnyKey.setCharacterSize(45);
+        pressAnyKey.setFillColor(sf::Color::Green);
+        pressAnyKey.setPosition(695, 850);
+        pressAnyKey.setOutlineColor(sf::Color::Black);
+        pressAnyKey.setOutlineThickness(12);
+
+        window.draw(fondoGameOver);
+        window.draw(youWonText);
+        window.draw(pressAnyKey);
+    }
+
 }
 
 
@@ -733,7 +781,7 @@ void Gameplay::reiniciar()
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
-    _totalSoles = 250;
+    _totalSoles = 650;
     compraPlanta.reiniciarContador();
     inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
     duracionCartel = 180;
