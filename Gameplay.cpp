@@ -564,12 +564,6 @@ void Gameplay::crearZombie(){
 void Gameplay::draw(sf::RenderWindow &window)
 {
 
-    if (juegoPausado)
-    {
-        window.draw(gameOverText);
-        window.draw(pressAnyKey);
-    }
-
     if (mostrarCartel)
     {
         texReadySetPlant.loadFromFile("cartelReady.png");
@@ -680,8 +674,8 @@ void Gameplay::draw(sf::RenderWindow &window)
             window.draw(gameOverText);
             window.draw(pressAnyKey);
 
-            pausarJuego();
-            juegoPausado = true;
+            //pausarJuego();
+            pausarTodo = true;
     }
 
     if (win)
@@ -805,7 +799,6 @@ void Gameplay::pausarJuego()
         girasol.clear();
         nuez.clear();
         pausarTodo = true;
-        juegoPausado = true;
         compraPlanta.enCero();
 }
 

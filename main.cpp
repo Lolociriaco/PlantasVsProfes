@@ -154,7 +154,8 @@ int main()
                 {
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
                     {
-                        juego.pausarJuego();
+                        std::cout<<"ENTROOOOOO";
+                        juego.reiniciar();
                         estado = MENU;
                     }
                 }
