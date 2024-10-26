@@ -16,7 +16,7 @@ Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _to
 //    _spriteVikingo.setScale(2.f, 2.f);
 //    _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
 
-    _shape.setFillColor(sf::Color::Red);
+    _shape.setFillColor(sf::Color::Transparent);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
 
 
@@ -43,8 +43,8 @@ void Zombie::update()
     switch (_estado)
     {
     case CAMINANDO:
-        _shape.move(-1.2, 0);
-        _spriteVikingo.move(-1.2, 0);
+        _shape.move(-8, 0);
+        _spriteVikingo.move(-8, 0);
         updateAnimation();
         break;
 

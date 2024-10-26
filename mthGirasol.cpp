@@ -4,7 +4,7 @@
 
 Girasol::Girasol()
 {
-    _girasol.setFillColor(sf::Color::Red);
+    _girasol.setFillColor(sf::Color::Transparent);
     _girasol.setSize(sf::Vector2f(50.f, 130.f));
 
     _girasolTexture.loadFromFile("girasole.png");

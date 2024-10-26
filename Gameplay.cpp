@@ -331,7 +331,7 @@ bool Gameplay::round1()
         else{
             if(60 < _ticsGm / 60){
                 if(zombies.size() == 0){
-                    //win = true;
+
                     _ronda++;
                     reiniciar();
                 }
@@ -342,7 +342,7 @@ bool Gameplay::round1()
         }
     }
 
-
+    //win = true;
     if(gameLost())
     {
         return true;
@@ -564,6 +564,12 @@ void Gameplay::crearZombie(){
 void Gameplay::draw(sf::RenderWindow &window)
 {
 
+    if (juegoPausado)
+    {
+        window.draw(gameOverText);
+        window.draw(pressAnyKey);
+    }
+
     if (mostrarCartel)
     {
         texReadySetPlant.loadFromFile("cartelReady.png");
@@ -652,29 +658,30 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     if (gameLost())
     {
-        texGameOver.loadFromFile("fondoGameOver.jpg");
-        fondoGameOver.setTexture(texGameOver);
-        font.loadFromFile("Samdan.ttf");
 
-        gameOverText.setFont(font);
-        gameOverText.setString("GAME OVER");
-        gameOverText.setCharacterSize(110);
-        gameOverText.setFillColor(sf::Color::Red);
-        gameOverText.setPosition(760, 350);
-        gameOverText.setOutlineColor(sf::Color::Black);
-        gameOverText.setOutlineThickness(12);
+            font.loadFromFile("Samdan.ttf");
 
-        pressAnyKey.setFont(font);
-        pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
-        pressAnyKey.setCharacterSize(45);
-        pressAnyKey.setFillColor(sf::Color::Red);
-        pressAnyKey.setPosition(695, 850);
-        pressAnyKey.setOutlineColor(sf::Color::Black);
-        pressAnyKey.setOutlineThickness(12);
+            gameOverText.setFont(font);
+            gameOverText.setString("GAME OVER");
+            gameOverText.setCharacterSize(110);
+            gameOverText.setFillColor(sf::Color::Red);
+            gameOverText.setPosition(760, 350);
+            gameOverText.setOutlineColor(sf::Color::Black);
+            gameOverText.setOutlineThickness(12);
 
-        window.draw(fondoGameOver);
-        window.draw(gameOverText);
-        window.draw(pressAnyKey);
+            pressAnyKey.setFont(font);
+            pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
+            pressAnyKey.setCharacterSize(45);
+            pressAnyKey.setFillColor(sf::Color::Red);
+            pressAnyKey.setPosition(695, 850);
+            pressAnyKey.setOutlineColor(sf::Color::Black);
+            pressAnyKey.setOutlineThickness(12);
+
+            window.draw(gameOverText);
+            window.draw(pressAnyKey);
+
+            pausarJuego();
+            juegoPausado = true;
     }
 
     if (win)
@@ -776,7 +783,8 @@ void Gameplay::reiniciar()
     compraPlanta.reiniciarContador();
     duracionCartel = 180;
     mostrarCartel = true;
-
+    pausarTodo = true;
+    juegoPausado = false;
 
     for(int x = 0; x < 5;x++)
     {
@@ -790,6 +798,16 @@ void Gameplay::reiniciar()
     }
 }
 
+void Gameplay::pausarJuego()
+{
+        zombies.clear();
+        plant.clear();
+        girasol.clear();
+        nuez.clear();
+        pausarTodo = true;
+        juegoPausado = true;
+        compraPlanta.enCero();
+}
 
 ///-----------------RANDOM ZOMBIE----------------------
 

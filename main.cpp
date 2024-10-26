@@ -135,13 +135,6 @@ int main()
                         {
                             juego.reiniciar();
                             estado = JUEGO;
-                            if (juego.gameLost())
-                            {
-                                if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
-                                {
-                                    estado = MENU;
-                                }
-                            }
                         }
                         else if (opcionElegida == 1)
                         {
@@ -161,6 +154,7 @@ int main()
                 {
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
                     {
+                        juego.pausarJuego();
                         estado = MENU;
                     }
                 }
@@ -196,6 +190,7 @@ int main()
                         if (choosenOption == 0)
                         {
                             estado = JUEGO; // Regresa al juego
+
                         }
                         else if (choosenOption == 1)
                         {
@@ -205,6 +200,7 @@ int main()
                         else if (choosenOption == 2)
                         {
                             estado = MENU; // Volver al menú principal
+
                         }
                     }
                 }

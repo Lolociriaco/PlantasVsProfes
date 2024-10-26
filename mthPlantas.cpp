@@ -7,7 +7,7 @@
 Planta::Planta() : _ticsPL(0)
 {
 
-    _plant.setFillColor(sf::Color::Red);
+    _plant.setFillColor(sf::Color::Transparent);
     _plant.setSize(sf::Vector2f(50.f, 130.f));
 
     sf::Texture _plantaTexture;

@@ -4,7 +4,7 @@
 
 Nuez::Nuez()
 {
-    _nuez.setFillColor(sf::Color::Yellow);
+    _nuez.setFillColor(sf::Color::Transparent);
     _nuez.setSize(sf::Vector2f(50.f, 100.f));
 
 
