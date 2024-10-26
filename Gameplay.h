@@ -36,6 +36,7 @@ public:
     bool round5();
     bool gameLost();
     bool gameWon();
+    bool getPartidaGanada(){return partidaGanada;}
     void pausarJuego();
     enum PLANTA_SELECCIONADA{
         NINGUNA,
@@ -95,5 +96,6 @@ private:
     bool win = false;
 
     bool juegoPausado = false;
+    bool partidaGanada = false;
 };
 

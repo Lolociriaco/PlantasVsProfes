@@ -160,7 +160,7 @@ int main()
                     }
                 }
 
-                if (juego.gameWon())
+                if (juego.getPartidaGanada())
                 {
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
                     {

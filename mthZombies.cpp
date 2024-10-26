@@ -43,8 +43,8 @@ void Zombie::update()
     switch (_estado)
     {
     case CAMINANDO:
-        _shape.move(-8, 0);
-        _spriteVikingo.move(-8, 0);
+        _shape.move(-1.5, 0);
+        _spriteVikingo.move(-1.5, 0);
         updateAnimation();
         break;
 
