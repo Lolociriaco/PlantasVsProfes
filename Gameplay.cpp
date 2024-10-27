@@ -112,8 +112,6 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     selectPlantas();
 
 
-
-
     ///PLANTA UPDATE
 
     if(_plantaSeleccionada == LANZAGUISANTES){
@@ -341,7 +339,6 @@ bool Gameplay::round1()
         }
     }
 
-    //win = true;
     if(gameLost())
     {
         return true;
@@ -493,7 +490,6 @@ bool Gameplay::round5()
             if(70 < _ticsGm / 60){
                 if(zombies.size() == 0){
                     _ronda++;
-                    //1reiniciar();
                     pausarTodo = true;
                     partidaGanada = true; /// DEJAR DEBAJO DE REINCIAR
                     mostrarCartel = false; /// SOLO DEJO QUE SALGA EL CARTEL DE RONDA GANADA
@@ -541,7 +537,21 @@ void Gameplay::generadorZombie()
 {
     if (_ronda == 1) {
         if(round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
-    }  else{
+    }
+    if (_ronda == 2) {
+        if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+    if (_ronda == 3) {
+        if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+    if (_ronda == 4) {
+        if(round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+    if (_ronda == 5) {
+        if(round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+    if (_ronda > 5)
+    {
         partidaGanada = true;
     }
 
@@ -588,7 +598,12 @@ void Gameplay::draw(sf::RenderWindow &window)
     sf::Text roundText;
     font.loadFromFile("Samdan.ttf");
     roundText.setFont(font);
-    roundText.setString("ROUND " + std::to_string(_ronda));
+    if (_ronda>5)
+    {
+        roundText.setString("ROUND " + std::to_string(_ronda-1));
+    }
+    else
+        roundText.setString("ROUND " + std::to_string(_ronda));
     roundText.setCharacterSize(75);
     roundText.setFillColor(sf::Color(255, 223, 0));
     roundText.setPosition(950, 35);
@@ -644,18 +659,18 @@ void Gameplay::draw(sf::RenderWindow &window)
             gameOverText.setFont(font);
             gameOverText.setString("GAME OVER");
             gameOverText.setCharacterSize(110);
-            gameOverText.setFillColor(sf::Color::Green);
+            gameOverText.setFillColor(sf::Color::Red);
             gameOverText.setPosition(760, 350);
             gameOverText.setOutlineColor(sf::Color::Black);
-            gameOverText.setOutlineThickness(9);
+            gameOverText.setOutlineThickness(10);
 
             pressAnyKey.setFont(font);
             pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
             pressAnyKey.setCharacterSize(45);
-            pressAnyKey.setFillColor(sf::Color::Green);
+            pressAnyKey.setFillColor(sf::Color::Red);
             pressAnyKey.setPosition(695, 850);
             pressAnyKey.setOutlineColor(sf::Color::Black);
-            pressAnyKey.setOutlineThickness(9);
+            pressAnyKey.setOutlineThickness(7);
 
             window.draw(gameOverText);
             window.draw(pressAnyKey);
@@ -671,20 +686,20 @@ void Gameplay::draw(sf::RenderWindow &window)
             font.loadFromFile("Samdan.ttf");
 
             gameOverText.setFont(font);
-            gameOverText.setString("YOU WIN!");
+            gameOverText.setString("¡YOU WIN!");
             gameOverText.setCharacterSize(110);
-            gameOverText.setFillColor(sf::Color::Red);
+            gameOverText.setFillColor(sf::Color::Green);
             gameOverText.setPosition(780, 350);
             gameOverText.setOutlineColor(sf::Color::Black);
-            gameOverText.setOutlineThickness(12);
+            gameOverText.setOutlineThickness(10);
 
             pressAnyKey.setFont(font);
             pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
             pressAnyKey.setCharacterSize(45);
-            pressAnyKey.setFillColor(sf::Color::Red);
+            pressAnyKey.setFillColor(sf::Color::Green);
             pressAnyKey.setPosition(695, 850);
             pressAnyKey.setOutlineColor(sf::Color::Black);
-            pressAnyKey.setOutlineThickness(12);
+            pressAnyKey.setOutlineThickness(7);
 
             window.draw(gameOverText);
             window.draw(pressAnyKey);
@@ -702,41 +717,6 @@ void Gameplay::draw(sf::RenderWindow &window)
         readySetPlant.setPosition(800, 300);
         window.draw(readySetPlant);
     }
-
-//    if (win)
-//    {
-//        texGameOver.loadFromFile("fondoGameOver.jpg");
-//        fondoGameOver.setTexture(texGameOver);
-//        font.loadFromFile("Samdan.ttf");
-//
-//        youWonText.setFont(font);
-//        youWonText.setString("¡GANASTE!");
-//        youWonText.setCharacterSize(110);
-//        youWonText.setFillColor(sf::Color::Green);
-//        youWonText.setPosition(740, 330);
-//        youWonText.setOutlineColor(sf::Color::Black);
-//        youWonText.setOutlineThickness(12);
-//
-//        salvastePlantasText.setFont(font);
-//        salvastePlantasText.setString("¡HAS RECHAZADO LAS OLEADAS DE PROFES ENOJADOS!");
-//        salvastePlantasText.setCharacterSize(110);
-//        salvastePlantasText.setFillColor(sf::Color::Green);
-//        salvastePlantasText.setPosition(700, 450);
-//        salvastePlantasText.setOutlineColor(sf::Color::Black);
-//        salvastePlantasText.setOutlineThickness(12);
-//
-//        pressAnyKey.setFont(font);
-//        pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
-//        pressAnyKey.setCharacterSize(45);
-//        pressAnyKey.setFillColor(sf::Color::Green);
-//        pressAnyKey.setPosition(695, 700);
-//        pressAnyKey.setOutlineColor(sf::Color::Black);
-//        pressAnyKey.setOutlineThickness(12);
-//
-//        window.draw(fondoGameOver);
-//        window.draw(youWonText);
-//        window.draw(pressAnyKey);
-//    }
 
 }
 
