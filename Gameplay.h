@@ -2,6 +2,7 @@
 #include "claseZombies.h" // Asegúrate de que shape.h declare la clase Pelota
 #include "clasePlantas.h"
 #include "claseNuez.h"
+#include "cargarJugador.h"
 #include "claseGirasol.h"
 #include <iostream>
 #include <vector>
@@ -49,7 +50,7 @@ private:
 
     int _ticsGm = 0;        // Contador de tiempo
     int _contadorZombies = 0;
-    int _ronda = 1;
+    int _ronda = 0;
 
     std::vector<Zombie> zombies;
 
@@ -85,6 +86,8 @@ private:
 
     sf::Sprite readySetPlant;
     sf::Texture texReadySetPlant;
+
+    Jugador jugador;
 
     int inicioTicsCartel = _ticsGm;  // Almacena el momento de inicio para el cartel
     int duracionCartel = 180;

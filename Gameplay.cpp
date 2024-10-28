@@ -7,6 +7,7 @@
 
 Gameplay::Gameplay()
 {
+
     borde0.setSize(sf::Vector2f(88, 124)); // Ajusta el tamaño según sea necesario
     borde0.setFillColor(sf::Color::Transparent);
     borde0.setOutlineColor(sf::Color::Yellow);
@@ -85,10 +86,21 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     generadorZombie(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
 
+    if (_ronda == 0){
+        mostrarCartel = false;
+        if(jugador.handleEvent(event)){
+            _ronda++;
+            std::cout << "SUMANDO UNA RONDA" << std::endl;
+            reiniciar();
+        }
+            std::cout << "DENTRO DEL RONDA 0" << std::endl;
+    }
+
     if(pausarTodo){
         compraPlanta.enCero();
         return;
     }
+
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         // Obtener la posición del mouse en la ventana
@@ -535,22 +547,23 @@ bool Gameplay::gameWon(){
 
 void Gameplay::generadorZombie()
 {
+
     if (_ronda == 1) {
         if(round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
-    if (_ronda == 2) {
+    else if (_ronda == 2) {
+        if(round2()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+    }
+    else if (_ronda == 3) {
         if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
-    if (_ronda == 3) {
-        if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
-    }
-    if (_ronda == 4) {
+    else if (_ronda == 4) {
         if(round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
-    if (_ronda == 5) {
+    else if (_ronda == 5) {
         if(round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
-    if (_ronda > 5)
+    else if (_ronda > 5)
     {
         partidaGanada = true;
     }
@@ -675,7 +688,6 @@ void Gameplay::draw(sf::RenderWindow &window)
             window.draw(gameOverText);
             window.draw(pressAnyKey);
 
-            //pausarJuego();
             pausarTodo = true;
     }
 
@@ -717,6 +729,8 @@ void Gameplay::draw(sf::RenderWindow &window)
         readySetPlant.setPosition(800, 300);
         window.draw(readySetPlant);
     }
+
+    if(_ronda == 0)window.draw(jugador.getDraw());
 
 }
 

@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1729970480 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1730146968 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -24,11 +24,12 @@
 
 1725320241 ated upstream
 
-1729970525 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1730143559 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
 	"claseNuez.h"
+	"cargarJugador.h"
 	"claseGirasol.h"
 	<iostream>
 	<vector>
@@ -186,7 +187,7 @@
 
 1726604038 D
 
-1729970514 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+1730147593 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -229,4 +230,10 @@
 
 1729828763 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
+
+1730148624 d:\documentos\utn\programacion\plantasvsprofes\cargarjugador.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
 
