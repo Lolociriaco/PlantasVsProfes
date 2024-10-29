@@ -8,6 +8,8 @@
 #include <vector>
 #include <algorithm>
 #include "claseCompraPlantas.h"
+#include "records.h"
+#include "arcRecords.h"
 
 class Gameplay
 {
@@ -29,7 +31,8 @@ public:
     void plantsCollisions();
     void selectPlantas();
     int randomZombie();
-    void generadorZombie();
+    void creadorJuego();
+    bool cargarRecord(int);
     void crearZombie();
     bool round1();
     bool round2();
@@ -101,6 +104,8 @@ private:
 
     bool juegoPausado = false;
     bool partidaGanada = false;
+
+    int tiempo = 0;
 
 };
 

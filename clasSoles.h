@@ -12,8 +12,11 @@ private:
     float jumpHeight;    // Altura máxima del salto
     float jumpSpeed;
 
+    sf::Clock inputClock; // Reloj para gestionar la animacion
+
+
 public:
-    Soles(float y, float x) : movingUp(true), jumpHeight(20.f), jumpSpeed(0.5f){
+    Soles(float y, float x) : movingUp(true), jumpHeight(10.f), jumpSpeed(0.22f){
         _shape.setFillColor(sf::Color::Transparent);
         _shape.setRadius(28);
         _shape.setPosition(x, y);
@@ -62,8 +65,10 @@ public:
             _spriteSol.move(0, jumpSpeed);
             if (_spriteSol.getPosition().y >= initialY) {
                 _spriteSol.setPosition(_spriteSol.getPosition().x, initialY); // Ajuste final
+                movingUp = true;
             }
         }
+        inputClock.restart();
     }
 
 };

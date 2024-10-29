@@ -108,6 +108,11 @@ void CompraPlanta::update()
 }
 
 
+int CompraPlanta::getSegundos(){
+    return minutos*60 + segundos;
+}
+
+
 void CompraPlanta::enCero()
 {
     std::string texto = "00:00 -";

@@ -45,11 +45,21 @@ mainMenu::mainMenu(float ancho, float alto)
     //salir
     MainMenu[2].setFont(font);
     MainMenu[2].setFillColor(darkGreen);
-    MainMenu[2].setString("Salir");
+    MainMenu[2].setString("Records");
     MainMenu[2].setCharacterSize(80);
     MainMenu[2].setPosition(880, 800);
     MainMenu[2].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     MainMenu[2].setOutlineThickness(3);
+
+    MainMenu[3].setFont(font);
+    MainMenu[3].setFillColor(darkGreen);
+    MainMenu[3].setString("Salir");
+    MainMenu[3].setCharacterSize(80);
+    MainMenu[3].setPosition(880, 950);
+    MainMenu[3].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
+    MainMenu[3].setOutlineThickness(3);
+
+
 
     mainMenuSelected = 0;
 

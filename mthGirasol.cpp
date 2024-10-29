@@ -31,7 +31,9 @@ void Girasol::update()
 
     if(_ticsGI % 210 == 0)
     {
-        _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
+        if(_sol.size() < 1){
+            _sol.push_back(Soles(_girasol.getPosition().y + _girasol.getSize().y - 60, _girasol.getPosition().x + 50));  //95 = cabeza de la planta || 25 = ancho planta/2
+        }
 
     }
 

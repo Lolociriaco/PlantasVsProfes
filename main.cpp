@@ -13,7 +13,8 @@ enum EstadoJuego
     MENU,
     JUEGO,
     OPCIONES,
-    PAUSAINGAME
+    PAUSAINGAME,
+    RECORDS
 };
 
 int main()
@@ -143,6 +144,10 @@ int main()
                         }
                         else if (opcionElegida == 2)
                         {
+                            estado = RECORDS;
+                        }
+                        else if (opcionElegida == 3)
+                        {
                             window.close();
                         }
                     }
@@ -242,6 +247,13 @@ int main()
                     }
                 }
             }
+            else if(estado == RECORDS){
+                if (event.type == sf::Event::KeyPressed){
+                    if (event.key.code == sf::Keyboard::Return){
+                        estado = MENU;
+                    }
+                }
+            }
         }
         window.clear();
 
@@ -278,6 +290,9 @@ int main()
             {
                 window.draw(fondoOpciones);
                 ingameMenu.drawOpciones(window);
+            }
+            else if (estado == RECORDS){
+                window.draw(fondoOpciones);
             }
 
                 window.display();

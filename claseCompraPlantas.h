@@ -41,6 +41,8 @@ class CompraPlanta
         void update();
         void reiniciarContador();
         void enCero();
+        int getMinutos();
+        int getSegundos();
 
 };
 #endif // CLASECOMPRAPLANTAS_H_INCLUDED

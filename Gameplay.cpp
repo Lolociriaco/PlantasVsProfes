@@ -83,7 +83,7 @@ void Gameplay::selectPlantas(){
 
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
-    generadorZombie(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
+    creadorJuego(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
 
     if (_ronda == 0){
@@ -340,6 +340,7 @@ bool Gameplay::round1()
         else{
             if(60 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                    tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
@@ -382,6 +383,7 @@ bool Gameplay::round2()
         else{
             if(70 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                    tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
@@ -421,6 +423,7 @@ bool Gameplay::round3()
         else{
             if(70 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                    tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
@@ -461,6 +464,7 @@ bool Gameplay::round4()
         else{
             if(70 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                    tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
@@ -500,6 +504,7 @@ bool Gameplay::round5()
         else{
             if(70 < _ticsGm / 60){
                 if(zombies.size() == 0){
+                    tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     pausarTodo = true;
                     partidaGanada = true; /// DEJAR DEBAJO DE REINCIAR
@@ -526,6 +531,7 @@ bool Gameplay::gameLost(){
     {
         if(z.getXPosition() < -50)
         {
+
             return true;
         }
     }
@@ -544,14 +550,17 @@ bool Gameplay::gameWon(){
 ///-----------------GENERADOR DE ZOMBIES POR RONDA----------------------
 
 
-void Gameplay::generadorZombie()
+void Gameplay::creadorJuego()
 {
 
     if (_ronda == 1) {
         if(round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
     }
     else if (_ronda == 2) {
-        if(round2()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(round2()){
+            std::cout<<"PERDIOOOOOOO"<<std::endl;
+            if(cargarRecord(2)) std::cout<<"hiciste un nuevo record"<<std::endl;
+        }
     }
     else if (_ronda == 3) {
         if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
@@ -568,6 +577,15 @@ void Gameplay::generadorZombie()
     }
 
 }
+
+
+bool Gameplay::cargarRecord(int ronda){
+    ArchivoRecords arc("archivo.dat");
+    Record record(jugador.getPlayerName(),tiempo,ronda);
+
+}
+
+
 
 void Gameplay::crearZombie(){
     Zombie newZombie;

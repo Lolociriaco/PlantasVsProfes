@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define Max_main_menu 3
+#define Max_main_menu 4
 
 class mainMenu
 {
