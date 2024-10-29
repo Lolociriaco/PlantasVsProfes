@@ -101,7 +101,6 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         return;
     }
 
-
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
         // Obtener la posición del mouse en la ventana
         sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
@@ -659,8 +658,9 @@ void Gameplay::draw(sf::RenderWindow &window)
 
         for(Soles &s :  g.getSoles())
         {
+            s.update();
             window.draw(s.getDraw());
-
+            window.draw(s.getSprite());
         }
     }
 
@@ -730,7 +730,11 @@ void Gameplay::draw(sf::RenderWindow &window)
         window.draw(readySetPlant);
     }
 
-    if(_ronda == 0)window.draw(jugador.getDraw());
+    if(_ronda == 0)
+    {
+        window.draw(jugador.getCuadro());
+        window.draw(jugador.getDraw());
+    }
 
 }
 
@@ -761,11 +765,16 @@ void Gameplay::setPlantaTexture(const sf::Texture& texture)
 }
 
 
-void Gameplay::setGirasolTexture(const sf::Texture& texture)
+void Gameplay::setGirasolTexture(const sf::Texture& texture, const sf::Texture& solTexture)
 {
     for (Girasol &g : girasol)
     {
         g.setTexture(texture);
+
+        for(Soles &s :  g.getSoles())
+        {
+            s.setTexture(solTexture);
+        }
     }
 }
 
@@ -777,7 +786,6 @@ void Gameplay::setNuezTexture(const sf::Texture& texture)
         n.setTexture(texture);
     }
 }
-
 
 ///-----------------RESTART----------------------
 

@@ -20,8 +20,9 @@ public:
     void drawPlant(sf::RenderWindow &);
     void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag );
     void setPlantaTexture (const sf::Texture& texture);
-    void setGirasolTexture (const sf::Texture& texture);
+    void setGirasolTexture (const sf::Texture& texture, const sf::Texture& solTexture);
     void setNuezTexture (const sf::Texture& texture);
+    void setSolTexture(const sf::Texture& texture);
     void reiniciar();
     void checkCollisions();
     void guisCollisions();
@@ -67,7 +68,7 @@ private:
     PLANTA_SELECCIONADA _plantaSeleccionada = NINGUNA;
 
     sf::RectangleShape borde0, borde1, borde2;
-    sf::Texture texturaGirasol, texturaLanzaguisantes, texturaNuez;
+    sf::Texture texturaGirasol, texturaLanzaguisantes, texturaNuez, texturaSol;
 
     CompraPlanta compraPlanta;
 
@@ -100,5 +101,6 @@ private:
 
     bool juegoPausado = false;
     bool partidaGanada = false;
+
 };
 

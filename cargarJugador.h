@@ -10,6 +10,7 @@ private:
     sf::Font font;
     sf::Clock inputClock; // Reloj para gestionar el retraso en la entrada de texto
     int lastKey;
+    sf::RectangleShape cuadroNombre;
 
 public:
     // Constructor: carga la fuente y configura el texto
@@ -17,13 +18,24 @@ public:
         if (!font.loadFromFile("Samdan.ttf")) {
             throw std::runtime_error("No se pudo cargar la fuente");
         }
+        sf::Color darkGreen(0, 100, 0);
+        sf::Color softYellow(255, 223, 0);
+        sf::Color marron(139, 69, 19);
+        sf::Color marronBordes(190, 89, 47);
+
         playerNameText.setFont(font);
-        playerNameText.setCharacterSize(100);
-        playerNameText.setFillColor(sf::Color::Green);
-        playerNameText.setPosition(380, 350);
+        playerNameText.setCharacterSize(50);
+        playerNameText.setFillColor(softYellow);
+        playerNameText.setPosition(630, 410);
         playerNameText.setOutlineColor(sf::Color::Black);
         playerNameText.setOutlineThickness(10);
-        playerNameText.setString("Nombre: ");
+        playerNameText.setString("Nombre:  ");
+
+        cuadroNombre.setFillColor(marron);
+        cuadroNombre.setSize(sf::Vector2f(700.f, 180.f));
+        cuadroNombre.setPosition(600, 350);
+        cuadroNombre.setOutlineColor(marronBordes);
+        cuadroNombre.setOutlineThickness(9);
     }
 
     // Método para manejar eventos de entrada de texto
@@ -38,6 +50,8 @@ public:
                     playerName.pop_back();
                 } else if (event.text.unicode != 8 && event.text.unicode != 13) {
 
+                    if (playerName.size() >= 25) return false;
+
                     if(event.text.unicode == lastKey){
                         if (inputClock.getElapsedTime().asSeconds() < 0.2f) return false;
                     }
@@ -51,6 +65,7 @@ public:
                 playerNameText.setString("Nombre: " + playerName);
                 inputClock.restart(); // Reiniciar el reloj para evitar repeticiones
             }
+
         }
 
         // Detectar la tecla Enter una sola vez
@@ -67,8 +82,14 @@ public:
         return playerNameText;
     }
 
+    sf::RectangleShape getCuadro()
+    {
+        return cuadroNombre;
+    }
+
     // Método para obtener el nombre del jugador
     std::string getPlayerName() const {
         return playerName;
     }
+
 };

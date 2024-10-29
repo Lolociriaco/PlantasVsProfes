@@ -34,6 +34,7 @@
 		</Compiler>
 		<Unit filename="Gameplay.cpp" />
 		<Unit filename="Gameplay.h" />
+		<Unit filename="cargarJugador.h" />
 		<Unit filename="clasLanzaguisantes.h" />
 		<Unit filename="clasSoles.h" />
 		<Unit filename="claseCompraPlantas.h" />

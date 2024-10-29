@@ -104,7 +104,7 @@ int main()
     girasolTexture.loadFromFile("girasole.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture solTexture;
-    solTexture.loadFromFile("solpvz.png");
+    solTexture.loadFromFile("solcito.png");
 
     while (window.isOpen())
     {
@@ -264,8 +264,9 @@ int main()
                 juego.draw(window);
                 juego.setZombieTexture(matiTex, maxiTex,vastagTex);
                 juego.setPlantaTexture(plantaTexture);
-                juego.setGirasolTexture(girasolTexture);
+                juego.setGirasolTexture(girasolTexture, solTexture);
                 juego.setNuezTexture(nuezTexture);
+//                juego.setSolTexture(solTexture);
 
             }
             else if (estado == OPCIONES)

@@ -59,7 +59,7 @@
 
 1725394092 
 
-1729985912 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1730166343 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -81,11 +81,12 @@
 
 1725059327 shed changes
 
-1729986050 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1730168335 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
 	"claseNuez.h"
+	"cargarJugador.h"
 	"claseGirasol.h"
 	<iostream>
 	<vector>
@@ -104,7 +105,7 @@
 	<stdlib.h>
 	<time.h>
 
-1729805097 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
+1730160546 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 
 1729896833 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
@@ -163,7 +164,7 @@
 1729828763 c:\users\scott\onedrive\documentos\plantasvsprofes\clasegirasol.h
 	"clasSoles.h"
 
-1729896833 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
+1730169859 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -205,7 +206,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1729989441 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
+1730170073 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -228,10 +229,16 @@
 1729875276 d:\documentos\utn\programacion\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
 
-1729828763 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
+1730170219 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
 
 1730148624 d:\documentos\utn\programacion\plantasvsprofes\cargarjugador.h
+	<SFML/Graphics.hpp>
+	<SFML/Window.hpp>
+	<string>
+	<iostream>
+
+1730166551 c:\users\scott\onedrive\documentos\plantasvsprofes\cargarjugador.h
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<string>

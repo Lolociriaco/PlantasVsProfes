@@ -5,6 +5,8 @@ Lanzaguisantes::Lanzaguisantes(float y, float x)
     _shape.setFillColor(sf::Color::Magenta);
     _shape.setRadius(15);
     _shape.setPosition(x, y);
+    _shape.setOutlineColor(sf::Color::Black);
+    _shape.setOutlineThickness(3);
 }
 
 
