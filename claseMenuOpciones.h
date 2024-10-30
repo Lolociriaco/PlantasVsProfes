@@ -44,25 +44,25 @@ menuOpciones::menuOpciones(float width, float height)
     //jugar
     Opciones[0].setFont(fuente);
     Opciones[0].setFillColor(softYellow);
-    Opciones[0].setString("Volumen");
+    Opciones[0].setString("> Volumen <");
     Opciones[0].setCharacterSize(80);
-    Opciones[0].setPosition(840, 300);
+    Opciones[0].setPosition(820, 300);
     Opciones[0].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[0].setOutlineThickness(3);
     //opciones
     Opciones[1].setFont(fuente);
     Opciones[1].setFillColor(darkGreen);
-    Opciones[1].setString("Controles");
+    Opciones[1].setString("> Controles <");
     Opciones[1].setCharacterSize(80);
-    Opciones[1].setPosition(830, 450);
+    Opciones[1].setPosition(810, 450);
     Opciones[1].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[1].setOutlineThickness(3);
     //salir
     Opciones[2].setFont(fuente);
     Opciones[2].setFillColor(darkGreen);
-    Opciones[2].setString("Volver");
+    Opciones[2].setString("> Volver <");
     Opciones[2].setCharacterSize(80);
-    Opciones[2].setPosition(870, 600);
+    Opciones[2].setPosition(850, 600);
     Opciones[2].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[2].setOutlineThickness(3);
 
