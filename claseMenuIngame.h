@@ -42,27 +42,27 @@ menuIngame::menuIngame(float width, float height)
     // Reanudar
     Opciones[0].setFont(fuente);
     Opciones[0].setFillColor(softYellow);
-    Opciones[0].setString("Reanudar");
+    Opciones[0].setString("> Reanudar <");
     Opciones[0].setCharacterSize(80);
-    Opciones[0].setPosition(840, 300);
+    Opciones[0].setPosition(810, 300);
     Opciones[0].setOutlineColor(sf::Color::Black);
     Opciones[0].setOutlineThickness(3);
 
     // Opciones
     Opciones[1].setFont(fuente);
     Opciones[1].setFillColor(darkGreen);
-    Opciones[1].setString("Opciones");
+    Opciones[1].setString("> Opciones <");
     Opciones[1].setCharacterSize(80);
-    Opciones[1].setPosition(845, 450);
+    Opciones[1].setPosition(815, 450);
     Opciones[1].setOutlineColor(sf::Color::Black);
     Opciones[1].setOutlineThickness(3);
 
     // Volver al menú
     Opciones[2].setFont(fuente);
     Opciones[2].setFillColor(darkGreen);
-    Opciones[2].setString("Volver al Menú");
+    Opciones[2].setString("> Volver <");
     Opciones[2].setCharacterSize(80);
-    Opciones[2].setPosition(747, 600);
+    Opciones[2].setPosition(832, 600);
     Opciones[2].setOutlineColor(sf::Color::Black);
     Opciones[2].setOutlineThickness(3);
 

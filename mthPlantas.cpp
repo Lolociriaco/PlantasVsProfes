@@ -64,7 +64,7 @@ void Planta::posInicio(int x, int y)
 {
     std::cout << "\n y: " << y << std::endl;
 //    sf::Vector2f position(472, y * 175);
-    _plant.setPosition(y*145 + 45, x*175);
+    _plant.setPosition(y*145 + 54, x*175);
     _spritePlanta.setPosition(y*145 + 45, x*175);
     posicionMatriz(x,y);
 }

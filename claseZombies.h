@@ -20,10 +20,13 @@ private:
     int _danio;
     ESTADOS_ZOMBIES _estado;
 
+    sf::Texture _attackTexture;
+
     // Variables para la animación del sprite
     int _frameWidth;        // Ancho de un cuadro del sprite
     int _frameHeight;       // Alto de un cuadro del sprite
     int _totalFrames;       // Total de cuadros en la animación
+    int _totalAttackFrames;       // Total de cuadros en la animación
     int _currentFrame;      // Cuadro actual que se está mostrando
     float _frameDuration;   // Duración de cada cuadro en segundos
     sf::Clock _clock;       // Reloj para controlar el tiempo entre cuadros
@@ -38,9 +41,11 @@ public:
     sf::RectangleShape& getShape();
     sf::Sprite& getSprite();
     void setTexture(const sf::Texture& texture);
+    void setAttackTexture(const sf::Texture& attackTexture);
     void reiniciar();
     void punchZombie();
 
+    void attackAnimation();
 
     bool isAlive(){ return _vida > 0;}
 

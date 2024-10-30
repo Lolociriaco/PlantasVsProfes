@@ -7,7 +7,7 @@
 
 
 
-Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _totalFrames(10), _currentFrame(0), _frameDuration(0.1f)
+Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _totalFrames(10), _totalAttackFrames(5), _currentFrame(0), _frameDuration(0.1f)
 {
 //    _shape.setFillColor(sf::Color::Red);
 //    _shape.setSize(sf::Vector2f(50.f, 130.f));
@@ -43,12 +43,15 @@ void Zombie::update()
     switch (_estado)
     {
     case CAMINANDO:
+        _spriteVikingo.setTexture(_vikingoTexture);
         _shape.move(-1.5, 0);
         _spriteVikingo.move(-1.5, 0);
         updateAnimation();
         break;
 
     case ATACANDO:
+        _spriteVikingo.setTexture(_attackTexture);
+        attackAnimation();
         break;
     }
 }
@@ -66,6 +69,28 @@ void Zombie::updateAnimation()
         _spriteVikingo.setTextureRect(sf::IntRect((_totalFrames - _currentFrame - 1) * _frameWidth, 0, _frameWidth, _frameHeight));
 
         _clock.restart();  // Reinicia el reloj para el siguiente cuadro
+    }
+}
+
+void Zombie::attackAnimation() {
+    // Verifica si ha pasado el tiempo necesario para cambiar de cuadro de ataque
+    if (_clock.getElapsedTime().asSeconds() > _frameDuration) {
+        _currentFrame++;
+        if (_currentFrame >= _totalAttackFrames) {
+            _currentFrame = 0;  // Reinicia al primer cuadro
+        }
+
+        // Cambia el rectángulo de textura para la animación de golpeo
+        _spriteVikingo.setTextureRect(sf::IntRect((_totalAttackFrames - _currentFrame - 1) * _frameWidth, 0, _frameWidth, _frameHeight));
+
+        _clock.restart();  // Reinicia el reloj
+    }
+}
+
+void Zombie::setAttackTexture(const sf::Texture& attackTexture) {
+    _attackTexture = attackTexture;
+    if (_estado == ATACANDO) {
+        _spriteVikingo.setTexture(_attackTexture);
     }
 }
 

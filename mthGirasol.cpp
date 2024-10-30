@@ -41,7 +41,7 @@ void Girasol::update()
 
 void Girasol::posInicio(int x, int y)
 {
-    _girasol.setPosition(y*145 + 45, x*175);
+    _girasol.setPosition(y*145 + 48, x*175);
     _spriteGirasol.setPosition(y*145 + 45, x*175);
     posicionMatriz(x,y);
 }

@@ -760,13 +760,16 @@ void Gameplay::draw(sf::RenderWindow &window)
 ///SETEO DE TEXTURAS
 
 
-void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag)
+void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture)
 {
     int random = randomZombie();
 
     for (Zombie &z : zombies)
     {
-        if (random == 1) z.setTexture(mati);
+        if (random == 1){
+            z.setTexture(mati);
+            z.setAttackTexture(attackTexture);
+        }
         else if (random == 2) z.setTexture(vastag);
         else z.setTexture(maxi);
         //z.setTexture(vastag);

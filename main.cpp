@@ -89,11 +89,20 @@ int main()
     sf::Texture matiTex;
     matiTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
 
+    sf::Texture attackMati;
+    attackMati.loadFromFile("dirubeatacando.png");
+
     sf::Texture maxiTex;
     maxiTex.loadFromFile("maxicaminando.png");
 
+//    sf::Texture attackMaxi;
+//    attackMaxi.loadFromFile("maxiatacando.png");
+
     sf::Texture vastagTex;
     vastagTex.loadFromFile("vastagcaminando.png");
+
+//    sf::Texture attackVastag;
+//    attackVastag.loadFromFile("vastagatacando.png");
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
@@ -274,7 +283,7 @@ int main()
                 compra.draw(window);
 
                 juego.draw(window);
-                juego.setZombieTexture(matiTex, maxiTex,vastagTex);
+                juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture, solTexture);
                 juego.setNuezTexture(nuezTexture);
