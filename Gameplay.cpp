@@ -83,6 +83,10 @@ void Gameplay::selectPlantas(){
 
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
+    cargarRecord(8);
+
+
+
     creadorJuego(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
 
@@ -581,8 +585,27 @@ void Gameplay::creadorJuego()
 
 bool Gameplay::cargarRecord(int ronda){
     ArchivoRecords arc("archivo.dat");
-    Record record(jugador.getPlayerName(),tiempo,ronda);
+    //Record record(jugador.getPlayerName(),tiempo,ronda);
+    Record record("coqui",1900,6);
 
+    //arc.vaciarArchivo();
+
+    arc.inicializarRegistros();
+    arc.listarRegistros();
+
+
+    int pos = arc.comparaRegistros(record);
+    std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;
+    if(pos != -1 && pos < 8){
+        arc.modificarRegistro(record, pos);
+    }
+
+    std::cout<<"-----------------------------------------------------------------"<<std::endl;
+
+    arc.listarRegistros();
+
+
+    return true;
 }
 
 

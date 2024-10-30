@@ -248,6 +248,19 @@ int main()
                 }
             }
             else if(estado == RECORDS){
+                ArchivoRecords archivo("archivo.dat");
+                Record record;
+
+                std::string nombres[8];
+                int tiempos[8];
+                int rondas[8];
+
+                for(int x = 0; x < 8; x++){
+                    nombres[x] = record.getNombre();
+                    tiempos[x] = record.getTime();
+                    rondas[x] = record.getRondas();
+                }
+
                 if (event.type == sf::Event::KeyPressed){
                     if (event.key.code == sf::Keyboard::Return){
                         estado = MENU;
