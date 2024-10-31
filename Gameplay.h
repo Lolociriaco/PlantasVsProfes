@@ -1,5 +1,5 @@
 #include <SFML/Graphics.hpp>
-#include "claseZombies.h" // Asegúrate de que shape.h declare la clase Pelota
+#include "claseZombies.h" // AsegÃºrate de que shape.h declare la clase Pelota
 #include "clasePlantas.h"
 #include "claseNuez.h"
 #include "cargarJugador.h"
@@ -21,7 +21,7 @@ public:
     void update(const sf::Event& event, sf::RenderWindow &window);
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
-    void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture);
+    void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture, const sf::Texture& attackTextureVastag, const sf::Texture& attackTextureMaxi);
     void setPlantaTexture (const sf::Texture& texture);
     void setGirasolTexture (const sf::Texture& texture, const sf::Texture& solTexture);
     void setNuezTexture (const sf::Texture& texture);
@@ -129,4 +129,3 @@ private:
     sf::SoundBuffer bufferWinOver;
     sf::Sound soundWinOver;
 };
-
