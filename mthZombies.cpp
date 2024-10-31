@@ -9,26 +9,12 @@
 
 Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _totalFrames(10), _totalAttackFrames(5), _currentFrame(0), _frameDuration(0.1f)
 {
-//    _shape.setFillColor(sf::Color::Red);
-//    _shape.setSize(sf::Vector2f(50.f, 130.f));
-//    _vikingoTexture.loadFromFile("dirubecaminando.png");
-//    _spriteVikingo.setTexture(_vikingoTexture);
-//    _spriteVikingo.setScale(2.f, 2.f);
-//    _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
-
     _shape.setFillColor(sf::Color::Transparent);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
 
-
     _spriteVikingo.setScale(2.f, 2.f);
     _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNumber() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
-//
-//    _shape.setFillColor(sf::Color::Red);
-//    _shape.setSize(sf::Vector2f(50.f, 130.f));
-//    _vastagTexture.loadFromFile("vastagcaminando.png");
-//    _spriteVastag.setTexture(_vastagTexture);
-//    _spriteVastag.setScale(2.f, 2.f);
-//    _spriteVastag.setTextureRect(sf::IntRect(1870, randomNum() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
+
 }
 
 
@@ -63,7 +49,7 @@ void Zombie::updateAnimation()
     if (_clock.getElapsedTime().asSeconds() > _frameDuration) {
         _currentFrame++;
         if (_currentFrame >= _totalFrames) {
-            _currentFrame = 0;  // Vuelve al primer cuadro si se supera el último
+            _currentFrame = 0;  // Vuelve al primer cuadro si se supera el Ãºltimo
         }
 
         _spriteVikingo.setTextureRect(sf::IntRect((_totalFrames - _currentFrame - 1) * _frameWidth, 0, _frameWidth, _frameHeight));
@@ -80,7 +66,7 @@ void Zombie::attackAnimation() {
             _currentFrame = 0;  // Reinicia al primer cuadro
         }
 
-        // Cambia el rectángulo de textura para la animación de golpeo
+        // Cambia el rectÃ¡ngulo de textura para la animaciÃ³n de golpeo
         _spriteVikingo.setTextureRect(sf::IntRect((_totalAttackFrames - _currentFrame - 1) * _frameWidth, 0, _frameWidth, _frameHeight));
 
         _clock.restart();  // Reinicia el reloj
@@ -98,7 +84,7 @@ void Zombie::reiniciar() {
     _shape.setFillColor(sf::Color::Transparent);  // O cualquier color inicial
     _shape.setSize(sf::Vector2f(50.f, 130.f));
     _estado = ESTADOS_ZOMBIES::CAMINANDO;
-    _shape.setPosition(1920, randomNumber() * 167);  // O cualquier posición inicial
+    _shape.setPosition(1920, randomNumber() * 167);  // O cualquier posiciÃ³n inicial
     _spriteVikingo.setColor(sf::Color::White);
 }
 
@@ -135,3 +121,4 @@ void Zombie::setTexture(const sf::Texture& texture)
 void Zombie::punchZombie(){
     _vida -= 20;
 }
+
