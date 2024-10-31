@@ -10,6 +10,7 @@
 #include "claseCompraPlantas.h"
 #include "records.h"
 #include "arcRecords.h"
+#include <SFML/Audio.hpp>
 
 class Gameplay
 {
@@ -20,7 +21,7 @@ public:
     void update(const sf::Event& event, sf::RenderWindow &window);
     void draw(sf::RenderWindow &);
     void drawPlant(sf::RenderWindow &);
-    void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag );
+    void setZombieTexture (const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture);
     void setPlantaTexture (const sf::Texture& texture);
     void setGirasolTexture (const sf::Texture& texture, const sf::Texture& solTexture);
     void setNuezTexture (const sf::Texture& texture);
@@ -107,5 +108,25 @@ private:
 
     int tiempo = 0;
 
+    bool sono = true;
+    bool sonoGameOver = false;
+
+    sf::SoundBuffer bufferMati;
+    sf::Sound soundMati;
+
+    sf::SoundBuffer bufferMaxi;
+    sf::Sound soundMaxi;
+
+    sf::SoundBuffer bufferVastag;
+    sf::Sound soundVastag;
+
+    sf::SoundBuffer bufferPlantar;
+    sf::Sound soundPlantar;
+
+    sf::SoundBuffer bufferRSP;
+    sf::Sound soundRSP;
+
+    sf::SoundBuffer bufferWinOver;
+    sf::Sound soundWinOver;
 };
 

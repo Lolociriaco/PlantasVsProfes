@@ -26,7 +26,7 @@ public:
         playerNameText.setFont(font);
         playerNameText.setCharacterSize(50);
         playerNameText.setFillColor(softYellow);
-        playerNameText.setPosition(630, 410);
+        playerNameText.setPosition(745, 410);
         playerNameText.setOutlineColor(sf::Color::Black);
         playerNameText.setOutlineThickness(10);
         playerNameText.setString("Nombre:  ");
@@ -50,7 +50,7 @@ public:
                     playerName.pop_back();
                 } else if (event.text.unicode != 8 && event.text.unicode != 13) {
 
-                    if (playerName.size() >= 25) return false;
+                    if (playerName.size() >= 12) return false;
 
                     if(event.text.unicode == lastKey){
                         if (inputClock.getElapsedTime().asSeconds() < 0.2f) return false;
