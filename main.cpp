@@ -21,7 +21,7 @@ int main()
 {
     std::srand(std::time(NULL));
 
-    // Obtener la resolución de pantalla actual
+    // Obtener la resoluciÃ³n de pantalla actual
     sf::VideoMode desktopMode = sf::VideoMode::getDesktopMode();
 
     // Crear una ventana en pantalla completa
@@ -95,14 +95,14 @@ int main()
     sf::Texture maxiTex;
     maxiTex.loadFromFile("maxicaminando.png");
 
-//    sf::Texture attackMaxi;
-//    attackMaxi.loadFromFile("maxiatacando.png");
+    sf::Texture attackMaxi;
+    attackMaxi.loadFromFile("maxiatacando.png");
 
     sf::Texture vastagTex;
     vastagTex.loadFromFile("vastagcaminando.png");
 
-//    sf::Texture attackVastag;
-//    attackVastag.loadFromFile("vastagatacando.png");
+    sf::Texture attackVastag;
+    attackVastag.loadFromFile("vastagatacando.png");
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
@@ -211,11 +211,11 @@ int main()
                         else if (choosenOption == 1)
                         {
                             estadoAnterior = PAUSAINGAME;
-                            estado = OPCIONES; // Cambiar a menú de opciones
+                            estado = OPCIONES; // Cambiar a menÃº de opciones
                         }
                         else if (choosenOption == 2)
                         {
-                            estado = MENU; // Volver al menú principal
+                            estado = MENU; // Volver al menÃº principal
 
                         }
                     }
@@ -282,11 +282,11 @@ int main()
                 window.draw(fondo);
                 compra.draw(window);
 
-                juego.draw(window);
-                juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati);
+                juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati, attackVastag, attackMaxi);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture, solTexture);
                 juego.setNuezTexture(nuezTexture);
+                juego.draw(window);
 
             }
             else if (estado == OPCIONES)
