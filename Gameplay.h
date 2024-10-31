@@ -59,6 +59,7 @@ public:
     return random_number;
     }
 
+
 private:
 
     int _ticsGm = 0;        // Contador de tiempo

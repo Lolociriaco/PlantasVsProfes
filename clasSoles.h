@@ -80,6 +80,10 @@ public:
         return _shape;
     }
 
+    bool isMouseOver(sf::Vector2f mousePos) const {
+        return _spriteSol.getGlobalBounds().contains(mousePos);
+    }
+
 };
 
 

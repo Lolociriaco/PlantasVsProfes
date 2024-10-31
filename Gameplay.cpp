@@ -367,18 +367,24 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
     ///UPDATE SOLES
 
+    for(unsigned int i = 0; i < _sol.size(); ++i){
+        _sol[i].solCayendo();
+        if(_sol[i].isMouseOver(mousePosF)){
+            _sol.erase(_sol.begin() + i);
+            _totalSoles+=25;
+        }
+    }
+
     if(_ticsGm % 60 == 0){
         _sol.push_back(Soles(-35, randomPos()));
     }
 
-    for(Soles &s : _sol){
-        s.solCayendo();
-    }
 
     ///PREGUNTO POR COLLISIONES
 
     checkCollisions();
 }
+
 
 
 ///-----------------RONDAS----------------------
