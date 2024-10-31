@@ -1,9 +1,18 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+
 
 enum ESTADOS_ZOMBIES
 {
     CAMINANDO,
     ATACANDO
+};
+
+enum TIPO_ZOMBIE{
+    MAXI,
+    MATI,
+    VASTAG
 };
 
 class Zombie
@@ -19,6 +28,7 @@ private:
     int _vida = 100;
     int _danio;
     ESTADOS_ZOMBIES _estado;
+    TIPO_ZOMBIE _profe;
 
     sf::Texture _attackTexture;
 
@@ -30,6 +40,7 @@ private:
     int _currentFrame;      // Cuadro actual que se está mostrando
     float _frameDuration;   // Duración de cada cuadro en segundos
     sf::Clock _clock;       // Reloj para controlar el tiempo entre cuadros
+    bool hablo = false;
 
 public:
     Zombie();
@@ -44,6 +55,8 @@ public:
     void setAttackTexture(const sf::Texture& attackTexture);
     void reiniciar();
     void punchZombie();
+    void setProfe(int profe);
+    TIPO_ZOMBIE getProfe();
 
     void attackAnimation();
 

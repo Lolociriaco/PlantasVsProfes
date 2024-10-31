@@ -26,6 +26,7 @@ Gameplay::Gameplay()
     borde1.setPosition(518, 12);
     borde2.setPosition(623, 12);
 
+
     bufferMati.loadFromFile("jejetranqui.wav");
     soundMati.setBuffer(bufferMati);
 
@@ -34,6 +35,7 @@ Gameplay::Gameplay()
 
     bufferVastag.loadFromFile("bienvenidavastag.wav");
     soundVastag.setBuffer(bufferVastag);
+
 
     bufferPlantar.loadFromFile("sonidoplantar.wav");
     soundPlantar.setBuffer(bufferPlantar);
@@ -77,29 +79,61 @@ void Gameplay::cmd()
 
 
 ///-----------------SELECIONADOR DE PLANAS CON 1,2 O 3----------------------
-void Gameplay::selectPlantas(){
+
+void Gameplay::selectPlantas(sf::RenderWindow &window){
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
         _plantaSeleccionada = GIRASOL;
-        std::cout << "Has presionado el número 1: "<< std::endl;
         borde0.setOutlineThickness(7);
         borde1.setOutlineThickness(0);
         borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         _plantaSeleccionada = LANZAGUISANTES;
-        std::cout << "Has presionado el número 2, lanza: "<< std::endl;
         borde1.setOutlineThickness(7);
         borde0.setOutlineThickness(0);
         borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
         _plantaSeleccionada = NUEZ;
-        std::cout << "Has presionado el número 3, nuez: "<< std::endl;
         borde2.setOutlineThickness(7);
         borde0.setOutlineThickness(0);
         borde1.setOutlineThickness(0);
     }
+
+
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+        // Obtener la posición del mouse en la ventana
+        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
+        int fila = mousePos.y / 140;
+        int columna = (mousePos.x - 8) / 100;
+
+
+        if (fila == 0) {
+            if(columna == 4){
+                _plantaSeleccionada = GIRASOL;
+                borde0.setOutlineThickness(7);
+                borde1.setOutlineThickness(0);
+                borde2.setOutlineThickness(0);
+            }
+            if(columna == 5){
+                _plantaSeleccionada = LANZAGUISANTES;
+                borde1.setOutlineThickness(7);
+                borde0.setOutlineThickness(0);
+                borde2.setOutlineThickness(0);
+            }
+            if(columna == 6){
+                _plantaSeleccionada = NUEZ;
+                borde2.setOutlineThickness(7);
+                borde0.setOutlineThickness(0);
+                borde1.setOutlineThickness(0);
+            }
+
+        }
+    }
+
+
+
 }
 
 ///-----------------UPDATE----------------------
@@ -109,14 +143,12 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     creadorJuego(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
 
-    if (_ronda == 0){
+    if (_ronda == 0){ /// CARGAR NOMBRE JUGADOR
         mostrarCartel = false;
         if(jugador.handleEvent(event)){
             _ronda++;
-            std::cout << "SUMANDO UNA RONDA" << std::endl;
             reiniciar();
         }
-            std::cout << "DENTRO DEL RONDA 0" << std::endl;
     }
 
     if(pausarTodo){
@@ -124,26 +156,12 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         return;
     }
 
-    if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        // Obtener la posición del mouse en la ventana
-        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
-        sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));  // Convertir a float
-
-        for(Girasol &g : girasol){
-            if (g.checkSolClick(mousePosF)) {
-                std::cout << "¡Hiciste clic en un sol!" << std::endl;
-                _totalSoles+=25;
-                // Aquí puedes eliminar el sol o realizar otra acción
-            }
-        }
-        // Verificar si se hizo clic en algún sol
-    }
 
     ///COMPRA PLANTA UPDATE
     compraPlanta.update();
 
     ///SELECCIONADOR DE PLANTAS
-    selectPlantas();
+    selectPlantas(window);
 
 
     ///PLANTA UPDATE
@@ -331,6 +349,21 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     {
         g.update();
     }
+
+
+    //CHEQUEO PARA CUANDO PASO POR ENCIMA DE LOS SOLES
+
+        // Obtener la posición del mouse en la ventana
+        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
+        sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));  // Convertir a float
+
+        for(Girasol &g : girasol){
+            if (g.checkSolClick(mousePosF)) {
+                std::cout << "¡Hiciste clic en un sol!" << std::endl;
+                _totalSoles+=25;
+                // Aquí puedes eliminar el sol o realizar otra acción
+            }
+        }
 
 
     ///PREGUNTO POR COLLISIONES
@@ -652,7 +685,9 @@ bool Gameplay::cargarRecord(int ronda){
 void Gameplay::crearZombie(){
     Zombie newZombie;
     newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
+    newZombie.setProfe(randomZombie());
     zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinámico.
+    nuevoZombie = true;
 }
 
 ///-----------------DRAW----------------------
@@ -824,7 +859,9 @@ void Gameplay::draw(sf::RenderWindow &window)
 void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture, const sf::Texture& attackTextureVastag, const sf::Texture& attackTextureMaxi)
 {
     if(zombies.size()==0) return;
-    int random = randomZombie();
+    if(nuevoZombie){
+        int random = randomZombie();
+
         if (random == 1){
             zombies[zombies.size()-1].setTexture(mati);
             zombies[zombies.size()-1].setAttackTexture(attackTexture);
@@ -837,6 +874,8 @@ void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi
             zombies[zombies.size()-1].setTexture(maxi);
             zombies[zombies.size()-1].setAttackTexture(attackTextureMaxi);
         }
+        nuevoZombie = false;
+    }
 }
 
 
@@ -963,18 +1002,18 @@ void Gameplay::plantsCollisions()
                     p.hitPlant();
                     if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                     {
-                        if (random == 1)
-                        {
-                            soundMati.play();
-                        }
-                        else if (random == 2)
-                        {
-                            soundVastag.play();
-                        }
-                        else if (random == 3)
-                        {
-                            soundMaxi.play();
-                        }
+                            if (z.getProfe() == MATI)
+                            {
+                                soundMati.play();
+                            }
+                            else if (z.getProfe() == VASTAG)
+                            {
+                                soundVastag.play();
+                            }
+                            else if (z.getProfe() == MAXI)
+                            {
+                                soundMaxi.play();
+                            }
 
                         z.setEstado(ESTADOS_ZOMBIES::ATACANDO);
                         std::cout << "Zombie esta atacando\n";
@@ -999,15 +1038,15 @@ void Gameplay::plantsCollisions()
                         n.hitNutt();
                         if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                         {
-                            if (random == 1)
+                            if (z.getProfe() == MATI)
                             {
                                 soundMati.play();
                             }
-                            else if (random == 2)
+                            else if (z.getProfe() == VASTAG)
                             {
                                 soundVastag.play();
                             }
-                            else if (random == 3)
+                            else if (z.getProfe() == MAXI)
                             {
                                 soundMaxi.play();
                             }
@@ -1039,15 +1078,15 @@ void Gameplay::plantsCollisions()
                         g.hitGirasol();
                         if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                         {
-                            if (random == 1)
+                            if (z.getProfe() == MATI)
                             {
                                 soundMati.play();
                             }
-                            else if (random == 2)
+                            else if (z.getProfe() == VASTAG)
                             {
                                 soundVastag.play();
                             }
-                            else if (random == 3)
+                            else if (z.getProfe() == MAXI)
                             {
                                 soundMaxi.play();
                             }

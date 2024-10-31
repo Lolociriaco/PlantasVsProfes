@@ -15,6 +15,21 @@ Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _to
     _spriteVikingo.setScale(2.f, 2.f);
     _spriteVikingo.setTextureRect(sf::IntRect(1870, randomNumber() * 167, _frameWidth, _frameHeight));  // Configura el primer cuadro
 
+
+
+
+}
+
+
+void Zombie::setProfe(int profe){
+    if(profe == 1) _profe = MATI;
+    else if(profe == 2) _profe = VASTAG;
+    else _profe = MAXI;
+}
+
+
+TIPO_ZOMBIE Zombie::getProfe(){
+    return _profe;
 }
 
 
@@ -33,11 +48,30 @@ void Zombie::update()
         _shape.move(-1.5, 0);
         _spriteVikingo.move(-1.5, 0);
         updateAnimation();
+        hablo = false;
         break;
 
     case ATACANDO:
         _spriteVikingo.setTexture(_attackTexture);
         attackAnimation();
+
+//        if(!hablo){
+//
+//            if(_profe == MATI){
+//                soundMati.play();
+//                std::cout<<"hablohdfghdfghdfghdfgh";
+//            }
+//            else if(_profe == MAXI){
+//                soundMaxi.play();
+//                std::cout<<"hablohdfghdfghdfghdfgh";
+//            }
+//            else{
+//                soundVastag.play();
+//                std::cout<<"hablohdfghdfghdfghdfgh";
+//            }
+//
+//            hablo = true;
+//        }
         break;
     }
 }

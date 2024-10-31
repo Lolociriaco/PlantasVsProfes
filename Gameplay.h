@@ -30,7 +30,7 @@ public:
     void checkCollisions();
     void guisCollisions();
     void plantsCollisions();
-    void selectPlantas();
+    void selectPlantas(sf::RenderWindow &window);
     int randomZombie();
     void creadorJuego();
     bool cargarRecord(int);
@@ -110,6 +110,7 @@ private:
 
     bool sono = true;
     bool sonoGameOver = false;
+    bool nuevoZombie = false;
 
     sf::SoundBuffer bufferMati;
     sf::Sound soundMati;

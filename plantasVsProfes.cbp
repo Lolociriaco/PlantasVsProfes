@@ -55,6 +55,7 @@
 		<Unit filename="mthNuez.cpp" />
 		<Unit filename="mthPlantas.cpp" />
 		<Unit filename="mthZombies.cpp" />
+		<Unit filename="records.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
