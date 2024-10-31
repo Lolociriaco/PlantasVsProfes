@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1730256221 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1730233627 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -61,7 +61,7 @@
 
 1725394092 
 
-1730300742 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1730346966 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -83,7 +83,7 @@
 
 1725059327 shed changes
 
-1730344360 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1730345597 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -193,7 +193,7 @@
 
 1726604038 D
 
-1730255457 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+1730231574 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -211,7 +211,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730344806 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
+1730346816 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -244,31 +244,24 @@
 	<string>
 	<iostream>
 
-1730301207 c:\users\scott\onedrive\documentos\plantasvsprofes\cargarjugador.h
+1730345597 c:\users\scott\onedrive\documentos\plantasvsprofes\cargarjugador.h
 	<SFML/Graphics.hpp>
 	<SFML/Window.hpp>
 	<string>
 	<iostream>
 
-1730256290 d:\documentos\utn\programacion\plantasvsprofes\records.h
-	<iostream>
-	<cstring>
+1730238448 d:\documentos\utn\programacion\plantasvsprofes\records.h
 
-1730256419 d:\documentos\utn\programacion\plantasvsprofes\arcrecords.h
+1730238544 d:\documentos\utn\programacion\plantasvsprofes\arcrecords.h
 	<iostream>
 	<cstdio>
 	<vector>
 	<cstring>
 	<algorithm>
-	"records.h"
 
-1730256430 source:d:\documentos\utn\programacion\plantasvsprofes\arcrecords.cpp
-	<cstring>
-	"arcRecords.h"
+1730346317 c:\users\scott\onedrive\documentos\plantasvsprofes\records.h
 
-1730300742 c:\users\scott\onedrive\documentos\plantasvsprofes\records.h
-
-1730300742 c:\users\scott\onedrive\documentos\plantasvsprofes\arcrecords.h
+1730346317 c:\users\scott\onedrive\documentos\plantasvsprofes\arcrecords.h
 	<iostream>
 	<cstdio>
 	<vector>
