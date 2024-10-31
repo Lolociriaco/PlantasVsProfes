@@ -10,7 +10,7 @@
 Gameplay::Gameplay()
 {
 
-    borde0.setSize(sf::Vector2f(88, 124)); // Ajusta el tamaño según sea necesario
+    borde0.setSize(sf::Vector2f(88, 124)); // Ajusta el tamaÃ±o segÃºn sea necesario
     borde0.setFillColor(sf::Color::Transparent);
     borde0.setOutlineColor(sf::Color::Yellow);
 
@@ -81,21 +81,21 @@ void Gameplay::selectPlantas(){
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num1)) {
         _plantaSeleccionada = GIRASOL;
-        std::cout << "Has presionado el número 1: "<< std::endl;
+        std::cout << "Has presionado el nÃºmero 1: "<< std::endl;
         borde0.setOutlineThickness(7);
         borde1.setOutlineThickness(0);
         borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num2)) {
         _plantaSeleccionada = LANZAGUISANTES;
-        std::cout << "Has presionado el número 2, lanza: "<< std::endl;
+        std::cout << "Has presionado el nÃºmero 2, lanza: "<< std::endl;
         borde1.setOutlineThickness(7);
         borde0.setOutlineThickness(0);
         borde2.setOutlineThickness(0);
     }
     else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Num3)) {
         _plantaSeleccionada = NUEZ;
-        std::cout << "Has presionado el número 3, nuez: "<< std::endl;
+        std::cout << "Has presionado el nÃºmero 3, nuez: "<< std::endl;
         borde2.setOutlineThickness(7);
         borde0.setOutlineThickness(0);
         borde1.setOutlineThickness(0);
@@ -125,18 +125,18 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     }
 
     if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
-        // Obtener la posición del mouse en la ventana
-        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // Posición del mouse en coordenadas de pantalla
+        // Obtener la posiciÃ³n del mouse en la ventana
+        sf::Vector2i mousePos = sf::Mouse::getPosition(window);  // PosiciÃ³n del mouse en coordenadas de pantalla
         sf::Vector2f mousePosF(static_cast<float>(mousePos.x), static_cast<float>(mousePos.y));  // Convertir a float
 
         for(Girasol &g : girasol){
             if (g.checkSolClick(mousePosF)) {
-                std::cout << "¡Hiciste clic en un sol!" << std::endl;
+                std::cout << "Â¡Hiciste clic en un sol!" << std::endl;
                 _totalSoles+=25;
-                // Aquí puedes eliminar el sol o realizar otra acción
+                // AquÃ­ puedes eliminar el sol o realizar otra acciÃ³n
             }
         }
-        // Verificar si se hizo clic en algún sol
+        // Verificar si se hizo clic en algÃºn sol
     }
 
     ///COMPRA PLANTA UPDATE
@@ -167,7 +167,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                             soundPlantar.play();
                             Planta newPlanta;
                             newPlanta.posInicio(fila, columna);
-                            plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinámico.
+                            plant.push_back(newPlanta);  // Agrega el nuevo zombie al vector dinÃ¡mico.
 
                             matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
                             for(int x = 0; x < 5;x++)
@@ -198,7 +198,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         {
             matriz[plant[i].getFila()][plant[i].getColumna()] = false;
             plant.erase(plant.begin() + i);  // Eliminar plantas con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
+            i--;  // Ajustar el Ã­ndice porque hemos eliminado un elemento
             std::cout<<"IS ALIVE 2 \n";
         }
     }
@@ -217,7 +217,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         if (!zombies[i].isAlive())
         {
             zombies.erase(zombies.begin() + i);  // Eliminar zombies con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
+            i--;  // Ajustar el Ã­ndice porque hemos eliminado un elemento
         }
     }
 
@@ -241,8 +241,8 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                             _totalSoles-=50;
                             soundPlantar.play();
                             Nuez newNuez;
-                            newNuez.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
-                            nuez.push_back(newNuez);  // Agrega la nuez al vector dinámico.
+                            newNuez.posInicio(fila,columna);  // Configura la posiciÃ³n inicial de la nueva nuez.
+                            nuez.push_back(newNuez);  // Agrega la nuez al vector dinÃ¡mico.
 
                             matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
                             for(int x = 0; x < 5;x++)
@@ -267,7 +267,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         {
             matriz[nuez[i].getFila()][nuez[i].getColumna()] = false;
             nuez.erase(nuez.begin() + i);  // Eliminar plantas con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
+            i--;  // Ajustar el Ã­ndice porque hemos eliminado un elemento
         }
     }
 
@@ -297,8 +297,8 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                             _totalSoles-=50;
                             soundPlantar.play();
                             Girasol newGirasol;
-                            newGirasol.posInicio(fila,columna);  // Configura la posición inicial de la nueva nuez.
-                            girasol.push_back(newGirasol);  // Agrega la nuez al vector dinámico.
+                            newGirasol.posInicio(fila,columna);  // Configura la posiciÃ³n inicial de la nueva nuez.
+                            girasol.push_back(newGirasol);  // Agrega la nuez al vector dinÃ¡mico.
 
                             matriz[fila-1][columna-2] = true; //adapto la posicion a la matriz y la marco como verdadera
                             for(int x = 0; x < 5;x++)
@@ -323,7 +323,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         {
             matriz[girasol[i].getFila()][girasol[i].getColumna()] = false;
             girasol.erase(girasol.begin() + i);  // Eliminar plantas con vida 0
-            i--;  // Ajustar el índice porque hemos eliminado un elemento
+            i--;  // Ajustar el Ã­ndice porque hemos eliminado un elemento
         }
     }
 
@@ -649,11 +649,10 @@ bool Gameplay::cargarRecord(int ronda){
 }
 
 
-
 void Gameplay::crearZombie(){
     Zombie newZombie;
-    newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
-    zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinámico.
+    newZombie.posInicio();  // Configura la posiciÃ³n inicial del nuevo zombie.
+    zombies.push_back(newZombie);  // Agrega el nuevo zombie al vector dinÃ¡mico.
 }
 
 ///-----------------DRAW----------------------
@@ -716,7 +715,7 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     for(Planta &p : plant)
     {
-        // Dibuja la forma geométrica
+        // Dibuja la forma geomÃ©trica
         window.draw(p.getShape());
         for (auto& guis : p.getGuisantes())
         {
@@ -779,7 +778,7 @@ void Gameplay::draw(sf::RenderWindow &window)
             font.loadFromFile("Samdan.ttf");
 
             gameOverText.setFont(font);
-            gameOverText.setString("¡YOU WIN!");
+            gameOverText.setString("Â¡YOU WIN!");
             gameOverText.setCharacterSize(110);
             gameOverText.setFillColor(sf::Color::Green);
             gameOverText.setPosition(780, 350);
@@ -822,23 +821,22 @@ void Gameplay::draw(sf::RenderWindow &window)
 
 ///SETEO DE TEXTURAS
 
-void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture)
+void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture, const sf::Texture& attackTextureVastag, const sf::Texture& attackTextureMaxi)
 {
+    if(zombies.size()==0) return;
     int random = randomZombie();
-
-    for (Zombie &z : zombies)
-    {
         if (random == 1){
-            z.setTexture(mati);
-            z.setAttackTexture(attackTexture);
+            zombies[zombies.size()-1].setTexture(mati);
+            zombies[zombies.size()-1].setAttackTexture(attackTexture);
         }
         else if (random == 2){
-            z.setTexture(vastag);
+            zombies[zombies.size()-1].setTexture(vastag);
+            zombies[zombies.size()-1].setAttackTexture(attackTextureVastag);
         }
-        else
-            z.setTexture(maxi);
-
-    }
+        else{
+            zombies[zombies.size()-1].setTexture(maxi);
+            zombies[zombies.size()-1].setAttackTexture(attackTextureMaxi);
+        }
 }
 
 
@@ -882,9 +880,9 @@ void Gameplay::reiniciar()
     _ticsGm = 0;
     // Reiniciar todos los vectores
 
-    zombies.clear();  // Vacía el vector de zombies.
-    plant.clear();  // Vacía el vector de zombies.
-    girasol.clear();  // Vacía el vector de zombies.
+    zombies.clear();  // VacÃ­a el vector de zombies.
+    plant.clear();  // VacÃ­a el vector de zombies.
+    girasol.clear();  // VacÃ­a el vector de zombies.
     nuez.clear();
     _totalSoles = 650;
     compraPlanta.reiniciarContador();
@@ -910,10 +908,10 @@ void Gameplay::reiniciar()
 
 void Gameplay::pausarJuego()
 {
-        zombies.clear();
-        plant.clear();
-        girasol.clear();
-        nuez.clear();
+//        zombies.clear();
+//        plant.clear();
+//        girasol.clear();
+//        nuez.clear();
         pausarTodo = true;
         compraPlanta.enCero();
 }
@@ -950,7 +948,7 @@ void Gameplay::plantsCollisions()
 
     for (Zombie &z : zombies) ///ITERO SOBRE TODOS LOS ZOMBIES
     {
-        bool enColision = false;  // Bandera para detectar colisión para cada zombie
+        bool enColision = false;  // Bandera para detectar colisiÃ³n para cada zombie
 
         /// PREGUNTO SI HAY COLISION CON PLANTAS
 
@@ -1075,7 +1073,7 @@ void Gameplay::plantsCollisions()
             }
         }
 
-        // Verifica si estaba en colisión o no para cambiar el estado solo si es necesario
+        // Verifica si estaba en colisiÃ³n o no para cambiar el estado solo si es necesario
 
     }
 
@@ -1090,16 +1088,16 @@ void Gameplay::guisCollisions()
         // Iterar sobre todos los guisantes disparados por cada planta
         for (Lanzaguisantes& guis : p.getGuisantes())
         {
-            // Obtener los límites del guisante
+            // Obtener los lÃ­mites del guisante
 
-            // Comprobar si choca con algún zombie
+            // Comprobar si choca con algÃºn zombie
             for (Zombie &z : zombies)
             {
 
-                // Verificar si los límites del guisante intersectan con los del zombie
+                // Verificar si los lÃ­mites del guisante intersectan con los del zombie
                 if (guis.getBounds().intersects(z.getBounds()))
                 {
-                    // Aquí puedes manejar la colisión
+                    // AquÃ­ puedes manejar la colisiÃ³n
                     std::cout << "Colision detectada!" << std::endl;
                     p.removeGuisante(guis);
 
@@ -1110,4 +1108,5 @@ void Gameplay::guisCollisions()
         }
     }
 }
+
 
