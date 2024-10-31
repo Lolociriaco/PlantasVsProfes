@@ -649,7 +649,6 @@ bool Gameplay::cargarRecord(int ronda){
 }
 
 
-
 void Gameplay::crearZombie(){
     Zombie newZombie;
     newZombie.posInicio();  // Configura la posición inicial del nuevo zombie.
@@ -822,23 +821,22 @@ void Gameplay::draw(sf::RenderWindow &window)
 
 ///SETEO DE TEXTURAS
 
-void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture)
+void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture, const sf::Texture& attackTextureVastag, const sf::Texture& attackTextureMaxi)
 {
+    if(zombies.size()==0) return;
     int random = randomZombie();
-
-    for (Zombie &z : zombies)
-    {
         if (random == 1){
-            z.setTexture(mati);
-            z.setAttackTexture(attackTexture);
+            zombies[zombies.size()-1].setTexture(mati);
+            zombies[zombies.size()-1].setAttackTexture(attackTexture);
         }
         else if (random == 2){
-            z.setTexture(vastag);
+            zombies[zombies.size()-1].setTexture(vastag);
+            zombies[zombies.size()-1].setAttackTexture(attackTextureVastag);
         }
-        else
-            z.setTexture(maxi);
-
-    }
+        else{
+            zombies[zombies.size()-1].setTexture(maxi);
+            zombies[zombies.size()-1].setAttackTexture(attackTextureMaxi);
+        }
 }
 
 
@@ -1110,4 +1108,3 @@ void Gameplay::guisCollisions()
         }
     }
 }
-
