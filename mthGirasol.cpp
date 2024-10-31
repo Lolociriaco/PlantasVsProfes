@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "claseGirasol.h"
 
+
 Girasol::Girasol()
 {
     _girasol.setFillColor(sf::Color::Transparent);
@@ -12,7 +13,6 @@ Girasol::Girasol()
     _spriteGirasol.setScale(1.f, 1.f);
 
 }
-
 
 void Girasol::cmd()
 {

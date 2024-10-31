@@ -51,6 +51,14 @@ public:
         NUEZ
     };
 
+
+    int randomPos()
+    {
+    // Generar una posicion random de caida de sol
+    int random_number = std::rand() % 1350 + 250;
+    return random_number;
+    }
+
 private:
 
     int _ticsGm = 0;        // Contador de tiempo
@@ -58,6 +66,8 @@ private:
     int _ronda = 0;
 
     std::vector<Zombie> zombies;
+
+    std::vector<Soles> _sol;
 
     std::vector<Planta> plant;
 

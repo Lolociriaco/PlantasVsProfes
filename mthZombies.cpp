@@ -7,8 +7,15 @@
 
 
 
-Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _totalFrames(10), _totalAttackFrames(5), _currentFrame(0), _frameDuration(0.1f)
+Zombie::Zombie()
 {
+    _estado = CAMINANDO;
+    _frameWidth = 128;
+    _frameHeight = 128;
+    _totalAttackFrames = 5;
+    _currentFrame = 0;
+    _frameDuration = 0.1f;
+
     _shape.setFillColor(sf::Color::Transparent);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
 
@@ -22,9 +29,18 @@ Zombie::Zombie() : _estado (CAMINANDO), _frameWidth(128), _frameHeight(128), _to
 
 
 void Zombie::setProfe(int profe){
-    if(profe == 1) _profe = MATI;
-    else if(profe == 2) _profe = VASTAG;
-    else _profe = MAXI;
+    if(profe == 1){
+        _totalFrames = 10;
+        _profe = MATI;
+    }
+    else if(profe == 2){
+        _totalFrames = 8;
+        _profe = VASTAG;
+    }
+    else{
+        _profe = MAXI;
+        _totalFrames = 8;
+    }
 }
 
 

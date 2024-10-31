@@ -365,6 +365,15 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
             }
         }
 
+    ///UPDATE SOLES
+
+    if(_ticsGm % 60 == 0){
+        _sol.push_back(Soles(-35, randomPos()));
+    }
+
+    for(Soles &s : _sol){
+        s.solCayendo();
+    }
 
     ///PREGUNTO POR COLLISIONES
 
@@ -780,6 +789,13 @@ void Gameplay::draw(sf::RenderWindow &window)
         }
     }
 
+    for(Soles &s :  _sol) ///DIBUJANDO LOS SOLES QUE CAEN DEL CIELO
+    {
+        window.draw(s.getShape());
+        window.draw(s.getSprite());
+    }
+
+
     if (gameLost())
     {
             font.loadFromFile("Samdan.ttf");
@@ -898,6 +914,15 @@ void Gameplay::setGirasolTexture(const sf::Texture& texture, const sf::Texture& 
         {
             s.setTexture(solTexture);
         }
+    }
+}
+
+void Gameplay::setSolTexture(const sf::Texture& solTexture)
+{
+
+    for(Soles &s : _sol)
+    {
+        s.setTexture(solTexture);
     }
 }
 

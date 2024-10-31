@@ -298,6 +298,7 @@ int main()
                 juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati, attackVastag, attackMaxi);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture, solTexture);
+                juego.setSolTexture(solTexture);
                 juego.setNuezTexture(nuezTexture);
                 juego.draw(window);
 
