@@ -1,7 +1,7 @@
 #ifndef LANZAGUISANTES_H
 #define LANZAGUISANTES_H
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 
 class Lanzaguisantes
 {

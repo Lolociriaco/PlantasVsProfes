@@ -63,7 +63,7 @@
 
 1725394092 
 
-1730386100 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1730473086 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -71,11 +71,13 @@
 	"claseMenuOpciones.h"
 	"claseMenuIngame.h"
 	"claseCompraPlantas.h"
+	<SFML/Audio.hpp>
 
-1730256165 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
+1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
-1730386100 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
+1730426310 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -85,7 +87,7 @@
 
 1725059327 shed changes
 
-1730386100 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1730473003 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -100,22 +102,24 @@
 	"arcRecords.h"
 	<SFML/Audio.hpp>
 
-1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\claseplantas.h
+1730473747 c:\users\scott\onedrive\documentos\plantasvsprofes\claseplantas.h
 	<SFML/Graphics.hpp>
 	"clasLanzaguisantes.h"
 	<vector>
+	<SFML/Audio.hpp>
 
-1729290491 c:\users\scott\onedrive\documentos\plantasvsprofes\claslanzaguisantes.h
+1730473382 c:\users\scott\onedrive\documentos\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
+	<SFML/Audio.hpp>
 
-1729805097 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
+1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\funciones.h
 	<stdlib.h>
 	<time.h>
 
-1730160546 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
+1730473394 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 
-1730256884 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
+1730473382 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
@@ -141,11 +145,12 @@
 	<SFML/Graphics.hpp>
 	"claseNuez.h"
 
-1730244818 c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.h
+1730473102 c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.h
 	<SFML/Graphics.hpp>
 	<iostream>
+	<SFML/Audio.hpp>
 
-1730257323 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
+1730473102 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>
@@ -164,14 +169,14 @@
 	"claseMenuOpciones.h"
 	<SFML/Graphics.hpp>
 
-1730257380 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
+1730472196 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
 1729828763 c:\users\scott\onedrive\documentos\plantasvsprofes\clasegirasol.h
 	"clasSoles.h"
 
-1730256884 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
+1730473382 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -214,7 +219,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730386525 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
+1730473837 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -238,7 +243,7 @@
 1730408342 d:\documentos\utn\programacion\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
 
-1730244818 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
+1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\classoles.h
 	<SFML/Graphics.hpp>
 
 1730403817 d:\documentos\utn\programacion\plantasvsprofes\cargarjugador.h
@@ -265,14 +270,17 @@
 	<algorithm>
 	"records.h"
 
-1730346317 c:\users\scott\onedrive\documentos\plantasvsprofes\records.h
+1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\records.h
+	<iostream>
+	<cstring>
 
-1730346317 c:\users\scott\onedrive\documentos\plantasvsprofes\arcrecords.h
+1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\arcrecords.h
 	<iostream>
 	<cstdio>
 	<vector>
 	<cstring>
 	<algorithm>
+	"records.h"
 
 1724899164 c:\users\scott\onedrive\documentos\plantasvsprofes\sfml\include\sfml\graphics.hpp
 	<SFML/Window.hpp>

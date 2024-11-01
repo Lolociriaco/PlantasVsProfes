@@ -6,7 +6,7 @@
 
 using namespace std;
 
-#define MenuOpciones 3
+#define MenuOpciones 4
 
 class menuOpciones
 {
@@ -20,7 +20,6 @@ class menuOpciones
         void drawOpciones(sf::RenderWindow& window);
         void moveUp();
         void moveDown();
-
         int opcionPresionada()
         {
             return opcionElegida;
@@ -41,30 +40,38 @@ menuOpciones::menuOpciones(float width, float height)
     sf::Color darkGreen(0, 100, 0);
     sf::Color softYellow(255, 223, 0);
 
-    //jugar
+    //SILENCIAR MUSICA
     Opciones[0].setFont(fuente);
     Opciones[0].setFillColor(softYellow);
-    Opciones[0].setString("> Volumen <");
+    Opciones[0].setString("> Silenciar música <");
     Opciones[0].setCharacterSize(80);
-    Opciones[0].setPosition(820, 300);
+    Opciones[0].setPosition(700, 250);
     Opciones[0].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[0].setOutlineThickness(3);
-    //opciones
+    //REANUDAR MUSICA
     Opciones[1].setFont(fuente);
     Opciones[1].setFillColor(darkGreen);
-    Opciones[1].setString("> Controles <");
+    Opciones[1].setString("> Reanudar música <");
     Opciones[1].setCharacterSize(80);
-    Opciones[1].setPosition(810, 450);
+    Opciones[1].setPosition(705, 400);
     Opciones[1].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[1].setOutlineThickness(3);
-    //salir
+    //JUGABILIDAD
     Opciones[2].setFont(fuente);
     Opciones[2].setFillColor(darkGreen);
-    Opciones[2].setString("> Volver <");
+    Opciones[2].setString("> Jugabilidad <");
     Opciones[2].setCharacterSize(80);
-    Opciones[2].setPosition(850, 600);
+    Opciones[2].setPosition(795, 550);
     Opciones[2].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     Opciones[2].setOutlineThickness(3);
+    //salir
+    Opciones[3].setFont(fuente);
+    Opciones[3].setFillColor(darkGreen);
+    Opciones[3].setString("> Volver <");
+    Opciones[3].setCharacterSize(80);
+    Opciones[3].setPosition(850, 700);
+    Opciones[3].setOutlineColor(sf::Color::Black);  // Agregar contorno negro
+    Opciones[3].setOutlineThickness(3);
 
     opcionElegida = 0;
 
@@ -112,5 +119,7 @@ void menuOpciones::moveDown()
          Opciones[opcionElegida].setFillColor(softYellow);
      }
 }
+
+
 
 #endif // CLASEMENUOPCIONES_H_INCLUDED

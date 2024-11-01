@@ -44,6 +44,8 @@ public:
     bool gameWon();
     bool getPartidaGanada(){return partidaGanada;}
     void pausarJuego();
+    void playMusicIngame();
+    void pauseMusicIngame();
     enum PLANTA_SELECCIONADA{
         NINGUNA,
         LANZAGUISANTES,
@@ -89,7 +91,7 @@ private:
 
     sf::Font font;
 
-    int _totalSoles = 650;
+    int _totalSoles = 300;
 
     sf::Sprite fondoGameOver;
     sf::Texture texGameOver;
@@ -138,7 +140,19 @@ private:
     sf::SoundBuffer bufferRSP;
     sf::Sound soundRSP;
 
-    sf::SoundBuffer bufferWinOver;
-    sf::Sound soundWinOver;
+    sf::SoundBuffer bufferWin;
+    sf::Sound soundWin;
+
+    sf::SoundBuffer bufferGameOver;
+    sf::Sound soundGameOver;
+
+    sf::SoundBuffer bufferSoles;
+    sf::Sound soundSoles;
+
+//    sf::SoundBuffer bufferGuisante;
+//    sf::Sound soundGuisante;
+
+    sf::Music musicIngame;
+    bool isMusicIngamePlaying = false;
 };
 

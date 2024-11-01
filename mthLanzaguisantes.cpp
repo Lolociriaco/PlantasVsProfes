@@ -7,13 +7,13 @@ Lanzaguisantes::Lanzaguisantes(float y, float x)
     _shape.setPosition(x, y);
     _shape.setOutlineColor(sf::Color::Black);
     _shape.setOutlineThickness(3);
+
 }
 
 
 void Lanzaguisantes::disparando()
 {
     _shape.move(10,0);
-
 }
 
 

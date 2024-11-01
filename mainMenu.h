@@ -3,6 +3,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <SFML/Audio.hpp>
 
 using namespace std;
 
@@ -16,13 +17,17 @@ class mainMenu
         sf::Text MainMenu[Max_main_menu];
         sf::Font titulo;
         sf::Text tituloInicio;
+        sf::Music musicMenu;
+        bool isMusicPlaying = false;
 
     public:
         mainMenu (float ancho, float alto);
         void draw(sf::RenderWindow& window);
         void moveUp();
         void moveDown();
-
+        void playMusic();
+        void stopMusic();
+        void pauseMusic();
         int mainMenuPressed()
         {
             return mainMenuSelected;

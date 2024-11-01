@@ -1,11 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include "clasLanzaguisantes.h"
 #include <vector>
+#include <SFML/Audio.hpp>
 
 class Planta
 {
 private:
-    //Lanzaguisantes balas[100];
     sf::RectangleShape _plant;
     sf::Sprite _spritePlanta;
     sf::Texture _plantaTexture;
@@ -16,7 +16,8 @@ private:
     std::vector<Lanzaguisantes> _guisante;
     int fila;
     int columna;
-
+    sf::SoundBuffer bufferGuisante;
+    sf::Sound soundGuisante;
 public:
     Planta();
 
@@ -30,7 +31,7 @@ public:
     void posicionMatriz(int x, int y);
     int getFila(){return fila;}
     int getColumna(){return columna;}
-
+    void playSound();
 
     std::vector<Lanzaguisantes>& getGuisantes();
 

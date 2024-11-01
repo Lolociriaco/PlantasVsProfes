@@ -29,13 +29,15 @@ Gameplay::Gameplay()
 
     bufferMati.loadFromFile("jejetranqui.wav");
     soundMati.setBuffer(bufferMati);
+    soundPlantar.setVolume(100);
 
     bufferMaxi.loadFromFile("elforesunciclo.wav");
     soundMaxi.setBuffer(bufferMaxi);
+    soundPlantar.setVolume(100);
 
     bufferVastag.loadFromFile("bienvenidavastag.wav");
     soundVastag.setBuffer(bufferVastag);
-
+    soundPlantar.setVolume(100);
 
     bufferPlantar.loadFromFile("sonidoplantar.wav");
     soundPlantar.setBuffer(bufferPlantar);
@@ -43,12 +45,25 @@ Gameplay::Gameplay()
 
     bufferRSP.loadFromFile("sonidorsp.wav");
     soundRSP.setBuffer(bufferRSP);
-    soundRSP.setVolume(30);
+    soundRSP.setVolume(50);
 
-    bufferWinOver.loadFromFile("sonidoWin.wav");
-    soundWinOver.setBuffer(bufferWinOver);
-    soundWinOver.setVolume(30);
+    bufferWin.loadFromFile("sonidoWin.wav");
+    soundWin.setBuffer(bufferWin);
+    soundWin.setVolume(30);
 
+    bufferGameOver.loadFromFile("defeatsound.wav");
+    soundGameOver.setBuffer(bufferGameOver);
+    soundGameOver.setVolume(30);
+
+    bufferSoles.loadFromFile("sonidoGirasoles.wav");
+    soundSoles.setBuffer(bufferSoles);
+    soundSoles.setVolume(40);
+
+//    bufferGuisante.loadFromFile("sonidoguisante.wav");
+//    soundGuisante.setBuffer(bufferGuisante);
+//    soundGuisante.setVolume(60);
+
+    musicIngame.openFromFile("musicaIngame.ogg");
 }
 
 ///-----------------CMD----------------------
@@ -207,7 +222,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     for(Planta &p : plant)
     {
         p.update();
-
+//        p.playSound();
     }
 
     for (unsigned int i = 0; i < plant.size(); ++i)
@@ -359,6 +374,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 
         for(Girasol &g : girasol){
             if (g.checkSolClick(mousePosF)) {
+                soundSoles.play();
                 std::cout << "¡Hiciste clic en un sol!" << std::endl;
                 _totalSoles+=25;
                 // Aquí puedes eliminar el sol o realizar otra acción
@@ -370,12 +386,13 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     for(unsigned int i = 0; i < _sol.size(); ++i){
         _sol[i].solCayendo();
         if(_sol[i].isMouseOver(mousePosF)){
+            soundSoles.play();
             _sol.erase(_sol.begin() + i);
             _totalSoles+=25;
         }
     }
 
-    if(_ticsGm % 60 == 0){
+    if(_ticsGm % 300 == 0){
         _sol.push_back(Soles(-35, randomPos()));
     }
 
@@ -611,7 +628,7 @@ bool Gameplay::round5()
                     partidaGanada = true; /// DEJAR DEBAJO DE REINCIAR
                     if (!sonoGameOver)
                     {
-                        soundWinOver.play();
+                        soundWin.play();
                         sonoGameOver = true;
                     }
 
@@ -640,7 +657,7 @@ bool Gameplay::gameLost(){
         {
             if (!sonoGameOver)
             {
-                soundWinOver.play();
+                soundGameOver.play();
                 sonoGameOver = true;
             }
             return true;
@@ -693,7 +710,6 @@ void Gameplay::creadorJuego()
 bool Gameplay::cargarRecord(int ronda){
     ArchivoRecords arc("archivo.dat");
     Record record(jugador.getPlayerName(),tiempo,ronda);
-
 }
 
 
@@ -941,9 +957,27 @@ void Gameplay::setNuezTexture(const sf::Texture& texture)
     }
 }
 
+void Gameplay::playMusicIngame()
+{
+    if (!isMusicIngamePlaying) {
+        if (musicIngame.getStatus() == sf::SoundSource::Paused) {
+            musicIngame.play(); // Reanuda si está en pausa
+        } else {
+            musicIngame.setLoop(true);
+            musicIngame.setVolume(20.f);
+            musicIngame.play();
+        }
+        isMusicIngamePlaying = true;
+    }
+}
+
+void Gameplay::pauseMusicIngame()
+{
+    musicIngame.pause();
+    isMusicIngamePlaying = false;
+}
+
 ///-----------------RESTART----------------------
-
-
 
 void Gameplay::reiniciar()
 {
@@ -954,7 +988,7 @@ void Gameplay::reiniciar()
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
-    _totalSoles = 650;
+    _totalSoles = 300;
     compraPlanta.reiniciarContador();
     duracionCartel = 180;
     mostrarCartel = true;
@@ -1008,9 +1042,6 @@ void Gameplay::checkCollisions()
     plantsCollisions();
 
 }
-
-
-
 
 void Gameplay::plantsCollisions()
 {

@@ -5,6 +5,7 @@
 #include "claseMenuOpciones.h"
 #include "claseMenuIngame.h"
 #include "claseCompraPlantas.h"
+#include <SFML/Audio.hpp>
 
 using namespace std;
 
@@ -115,6 +116,8 @@ int main()
 
     sf::Texture solTexture;
     solTexture.loadFromFile("solcito.png");
+
+    bool musicaEnPausa = false;
 
     while (window.isOpen())
     {
@@ -237,15 +240,28 @@ int main()
                     else if (event.key.code == sf::Keyboard::Return)
                     {
                         int choosenOption = muestraOpciones.opcionPresionada();
+
                         if (choosenOption == 0)
                         {
-
+                            menu.pauseMusic();
+                            juego.pauseMusicIngame();
+                            musicaEnPausa = true;
                         }
+
                         else if (choosenOption == 1)
+                        {
+                            if (musicaEnPausa == true)
+                            {
+                                menu.playMusic();
+                                juego.playMusicIngame();
+                                musicaEnPausa = false;
+                            }
+                        }
+                        else if (choosenOption == 2)
                         {
 
                         }
-                        else if (choosenOption == 2)
+                        else if (choosenOption == 3)
                         {
                             estado = estadoAnterior;
                         }
@@ -281,13 +297,21 @@ int main()
 
             if (estado == MENU)
             {
+                juego.pauseMusicIngame();
+                if (!musicaEnPausa)
+                {
+                    menu.playMusic();
+                }
                 window.draw(fondoInicio);
                 menu.draw(window);
-
             }
             else if (estado == JUEGO)
             {
-
+                menu.stopMusic();
+                if (!musicaEnPausa)
+                {
+                    juego.playMusicIngame();
+                }
                 juego.cmd();
 
                 juego.update(event, window);

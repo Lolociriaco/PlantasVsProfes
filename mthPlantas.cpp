@@ -24,6 +24,11 @@ Planta::Planta() : _ticsPL(0)
     }
 
     std::cout<<"ENTRANDO AL CONSTRUCTOR \n";
+
+    bufferGuisante.loadFromFile("peashootersound.wav");
+    soundGuisante.setBuffer(bufferGuisante);
+    soundGuisante.setVolume(100);
+
 }
 
 
@@ -36,10 +41,10 @@ void Planta::cmd()
 void Planta::update()
 {
     _ticsPL++;
-
     if(_ticsPL % (60*3) == 0)
     {
         _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 95, _plant.getPosition().x + 25));  //95 = cabeza de la planta || 25 = ancho planta/2
+        playSound();
     }
 
     for(Lanzaguisantes &guis : _guisante)
@@ -99,15 +104,7 @@ void Planta::setTexture(const sf::Texture& texture)
     _spritePlanta.setTexture(texture);
 }
 
-//sf::RectangleShape& Planta::getDraw(sf::RenderWindow &window)  //cambiar para que reciba la ventana y dibuje
-//{
-//    for(auto &guis : _guisante)
-//    {
-//        guis.drawBall(window);
-//
-//    }
-//
-//
-//    window.draw(_plant);
-//    return _plant;
-//}
+void Planta::playSound()
+{
+    soundGuisante.play();
+}
