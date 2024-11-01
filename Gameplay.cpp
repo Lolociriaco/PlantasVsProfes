@@ -59,9 +59,6 @@ Gameplay::Gameplay()
     soundSoles.setBuffer(bufferSoles);
     soundSoles.setVolume(40);
 
-//    bufferGuisante.loadFromFile("sonidoguisante.wav");
-//    soundGuisante.setBuffer(bufferGuisante);
-//    soundGuisante.setVolume(60);
 
     musicIngame.openFromFile("musicaIngame.ogg");
 }
@@ -155,6 +152,7 @@ void Gameplay::selectPlantas(sf::RenderWindow &window){
 
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
+
     creadorJuego(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
 
@@ -687,7 +685,11 @@ void Gameplay::creadorJuego()
     else if (_ronda == 2) {
         if(round2()){
             std::cout<<"PERDIOOOOOOO"<<std::endl;
-            if(cargarRecord(2)) std::cout<<"hiciste un nuevo record"<<std::endl;
+            if(newRecord){
+                cargarRecord(2);
+                std::cout<<"hiciste un nuevo record"<<std::endl;
+                newRecord = false;
+            }
         }
     }
     else if (_ronda == 3) {
@@ -710,6 +712,25 @@ void Gameplay::creadorJuego()
 bool Gameplay::cargarRecord(int ronda){
     ArchivoRecords arc("archivo.dat");
     Record record(jugador.getPlayerName(),tiempo,ronda);
+
+//    arc.vaciarArchivo();
+//    arc.inicializarRegistros();
+//    arc.listarRegistros();
+
+
+    int pos = arc.comparaRegistros(record);
+    std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;
+    if(pos != -1 && pos < 8 ){
+        arc.modificarRegistro(record, pos);
+        return true;
+    }
+
+    std::cout<<"-----------------------------------------------------------------"<<std::endl;
+
+    arc.listarRegistros();
+
+
+    return false;
 }
 
 
@@ -1045,7 +1066,6 @@ void Gameplay::checkCollisions()
 
 void Gameplay::plantsCollisions()
 {
-    int random = randomZombie();
 
     for (Zombie &z : zombies) ///ITERO SOBRE TODOS LOS ZOMBIES
     {

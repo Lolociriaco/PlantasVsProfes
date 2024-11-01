@@ -124,6 +124,7 @@ private:
     bool sono = true;
     bool sonoGameOver = false;
     bool nuevoZombie = false;
+    bool newRecord = true;
 
     sf::SoundBuffer bufferMati;
     sf::Sound soundMati;
@@ -149,8 +150,7 @@ private:
     sf::SoundBuffer bufferSoles;
     sf::Sound soundSoles;
 
-//    sf::SoundBuffer bufferGuisante;
-//    sf::Sound soundGuisante;
+
 
     sf::Music musicIngame;
     bool isMusicIngamePlaying = false;

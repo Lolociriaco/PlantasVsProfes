@@ -5,6 +5,7 @@
 #include "claseMenuOpciones.h"
 #include "claseMenuIngame.h"
 #include "claseCompraPlantas.h"
+#include "menuRecords.h"
 #include <SFML/Audio.hpp>
 
 using namespace std;
@@ -33,6 +34,8 @@ int main()
     menuOpciones muestraOpciones(window.getSize().x, window.getSize().y);
 
     menuIngame ingameMenu(window.getSize().x, window.getSize().y);
+
+    menuRecords objMenuRecords;
 
     ///sprite fondo de partida
     sf::Sprite fondo;
@@ -281,10 +284,14 @@ int main()
                 int rondas[8];
 
                 for(int x = 0; x < 8; x++){
+                    record = archivo.leerRegistro(x);
+
                     nombres[x] = record.getNombre();
                     tiempos[x] = record.getTime();
                     rondas[x] = record.getRondas();
                 }
+
+                objMenuRecords.update(nombres,rondas,tiempos);
 
                 if (event.type == sf::Event::KeyPressed){
                     if (event.key.code == sf::Keyboard::Return){
@@ -339,6 +346,7 @@ int main()
             }
             else if (estado == RECORDS){
                 window.draw(fondoOpciones);
+                objMenuRecords.drawTexto(window);
             }
 
                 window.display();
