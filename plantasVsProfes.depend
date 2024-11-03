@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1730488909 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1730659979 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -9,11 +9,12 @@
 	"claseCompraPlantas.h"
 	"menuRecords.h"
 	<SFML/Audio.hpp>
+	"claseMenuJugabilidad.h"
 
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1730404740 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1730664442 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -21,13 +22,13 @@
 	<stdlib.h>
 	<time.h>
 
-1730403817 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1730662460 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
 1725320241 ated upstream
 
-1730492241 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1730656829 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -166,7 +167,7 @@
 	<iostream>
 	<SFML/Audio.hpp>
 
-1730484026 source:d:\documentos\utn\programacion\plantasvsprofes\mainmenu.cpp
+1730656829 source:d:\documentos\utn\programacion\plantasvsprofes\mainmenu.cpp
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>
@@ -207,7 +208,7 @@
 
 1726604038 D
 
-1730491978 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+1730664339 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -811,7 +812,7 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1730403108 source:d:\documentos\utn\programacion\plantasvsprofes\mtharcrecords.cpp
+1730403587 source:d:\documentos\utn\programacion\plantasvsprofes\mtharcrecords.cpp
 	<cstring>
 	"arcRecords.h"
 
@@ -842,5 +843,8 @@
 	"menuRecords.h"
 
 1730605998 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenujugabilidad.h
+	<SFML/Graphics.hpp>
+
+1730656829 d:\documentos\utn\programacion\plantasvsprofes\clasemenujugabilidad.h
 	<SFML/Graphics.hpp>
 

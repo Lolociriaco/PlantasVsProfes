@@ -20,6 +20,7 @@ class Zombie
 private:
     sf::RectangleShape _shape;
     sf::Sprite _spriteVikingo;
+    sf::Sprite _spriteSombra;
     sf::Texture _vikingoTexture;
 //    sf::Sprite _spriteMaxi;
 //    sf::Texture _maxiTexture;
@@ -41,10 +42,15 @@ private:
     float _frameDuration;   // Duración de cada cuadro en segundos
     sf::Clock _clock;       // Reloj para controlar el tiempo entre cuadros
     bool hablo = false;
+    float _velocidad = -1.5;
+    bool hitted = false;
+    sf::Color originalColor;
+    sf::Clock collisionClock; // Reloj para medir el tiempo de cambio de color
 
 public:
     Zombie();
 
+    sf::Sprite& getSpriteShadow();
     void cmd();
     void update();
     void atacando();

@@ -71,7 +71,8 @@ int main()
 
     fondoIngame.setTexture(texfondoIngame);
 
-    sf::Color transparentColor(0, 255, 0); // 128 es semi-transparente
+
+    sf::Color transparentColor(55, 125, 60, 100); // 128 es semi-transparente
     fondoIngame.setColor(transparentColor);
 
     ///carga de texturas de menu compra

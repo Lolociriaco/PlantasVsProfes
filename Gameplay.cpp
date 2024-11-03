@@ -800,6 +800,7 @@ void Gameplay::draw(sf::RenderWindow &window)
     for (Zombie& z : zombies)
     {
         window.draw(z.getShape());
+        window.draw(z.getSpriteShadow());
         window.draw(z.getSprite());
     }
 
