@@ -61,6 +61,7 @@ Gameplay::Gameplay()
 
 
     musicIngame.openFromFile("musicaIngame.ogg");
+    musicIngame.setVolume(50);
 }
 
 ///-----------------CMD----------------------
@@ -653,6 +654,8 @@ bool Gameplay::gameLost(){
     {
         if(z.getXPosition() < -50)
         {
+                musicIngame.pause();
+                isMusicIngamePlaying = false;
             if (!sonoGameOver)
             {
                 soundGameOver.play();
@@ -890,7 +893,6 @@ void Gameplay::draw(sf::RenderWindow &window)
             window.draw(gameOverText);
             window.draw(pressAnyKey);
 
-            //pausarJuego();
             pausarTodo = true;
             mostrarCartel = false; /// ?
     }
@@ -998,6 +1000,17 @@ void Gameplay::pauseMusicIngame()
     isMusicIngamePlaying = false;
 }
 
+void Gameplay::pauseGameOver()
+{
+    soundGameOver.stop();
+    soundWin.stop();
+}
+
+void Gameplay::pauseRSP()
+{
+    soundRSP.stop();
+}
+
 ///-----------------RESTART----------------------
 
 void Gameplay::reiniciar()
@@ -1018,6 +1031,7 @@ void Gameplay::reiniciar()
     partidaGanada = false;
     sono = true;
     sonoGameOver = false;
+
 
     for(int x = 0; x < 5;x++)
     {

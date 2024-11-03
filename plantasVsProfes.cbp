@@ -41,6 +41,7 @@
 		<Unit filename="claseCompraPlantas.h" />
 		<Unit filename="claseGirasol.h" />
 		<Unit filename="claseMenuIngame.h" />
+		<Unit filename="claseMenuJugabilidad.h" />
 		<Unit filename="claseMenuOpciones.h" />
 		<Unit filename="claseNuez.h" />
 		<Unit filename="clasePlantas.h" />
@@ -49,9 +50,12 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="mainMenu.cpp" />
 		<Unit filename="mainMenu.h" />
+		<Unit filename="menuRecords.h" />
+		<Unit filename="mthArcRecords.cpp" />
 		<Unit filename="mthCompraPlanta.cpp" />
 		<Unit filename="mthGirasol.cpp" />
 		<Unit filename="mthLanzaguisantes.cpp" />
+		<Unit filename="mthMenuRecs.cpp" />
 		<Unit filename="mthNuez.cpp" />
 		<Unit filename="mthPlantas.cpp" />
 		<Unit filename="mthZombies.cpp" />

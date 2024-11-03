@@ -67,7 +67,7 @@
 
 1725394092 
 
-1730473086 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
+1730604244 source:c:\users\scott\onedrive\documentos\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -75,7 +75,9 @@
 	"claseMenuOpciones.h"
 	"claseMenuIngame.h"
 	"claseCompraPlantas.h"
+	"menuRecords.h"
 	<SFML/Audio.hpp>
+	"claseMenuJugabilidad.h"
 
 1730426310 c:\users\scott\onedrive\documentos\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
@@ -91,7 +93,7 @@
 
 1725059327 shed changes
 
-1730473003 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
+1730598994 c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -123,7 +125,7 @@
 1730473394 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthlanzaguisantes.cpp
 	"clasLanzaguisantes.h"
 
-1730473382 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
+1730474526 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
@@ -154,7 +156,7 @@
 	<iostream>
 	<SFML/Audio.hpp>
 
-1730473102 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
+1730595937 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mainmenu.cpp
 	<iostream>
 	"mainMenu.h"
 	<SFML/Graphics.hpp>
@@ -224,7 +226,7 @@
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730473837 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
+1730598994 source:c:\users\scott\onedrive\documentos\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -823,4 +825,22 @@
 1730491978 source:d:\documentos\utn\programacion\plantasvsprofes\archivorecords.cpp
 	<cstring>
 	"arcRecords.h"
+
+1730595431 c:\users\scott\onedrive\documentos\plantasvsprofes\menurecords.h
+	<SFML/Graphics.hpp>
+	<iostream>
+
+1730595431 source:c:\users\scott\onedrive\documentos\plantasvsprofes\archivorecords.cpp
+	<cstring>
+	"arcRecords.h"
+
+1730426310 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mtharcrecords.cpp
+	<cstring>
+	"arcRecords.h"
+
+1730595431 source:c:\users\scott\onedrive\documentos\plantasvsprofes\mthmenurecs.cpp
+	"menuRecords.h"
+
+1730605998 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenujugabilidad.h
+	<SFML/Graphics.hpp>
 

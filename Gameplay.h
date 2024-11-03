@@ -46,6 +46,8 @@ public:
     void pausarJuego();
     void playMusicIngame();
     void pauseMusicIngame();
+    void pauseGameOver();
+    void pauseRSP();
     enum PLANTA_SELECCIONADA{
         NINGUNA,
         LANZAGUISANTES,

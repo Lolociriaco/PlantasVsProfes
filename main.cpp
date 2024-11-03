@@ -7,6 +7,7 @@
 #include "claseCompraPlantas.h"
 #include "menuRecords.h"
 #include <SFML/Audio.hpp>
+#include "claseMenuJugabilidad.h"
 
 using namespace std;
 
@@ -16,7 +17,8 @@ enum EstadoJuego
     JUEGO,
     OPCIONES,
     PAUSAINGAME,
-    RECORDS
+    RECORDS,
+    JUGABILIDAD
 };
 
 int main()
@@ -36,6 +38,8 @@ int main()
     menuIngame ingameMenu(window.getSize().x, window.getSize().y);
 
     menuRecords objMenuRecords;
+
+    Jugabilidad jugaMenu(window.getSize().x, window.getSize().y);
 
     ///sprite fondo de partida
     sf::Sprite fondo;
@@ -57,6 +61,18 @@ int main()
     texfondoOpciones.loadFromFile("OpcionesMenu.jpg");
 
     fondoOpciones.setTexture(texfondoOpciones);
+
+    ///sprite fondo menu ingame
+    sf::Sprite fondoIngame;
+    sf::Texture texfondoIngame;
+    if (!texfondoIngame.loadFromFile("fondoGameOver.png")) {
+        cout<<"el pepe";
+    }
+
+    fondoIngame.setTexture(texfondoIngame);
+
+    sf::Color transparentColor(0, 255, 0); // 128 es semi-transparente
+    fondoIngame.setColor(transparentColor);
 
     ///carga de texturas de menu compra
     CompraPlanta compra;
@@ -86,6 +102,7 @@ int main()
     EstadoJuego estadoAnterior = MENU;
 
     window.setFramerateLimit(60);
+
 
 
     Gameplay juego;
@@ -262,7 +279,7 @@ int main()
                         }
                         else if (choosenOption == 2)
                         {
-
+                            estado = JUGABILIDAD;
                         }
                         else if (choosenOption == 3)
                         {
@@ -299,12 +316,21 @@ int main()
                     }
                 }
             }
+            else if (estado == JUGABILIDAD)
+            {
+                if (event.type == sf::Event::KeyPressed){
+                    if (event.key.code == sf::Keyboard::Return){
+                        estado = OPCIONES;
+                    }
+                }
+            }
         }
         window.clear();
 
             if (estado == MENU)
             {
                 juego.pauseMusicIngame();
+                juego.pauseGameOver();
                 if (!musicaEnPausa)
                 {
                     menu.playMusic();
@@ -341,14 +367,20 @@ int main()
             }
             else if (estado == PAUSAINGAME)
             {
-                window.draw(fondoOpciones);
+                juego.pauseMusicIngame();
+                juego.pauseRSP();
+                window.draw(fondoIngame);
                 ingameMenu.drawOpciones(window);
             }
             else if (estado == RECORDS){
                 window.draw(fondoOpciones);
                 objMenuRecords.drawTexto(window);
             }
-
+            else if (estado == JUGABILIDAD)
+            {
+                window.draw(fondoOpciones);
+                jugaMenu.draw(window);
+            }
                 window.display();
         }
 
