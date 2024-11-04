@@ -298,18 +298,20 @@ int main()
                 Record record;
 
                 std::string nombres[8];
-                int tiempos[8];
+                int mins[8];
+                int segs[8];
                 int rondas[8];
 
                 for(int x = 0; x < 8; x++){
                     record = archivo.leerRegistro(x);
 
                     nombres[x] = record.getNombre();
-                    tiempos[x] = record.getTime();
+                    mins[x] = record.getTime()/60;
+                    segs[x] = record.getTime() % 60;
                     rondas[x] = record.getRondas();
                 }
 
-                objMenuRecords.update(nombres,rondas,tiempos);
+                objMenuRecords.update(nombres,rondas,mins,segs);
 
                 if (event.type == sf::Event::KeyPressed){
                     if (event.key.code == sf::Keyboard::Return){
@@ -345,6 +347,7 @@ int main()
                 if (!musicaEnPausa)
                 {
                     juego.playMusicIngame();
+
                 }
                 juego.cmd();
 

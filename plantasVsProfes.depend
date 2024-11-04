@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1730659979 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
+1730753710 source:d:\documentos\utn\programacion\plantasvsprofes\main.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -14,7 +14,7 @@
 1724967650 d:\documentos\utn\programacion\plantasvsprofes\shape.h
 	<SFML/Graphics.hpp>
 
-1730664442 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
+1730748254 source:d:\documentos\utn\programacion\plantasvsprofes\mthzombies.cpp
 	"claseZombies.h"
 	<iostream>
 	<SFML/Graphics.hpp>
@@ -22,13 +22,13 @@
 	<stdlib.h>
 	<time.h>
 
-1730662460 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
+1730748253 d:\documentos\utn\programacion\plantasvsprofes\clasezombies.h
 	<SFML/Graphics.hpp>
 	<SFML/Audio.hpp>
 
 1725320241 ated upstream
 
-1730656829 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
+1730754715 d:\documentos\utn\programacion\plantasvsprofes\gameplay.h
 	<SFML/Graphics.hpp>
 	"claseZombies.h"
 	"clasePlantas.h"
@@ -47,17 +47,16 @@
 	<stdlib.h>
 	<time.h>
 
-1730485812 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
+1730748254 source:d:\documentos\utn\programacion\plantasvsprofes\mthplantas.cpp
 	"clasePlantas.h"
 	"clasLanzaguisantes.h"
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730484026 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
+1730748253 d:\documentos\utn\programacion\plantasvsprofes\claseplantas.h
 	<SFML/Graphics.hpp>
 	"clasLanzaguisantes.h"
 	<vector>
-	<SFML/Audio.hpp>
 
 1730484026 d:\documentos\utn\programacion\plantasvsprofes\claslanzaguisantes.h
 	<SFML/Graphics.hpp>
@@ -188,14 +187,14 @@
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
 
-1730406331 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
+1730748253 d:\documentos\utn\programacion\plantasvsprofes\clasegirasol.h
 	"clasSoles.h"
 
 1730484026 d:\documentos\utn\programacion\plantasvsprofes\clasemenuopciones.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730406331 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
+1730748253 source:d:\documentos\utn\programacion\plantasvsprofes\mthgirasol.cpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"claseGirasol.h"
@@ -207,7 +206,7 @@
 
 1726604038 D
 
-1730664339 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
+1730755011 source:d:\documentos\utn\programacion\plantasvsprofes\gameplay.cpp
 	<SFML/Graphics.hpp>
 	<iostream>
 	"Gameplay.h"
@@ -222,7 +221,7 @@
 
 1729298504 382dfcfc712696341c2630fba2ac1b1687ddd
 
-1730259092 d:\documentos\utn\programacion\plantasvsprofes\clasemenuingame.h
+1730748253 d:\documentos\utn\programacion\plantasvsprofes\clasemenuingame.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
@@ -811,15 +810,15 @@
 	<SFML/Audio/Export.hpp>
 	<string>
 
-1730403587 source:d:\documentos\utn\programacion\plantasvsprofes\mtharcrecords.cpp
+1730754981 source:d:\documentos\utn\programacion\plantasvsprofes\mtharcrecords.cpp
 	<cstring>
 	"arcRecords.h"
 
-1730489550 d:\documentos\utn\programacion\plantasvsprofes\menurecords.h
+1730755913 d:\documentos\utn\programacion\plantasvsprofes\menurecords.h
 	<SFML/Graphics.hpp>
 	<iostream>
 
-1730489697 source:d:\documentos\utn\programacion\plantasvsprofes\mthmenurecs.cpp
+1730753905 source:d:\documentos\utn\programacion\plantasvsprofes\mthmenurecs.cpp
 	"menuRecords.h"
 
 1730491978 source:d:\documentos\utn\programacion\plantasvsprofes\archivorecords.cpp
@@ -844,6 +843,6 @@
 1730738708 c:\users\scott\onedrive\documentos\plantasvsprofes\clasemenujugabilidad.h
 	<SFML/Graphics.hpp>
 
-1730656829 d:\documentos\utn\programacion\plantasvsprofes\clasemenujugabilidad.h
+1730748253 d:\documentos\utn\programacion\plantasvsprofes\clasemenujugabilidad.h
 	<SFML/Graphics.hpp>
 

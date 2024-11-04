@@ -63,10 +63,19 @@ public:
     return random_number;
     }
 
+    void vaciarRecord(){
+    ArchivoRecords arc("archivo.dat");
+
+    arc.vaciarArchivo();
+    arc.inicializarRegistros();
+    arc.listarRegistros();
+    }
+
 
 private:
 
     int _ticsGm = 0;        // Contador de tiempo
+    int _zombieTimer = 0;
     int _contadorZombies = 0;
     int _ronda = 0;
 

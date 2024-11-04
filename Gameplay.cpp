@@ -29,19 +29,19 @@ Gameplay::Gameplay()
 
     bufferMati.loadFromFile("jejetranqui.wav");
     soundMati.setBuffer(bufferMati);
-    soundPlantar.setVolume(100);
+    soundPlantar.setVolume(540);
 
     bufferMaxi.loadFromFile("elforesunciclo.wav");
     soundMaxi.setBuffer(bufferMaxi);
-    soundPlantar.setVolume(100);
+    soundPlantar.setVolume(540);
 
     bufferVastag.loadFromFile("bienvenidavastag.wav");
     soundVastag.setBuffer(bufferVastag);
-    soundPlantar.setVolume(100);
+    soundPlantar.setVolume(540);
 
     bufferPlantar.loadFromFile("sonidoplantar.wav");
     soundPlantar.setBuffer(bufferPlantar);
-    soundPlantar.setVolume(50);
+    soundPlantar.setVolume(20);
 
     bufferRSP.loadFromFile("sonidorsp.wav");
     soundRSP.setBuffer(bufferRSP);
@@ -57,11 +57,11 @@ Gameplay::Gameplay()
 
     bufferSoles.loadFromFile("sonidoGirasoles.wav");
     soundSoles.setBuffer(bufferSoles);
-    soundSoles.setVolume(30);
+    soundSoles.setVolume(20);
 
     bufferGuisante.loadFromFile("peashootersound.wav");
     soundGuisante.setBuffer(bufferGuisante);
-    soundGuisante.setVolume(40);
+    soundGuisante.setVolume(10);
 
     musicIngame.openFromFile("musicaIngame.ogg");
     musicIngame.setVolume(50);
@@ -157,6 +157,7 @@ void Gameplay::selectPlantas(sf::RenderWindow &window){
 
 void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
 {
+    //vaciarRecord();//REINICIA LOS RECORDS
 
     creadorJuego(); ///NECESARIO PARA QUE SE DESPAUSE EL JUEGO NO MOVER COQUI
     _ticsGm++;
@@ -174,6 +175,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         return;
     }
 
+    _zombieTimer++;
 
     ///COMPRA PLANTA UPDATE
     compraPlanta.update();
@@ -431,22 +433,22 @@ bool Gameplay::round1()
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
 
-    if (8 < _ticsGm / 60){//PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
-        if (35 > _ticsGm / 60){
-            if (_ticsGm % (60 * 6) == 0)
+    if (8 < _zombieTimer / 60){//PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _zombieTimer / 60){
+            if (_zombieTimer % (60 * 6) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if(60 < _ticsGm / 60){
+            if(60 < _zombieTimer / 60){
                 if(zombies.size() == 0){
                     tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
             }
-            else if (_ticsGm % (60 * 5) == 0){
+            else if (_zombieTimer % (60 * 5) == 0){
                 crearZombie();
             }
         }
@@ -480,22 +482,22 @@ bool Gameplay::round2()
     }
 
 
-    if (6 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
-        if (35 > _ticsGm / 60){
-            if (_ticsGm % (60 * 5) == 0)
+    if (6 < _zombieTimer / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _zombieTimer / 60){
+            if (_zombieTimer % (60 * 5) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if(70 < _ticsGm / 60){
+            if(70 < _zombieTimer / 60){
                 if(zombies.size() == 0){
                     tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
             }
-            else if (_ticsGm % (60 * 4) == 0){
+            else if (_zombieTimer % (60 * 4) == 0){
                 crearZombie();
             }
         }
@@ -526,22 +528,22 @@ bool Gameplay::round3()
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
 
-    if (5.8 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
-        if (35 > _ticsGm / 60){
-            if (_ticsGm % (60 * 5) == 0)
+    if (5.8 < _zombieTimer / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _zombieTimer / 60){
+            if (_zombieTimer % (60 * 5) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if(70 < _ticsGm / 60){
+            if(70 < _zombieTimer / 60){
                 if(zombies.size() == 0){
                     tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
             }
-            else if (_ticsGm % (60 * 4) == 0){
+            else if (_zombieTimer % (60 * 4) == 0){
                 crearZombie();
             }
         }
@@ -573,22 +575,22 @@ bool Gameplay::round4()
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
 
-    if (5.5 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
-        if (45 > _ticsGm / 60){
-            if (_ticsGm % (60 * 5) == 0)
+    if (5.5 < _zombieTimer / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (45 > _zombieTimer / 60){
+            if (_zombieTimer % (60 * 5) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if(70 < _ticsGm / 60){
+            if(70 < _zombieTimer / 60){
                 if(zombies.size() == 0){
                     tiempo += compraPlanta.getSegundos();
                     _ronda++;
                     reiniciar();
                 }
             }
-            else if (_ticsGm % (60 * 4) == 0){
+            else if (_zombieTimer % (60 * 4) == 0){
                 crearZombie();
             }
         }
@@ -619,15 +621,15 @@ bool Gameplay::round5()
         return false; // No continua la ronda hasta que el cartel desaparezca
     }
 
-    if (5.1 < _ticsGm / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
-        if (35 > _ticsGm / 60){
-            if (_ticsGm % (60 * 4) == 0)
+    if (5.1 < _zombieTimer / 60){  //PREGUNTO SI EL TIEMPO ES MAYOR A CUATRO SEGUNDOS
+        if (35 > _zombieTimer / 60){
+            if (_zombieTimer % (60 * 4) == 0)
             {
                 crearZombie();
             }
         }
         else{
-            if(70 < _ticsGm / 60){
+            if(70 < _zombieTimer / 60){
                 if(zombies.size() == 0){
                     tiempo += compraPlanta.getSegundos();
                     _ronda++;
@@ -643,7 +645,7 @@ bool Gameplay::round5()
                     mostrarCartel = false; /// SOLO DEJO QUE SALGA EL CARTEL DE RONDA GANADA
                 }
             }
-            else if (_ticsGm % (60 * 3) == 0){
+            else if (_zombieTimer % (60 * 3) == 0){
                 crearZombie();
             }
         }
@@ -692,7 +694,7 @@ void Gameplay::creadorJuego()
 {
 
     if (_ronda == 1) {
-        if(round1()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        round1();
     }
     else if (_ronda == 2) {
         if(round2()){
@@ -705,28 +707,31 @@ void Gameplay::creadorJuego()
         }
     }
     else if (_ronda == 3) {
-        if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
-        if(newRecord){
+        if(round3()){
+            if(newRecord){
                 cargarRecord(3);
                 std::cout<<"hiciste un nuevo record"<<std::endl;
                 newRecord = false;
             }
+        }
     }
     else if (_ronda == 4) {
-        if(round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
-        if(newRecord){
+        if(round4()){
+            if(newRecord){
                 cargarRecord(4);
                 std::cout<<"hiciste un nuevo record"<<std::endl;
                 newRecord = false;
             }
+        }
     }
     else if (_ronda == 5) {
-        if(round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
-        if(newRecord){
+        if(round5()){
+            if(newRecord){
                 cargarRecord(5);
                 std::cout<<"hiciste un nuevo record"<<std::endl;
                 newRecord = false;
             }
+        }
     }
     else if (_ronda > 5)
     {
@@ -739,11 +744,6 @@ void Gameplay::creadorJuego()
 bool Gameplay::cargarRecord(int ronda){
     ArchivoRecords arc("archivo.dat");
     Record record(jugador.getPlayerName(),tiempo,ronda);
-
-//    arc.vaciarArchivo();
-//    arc.inicializarRegistros();
-//    arc.listarRegistros();
-
 
     int pos = arc.comparaRegistros(record);
     std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;    std::cout<<"POSICON "<<pos<<std::endl;
@@ -947,7 +947,9 @@ void Gameplay::draw(sf::RenderWindow &window)
 void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi, const sf::Texture& vastag, const sf::Texture& attackTexture, const sf::Texture& attackTextureVastag, const sf::Texture& attackTextureMaxi)
 {
     if(zombies.size()==0) return;
+
     if(nuevoZombie){
+        std::cout<<"cargando una sprites digo textourkajsdklf";
         int random = randomZombie();
 
         if (random == 1){
@@ -1013,7 +1015,7 @@ void Gameplay::playMusicIngame()
             musicIngame.play(); // Reanuda si está en pausa
         } else {
             musicIngame.setLoop(true);
-            musicIngame.setVolume(20.f);
+            musicIngame.setVolume(8);
             musicIngame.play();
         }
         isMusicIngamePlaying = true;
@@ -1042,12 +1044,14 @@ void Gameplay::pauseRSP()
 void Gameplay::reiniciar()
 {
     _ticsGm = 0;
+    _zombieTimer = 0;
     // Reiniciar todos los vectores
 
     zombies.clear();  // Vacía el vector de zombies.
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
+    _sol.clear();
     _totalSoles = 250;
     compraPlanta.reiniciarContador();
     duracionCartel = 180;
