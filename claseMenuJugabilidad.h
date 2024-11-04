@@ -57,10 +57,10 @@ Jugabilidad::Jugabilidad(float width, float height)
     seleccion.setOutlineThickness(3);
 
     opcionesSeleccion.setFont(font);
-    opcionesSeleccion.setString("1: Seleccionar girasol.\n"
-                                "2: Seleccionar lanzaguisante.\n"
-                                "3: Seleccionar nuez.\n"
-                                "Mouse: Click izquierdo sobre la planta para seleccionar.");
+    opcionesSeleccion.setString("- 1: Seleccionar girasol.\n"
+                                "- 2: Seleccionar lanzaguisante.\n"
+                                "- 3: Seleccionar nuez.\n"
+                                "- Mouse: Click izquierdo sobre la planta para seleccionar.");
     opcionesSeleccion.setCharacterSize(35);
     opcionesSeleccion.setFillColor(softYellow);
     opcionesSeleccion.setPosition(30, 250);
@@ -76,7 +76,7 @@ Jugabilidad::Jugabilidad(float width, float height)
     colocacion.setOutlineThickness(3);
 
     opcionesColocacion.setFont(font);
-    opcionesColocacion.setString("Mouse: Click izquierdo sobre la posicion deseada.");
+    opcionesColocacion.setString("- Mouse: Click izquierdo sobre la posicion deseada.");
     opcionesColocacion.setCharacterSize(35);
     opcionesColocacion.setFillColor(softYellow);
     opcionesColocacion.setPosition(30, 540);
@@ -92,7 +92,7 @@ Jugabilidad::Jugabilidad(float width, float height)
     captura.setOutlineThickness(3);
 
     opcionesCaptura.setFont(font);
-    opcionesCaptura.setString("Mouse: Posicionar cursor sobre el sol para capturarlo.");
+    opcionesCaptura.setString("- Mouse: Posicionar cursor sobre el sol para capturarlo.");
     opcionesCaptura.setCharacterSize(35);
     opcionesCaptura.setFillColor(softYellow);
     opcionesCaptura.setPosition(30, 710);
@@ -108,7 +108,7 @@ Jugabilidad::Jugabilidad(float width, float height)
     menuPausa.setOutlineThickness(3);
 
     opcionesMenu.setFont(font);
-    opcionesMenu.setString("ESCAPE: Abrir el menu de pausa.");
+    opcionesMenu.setString("- ESCAPE: Abrir el menu de pausa.");
     opcionesMenu.setCharacterSize(35);
     opcionesMenu.setFillColor(softYellow);
     opcionesMenu.setPosition(30, 870);

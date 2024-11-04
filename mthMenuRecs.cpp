@@ -8,7 +8,7 @@ menuRecords::menuRecords()
         cout<<"PEPE"<<endl;
     }
 
-    sf::Color darkGreen(  87, 133, 73  );
+    sf::Color darkGreen(0, 100, 0);
     sf::Color softYellow(255, 223, 0);
 
     for(int x = 0; x < _cantidadRecords; x++){

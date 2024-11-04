@@ -48,6 +48,7 @@ public:
     void pauseMusicIngame();
     void pauseGameOver();
     void pauseRSP();
+    void setPartidaGanada(){partidaGanada = false;}
     enum PLANTA_SELECCIONADA{
         NINGUNA,
         LANZAGUISANTES,
@@ -129,6 +130,7 @@ private:
 
     bool juegoPausado = false;
     bool partidaGanada = false;
+    bool mostrarVictoria = false;
 
     int tiempo = 0;
 

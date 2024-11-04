@@ -104,8 +104,6 @@ int main()
 
     window.setFramerateLimit(60);
 
-
-
     Gameplay juego;
 
     sf::Texture matiTex;
@@ -204,6 +202,7 @@ int main()
                     {
                         juego.reiniciar();
                         estado = MENU;
+
                     }
                 }
 
@@ -332,6 +331,7 @@ int main()
 
             if (estado == MENU)
             {
+
                 juego.pauseMusicIngame();
                 juego.pauseGameOver();
                 if (!musicaEnPausa)

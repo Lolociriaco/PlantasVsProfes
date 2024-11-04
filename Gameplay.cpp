@@ -194,7 +194,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                if(fila >= 1 && fila < 6 && columna >= 2 && columna <= 10)
                 {
                     if(matriz[fila-1][columna-2] == false)
                     {
@@ -274,7 +274,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                if(fila >= 1 && fila < 6 && columna >= 2 && columna <= 10)
                 {
                     if(matriz[fila-1][columna-2] == false)
                     {
@@ -330,7 +330,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
                 fila = mousePos.y / 175; //ancho de un casillero
                 columna = mousePos.x / 145; // largo de un casillero
 
-                if(fila >= 1 && fila < 7 && columna >= 2 && columna <= 10)
+                if(fila >= 1 && fila < 6 && columna >= 2 && columna <= 10)
                 {
                     if(matriz[fila-1][columna-2] == false)
                     {
@@ -635,6 +635,7 @@ bool Gameplay::round5()
                     _ronda++;
                     pausarTodo = true;
                     partidaGanada = true; /// DEJAR DEBAJO DE REINCIAR
+                    mostrarVictoria = true;
                     if (!sonoGameOver)
                     {
                         musicIngame.stop();
@@ -686,6 +687,7 @@ bool Gameplay::gameWon(){
     }
     return false;
 }
+
 
 ///-----------------GENERADOR DE ZOMBIES POR RONDA----------------------
 
@@ -898,7 +900,8 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     if (partidaGanada)
     {
-
+        if (mostrarVictoria)
+        {
             font.loadFromFile("Samdan.ttf");
 
             gameOverText.setFont(font);
@@ -921,6 +924,8 @@ void Gameplay::draw(sf::RenderWindow &window)
             window.draw(pressAnyKey);
 
             pausarTodo = true;
+        }
+
             mostrarCartel = false; /// ?
     }
 
@@ -1059,6 +1064,7 @@ void Gameplay::reiniciar()
     pausarTodo = true;
     juegoPausado = false;
     partidaGanada = false;
+    mostrarVictoria = false;
     sono = true;
     sonoGameOver = false;
 
