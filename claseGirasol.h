@@ -31,7 +31,7 @@ public:
     int getColumna(){return columna;}
     std::vector<Soles>& getSoles();
     bool checkSolClick(sf::Vector2f mousePos);
-
+    void playSound();
 
     sf::FloatRect getBounds() const {
         return _girasol.getGlobalBounds();

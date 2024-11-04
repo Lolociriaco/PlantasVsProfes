@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-Planta::Planta() : _ticsPL(0), sonidoDisparado(false)
+Planta::Planta() : _ticsPL(0)
 {
 
     _plant.setFillColor(sf::Color::Transparent);
@@ -25,10 +25,6 @@ Planta::Planta() : _ticsPL(0), sonidoDisparado(false)
 
     std::cout<<"ENTRANDO AL CONSTRUCTOR \n";
 
-    bufferGuisante.loadFromFile("peashootersound.wav");
-    soundGuisante.setBuffer(bufferGuisante);
-    soundGuisante.setVolume(100);
-
 }
 
 
@@ -41,11 +37,12 @@ void Planta::cmd()
 void Planta::update()
 {
     _ticsPL++;
+    sonidoDisparado = false;
+
     if(_ticsPL % (60*3) == 0)
     {
         _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 95, _plant.getPosition().x + 25));  //95 = cabeza de la planta || 25 = ancho planta/2
-        playSound();
-
+        sonidoDisparado = true;
     }
 
     for(Lanzaguisantes &guis : _guisante)
@@ -54,6 +51,10 @@ void Planta::update()
     }
 }
 
+bool Planta::getSonidoDisparado()
+{
+    return sonidoDisparado;
+}
 
 void Planta::hitPlant(){
     _hitTime++;
@@ -105,9 +106,3 @@ void Planta::setTexture(const sf::Texture& texture)
     _spritePlanta.setTexture(texture);
 }
 
-void Planta::playSound()
-{
-    std::cout << "Reproduciendo sonido de disparo\n";
-    soundGuisante.stop();
-    soundGuisante.play();
-}

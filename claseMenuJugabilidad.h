@@ -116,7 +116,7 @@ Jugabilidad::Jugabilidad(float width, float height)
     opcionesMenu.setOutlineThickness(3);
 
     cartelEnter.setFont(font);
-    cartelEnter.setFillColor(softYellow);
+    cartelEnter.setFillColor(darkGreen);
     cartelEnter.setCharacterSize(40);
     cartelEnter.setOutlineColor(sf::Color::Black);
     cartelEnter.setOutlineThickness(3);

@@ -45,7 +45,7 @@ Gameplay::Gameplay()
 
     bufferRSP.loadFromFile("sonidorsp.wav");
     soundRSP.setBuffer(bufferRSP);
-    soundRSP.setVolume(50);
+    soundRSP.setVolume(30);
 
     bufferWin.loadFromFile("sonidoWin.wav");
     soundWin.setBuffer(bufferWin);
@@ -57,11 +57,15 @@ Gameplay::Gameplay()
 
     bufferSoles.loadFromFile("sonidoGirasoles.wav");
     soundSoles.setBuffer(bufferSoles);
-    soundSoles.setVolume(40);
+    soundSoles.setVolume(30);
 
+    bufferGuisante.loadFromFile("peashootersound.wav");
+    soundGuisante.setBuffer(bufferGuisante);
+    soundGuisante.setVolume(40);
 
     musicIngame.openFromFile("musicaIngame.ogg");
     musicIngame.setVolume(50);
+
 }
 
 ///-----------------CMD----------------------
@@ -221,7 +225,11 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
     for(Planta &p : plant)
     {
         p.update();
-//        p.playSound();
+        if (p.getSonidoDisparado() == true)
+        {
+            soundGuisante.play();
+
+        }
     }
 
     for (unsigned int i = 0; i < plant.size(); ++i)
@@ -627,6 +635,7 @@ bool Gameplay::round5()
                     partidaGanada = true; /// DEJAR DEBAJO DE REINCIAR
                     if (!sonoGameOver)
                     {
+                        musicIngame.stop();
                         soundWin.play();
                         sonoGameOver = true;
                     }
@@ -654,8 +663,8 @@ bool Gameplay::gameLost(){
     {
         if(z.getXPosition() < -50)
         {
-                musicIngame.pause();
-                isMusicIngamePlaying = false;
+            musicIngame.pause();
+            isMusicIngamePlaying = false;
             if (!sonoGameOver)
             {
                 soundGameOver.play();
@@ -697,12 +706,27 @@ void Gameplay::creadorJuego()
     }
     else if (_ronda == 3) {
         if(round3()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(newRecord){
+                cargarRecord(3);
+                std::cout<<"hiciste un nuevo record"<<std::endl;
+                newRecord = false;
+            }
     }
     else if (_ronda == 4) {
         if(round4()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(newRecord){
+                cargarRecord(4);
+                std::cout<<"hiciste un nuevo record"<<std::endl;
+                newRecord = false;
+            }
     }
     else if (_ronda == 5) {
         if(round5()) std::cout<<"PERDIOOOOOOO"<<std::endl;
+        if(newRecord){
+                cargarRecord(5);
+                std::cout<<"hiciste un nuevo record"<<std::endl;
+                newRecord = false;
+            }
     }
     else if (_ronda > 5)
     {
@@ -780,18 +804,20 @@ void Gameplay::draw(sf::RenderWindow &window)
     sf::Text roundText;
     font.loadFromFile("Samdan.ttf");
     roundText.setFont(font);
+
     if (_ronda>5)
     {
         roundText.setString("ROUND " + std::to_string(_ronda-1));
     }
     else
-    roundText.setString("ROUND " + std::to_string(_ronda));
-    roundText.setString("ROUND " + std::to_string(_ronda));
-    roundText.setCharacterSize(75);
-    roundText.setFillColor(sf::Color(255, 223, 0));
-    roundText.setPosition(950, 35);
-    roundText.setOutlineColor(sf::Color::Black);
-    roundText.setOutlineThickness(5);
+    {
+        roundText.setString("ROUND " + std::to_string(_ronda));
+    }
+        roundText.setCharacterSize(75);
+        roundText.setFillColor(sf::Color(255, 223, 0));
+        roundText.setPosition(950, 35);
+        roundText.setOutlineColor(sf::Color::Black);
+        roundText.setOutlineThickness(5);
 
     window.draw(cuadroSoles);
     window.draw(solesText);
@@ -879,7 +905,7 @@ void Gameplay::draw(sf::RenderWindow &window)
             gameOverText.setString("¡YOU WIN!");
             gameOverText.setCharacterSize(110);
             gameOverText.setFillColor(sf::Color::Green);
-            gameOverText.setPosition(780, 350);
+            gameOverText.setPosition(760, 350);
             gameOverText.setOutlineColor(sf::Color::Black);
             gameOverText.setOutlineThickness(10);
 
@@ -939,7 +965,6 @@ void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi
         nuevoZombie = false;
     }
 }
-
 
 void Gameplay::setPlantaTexture(const sf::Texture& texture)
 {
@@ -1023,7 +1048,7 @@ void Gameplay::reiniciar()
     plant.clear();  // Vacía el vector de zombies.
     girasol.clear();  // Vacía el vector de zombies.
     nuez.clear();
-    _totalSoles = 300;
+    _totalSoles = 250;
     compraPlanta.reiniciarContador();
     duracionCartel = 180;
     mostrarCartel = true;

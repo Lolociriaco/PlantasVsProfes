@@ -8,7 +8,7 @@ menuRecords::menuRecords()
         cout<<"PEPE"<<endl;
     }
 
-    sf::Color darkGreen( 87, 160, 65 );
+    sf::Color darkGreen(0, 100, 0);
     sf::Color softYellow(255, 223, 0);
 
     for(int x = 0; x < _cantidadRecords; x++){
@@ -42,11 +42,11 @@ menuRecords::menuRecords()
 
     cartelEnter.setFont(fuente);
     cartelEnter.setFillColor(darkGreen);
-    cartelEnter.setCharacterSize(50);
+    cartelEnter.setCharacterSize(40);
     cartelEnter.setOutlineColor(sf::Color::Black);  // Agregar contorno negro
     cartelEnter.setOutlineThickness(3);
     cartelEnter.setString("Presiona enter para volver...");
-    cartelEnter.setPosition(1370, 995);
+    cartelEnter.setPosition(1470, 1010);
 
 
 

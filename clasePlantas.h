@@ -1,7 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include "clasLanzaguisantes.h"
 #include <vector>
-#include <SFML/Audio.hpp>
+
 
 class Planta
 {
@@ -16,9 +16,7 @@ private:
     std::vector<Lanzaguisantes> _guisante;
     int fila;
     int columna;
-    sf::SoundBuffer bufferGuisante;
-    sf::Sound soundGuisante;
-    bool sonidoDisparado = true;
+    bool sonidoDisparado = false;
 public:
     Planta();
 
@@ -33,7 +31,7 @@ public:
     int getFila(){return fila;}
     int getColumna(){return columna;}
     void playSound();
-
+    bool getSonidoDisparado();
     std::vector<Lanzaguisantes>& getGuisantes();
 
     sf::FloatRect getBounds() const {

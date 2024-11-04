@@ -93,7 +93,7 @@ private:
 
     sf::Font font;
 
-    int _totalSoles = 300;
+    int _totalSoles = 250;
 
     sf::Sprite fondoGameOver;
     sf::Texture texGameOver;
@@ -152,7 +152,9 @@ private:
     sf::SoundBuffer bufferSoles;
     sf::Sound soundSoles;
 
-
+    sf::SoundBuffer bufferGuisante;
+    sf::Sound soundGuisante;
+    bool sonoGuisante = false;
 
     sf::Music musicIngame;
     bool isMusicIngamePlaying = false;

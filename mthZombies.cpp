@@ -78,23 +78,6 @@ void Zombie::update()
         _spriteSombra.setTexture(_attackTexture);
         attackAnimation();
 
-//        if(!hablo){
-//
-//            if(_profe == MATI){
-//                soundMati.play();
-//                std::cout<<"hablohdfghdfghdfghdfgh";
-//            }
-//            else if(_profe == MAXI){
-//                soundMaxi.play();
-//                std::cout<<"hablohdfghdfghdfghdfgh";
-//            }
-//            else{
-//                soundVastag.play();
-//                std::cout<<"hablohdfghdfghdfghdfgh";
-//            }
-//
-//            hablo = true;
-//        }
         break;
     }
     if(!hitted){
@@ -204,6 +187,3 @@ void Zombie::punchZombie(){
     hitted = true;
     collisionClock.restart();
 }
-
-
-

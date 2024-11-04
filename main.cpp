@@ -65,14 +65,14 @@ int main()
     ///sprite fondo menu ingame
     sf::Sprite fondoIngame;
     sf::Texture texfondoIngame;
-    if (!texfondoIngame.loadFromFile("fondoGameOver.png")) {
+    if (!texfondoIngame.loadFromFile("utnINICIO.jpg")) {
         cout<<"el pepe";
     }
 
     fondoIngame.setTexture(texfondoIngame);
 
 
-    sf::Color transparentColor(55, 125, 60, 100); // 128 es semi-transparente
+    sf::Color transparentColor(255, 255, 255, 40); // 128 es semi-transparente
     fondoIngame.setColor(transparentColor);
 
     ///carga de texturas de menu compra

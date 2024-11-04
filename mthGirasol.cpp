@@ -89,3 +89,4 @@ void Girasol::setTexture(const sf::Texture& texture)
 {
     _spriteGirasol.setTexture(texture);
 }
+
