@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-Planta::Planta() : _ticsPL(0)
+Planta::Planta() : _ticsPL(0), sonidoDisparado(false)
 {
 
     _plant.setFillColor(sf::Color::Transparent);
@@ -45,6 +45,7 @@ void Planta::update()
     {
         _guisante.push_back(Lanzaguisantes(_plant.getPosition().y + _plant.getSize().y - 95, _plant.getPosition().x + 25));  //95 = cabeza de la planta || 25 = ancho planta/2
         playSound();
+
     }
 
     for(Lanzaguisantes &guis : _guisante)
@@ -106,5 +107,7 @@ void Planta::setTexture(const sf::Texture& texture)
 
 void Planta::playSound()
 {
+    std::cout << "Reproduciendo sonido de disparo\n";
+    soundGuisante.stop();
     soundGuisante.play();
 }

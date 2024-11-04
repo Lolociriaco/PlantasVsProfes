@@ -18,6 +18,7 @@ private:
     int columna;
     sf::SoundBuffer bufferGuisante;
     sf::Sound soundGuisante;
+    bool sonidoDisparado = true;
 public:
     Planta();
 

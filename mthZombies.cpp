@@ -16,7 +16,7 @@ Zombie::Zombie()
     _currentFrame = 0;
     _frameDuration = 0.1f;
 
-    _shape.setFillColor(sf::Color::Red);
+    _shape.setFillColor(sf::Color::Transparent);
     _shape.setSize(sf::Vector2f(50.f, 130.f));
 
     _spriteVikingo.setScale(2.f, 2.f);
