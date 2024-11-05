@@ -31,19 +31,19 @@ void Zombie::setProfe(int profe){
         _totalFrames = 10;
         _profe = MATI;
         _velocidad = -2.2;
-        _vida = 40;
+        _vida = 60;
     }
     else if(profe == 2){
         _totalFrames = 8;
         _profe = VASTAG;
-        _velocidad = -1.3;
-        _vida = 100;
+        _velocidad = -0.8;
+        _vida = 120;
     }
     else{
         _profe = MAXI;
         _totalFrames = 8;
-        _velocidad = -1.2;
-        _vida = 120;
+        _velocidad = -1.7;
+        _vida = 110;
     }
 }
 

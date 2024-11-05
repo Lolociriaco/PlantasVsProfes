@@ -17,6 +17,7 @@ private:
     int fila;
     int columna;
     bool sonidoDisparado = false;
+
 public:
     Planta();
 

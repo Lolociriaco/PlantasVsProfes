@@ -53,7 +53,7 @@ Gameplay::Gameplay()
 
     bufferGameOver.loadFromFile("defeatsound.wav");
     soundGameOver.setBuffer(bufferGameOver);
-    soundGameOver.setVolume(30);
+    soundGameOver.setVolume(20);
 
     bufferSoles.loadFromFile("sonidoGirasoles.wav");
     soundSoles.setBuffer(bufferSoles);
@@ -401,7 +401,7 @@ void Gameplay::update(const sf::Event& event,sf::RenderWindow &window)
         }
     }
 
-    if(_ticsGm % 300 == 0){
+    if(_ticsGm % 340 == 0){
         _sol.push_back(Soles(-35, randomPos()));
     }
 
