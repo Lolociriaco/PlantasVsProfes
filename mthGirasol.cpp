@@ -12,6 +12,10 @@ Girasol::Girasol()
     _spriteGirasol.setTexture(_girasolTexture);
     _spriteGirasol.setScale(1.f, 1.f);
 
+    _shadowGirasol.setTexture(_girasolTexture);
+    _shadowGirasol.setScale(1.f, 1.f);
+    _shadowGirasol.setColor(sf::Color(0,0,0,60));
+
 }
 
 void Girasol::cmd()
@@ -43,7 +47,16 @@ void Girasol::posInicio(int x, int y)
 {
     _girasol.setPosition(y*145 + 48, x*175);
     _spriteGirasol.setPosition(y*145 + 45, x*175);
+
+    _shadowGirasol.setPosition(y*145 + 90 , x*175 - 20);
+    _shadowGirasol.rotate(23);
+
+//    _shadowGirasol.setPosition(y*145 + 10, x*175 + 10);
+//    _shadowGirasol.rotate(-20);
     posicionMatriz(x,y);
+
+    originalColor = _spriteGirasol.getColor();
+
 }
 
 
@@ -76,11 +89,34 @@ sf::Sprite& Girasol::getSprite()
     return _spriteGirasol;
 }
 
-void Girasol::hitGirasol(){
+sf::Sprite& Girasol::getShadowSprite()
+{
+    return _shadowGirasol;
+}
+
+
+void Girasol::hitGirasol(int damage, int profesor){
     _hitTime++;
 
+    if(collisionClock.getElapsedTime().asSeconds() >= 0.23){
+        _spriteGirasol.setColor(originalColor);
+    }
+
+    if(_hitTime % (30) == 0 && profesor != 3){
+        sf::Color collisionColor = sf::Color::Red; // Color al momento de la colisión
+        _spriteGirasol.setColor(collisionColor);  // Cambia a color de colisión
+        collisionClock.restart();
+    }
+
+    if(_hitTime % (29) == 0 && profesor == 3){
+        sf::Color collisionColor = sf::Color::Red; // Color al momento de la colisión
+        _spriteGirasol.setColor(collisionColor);  // Cambia a color de colisión
+        collisionClock.restart();
+    }
+
+
     if(_hitTime % 60 == 0){
-        _vida-=25;
+        _vida-=damage;
     }
 }
 
@@ -88,5 +124,6 @@ void Girasol::hitGirasol(){
 void Girasol::setTexture(const sf::Texture& texture)
 {
     _spriteGirasol.setTexture(texture);
+    _shadowGirasol.setTexture(texture);
 }
 

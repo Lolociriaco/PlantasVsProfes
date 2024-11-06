@@ -701,7 +701,7 @@ void Gameplay::creadorJuego()
     else if (_ronda == 2) {
         if(round2()){
             std::cout<<"PERDIOOOOOOO"<<std::endl;
-            if(newRecord){
+            if(newRecord){ //BOOLEANO PARA QUE EL RECORD NO SE CARGUE MAS DE UNA VEZ
                 cargarRecord(2);
                 std::cout<<"hiciste un nuevo record"<<std::endl;
                 newRecord = false;
@@ -738,6 +738,11 @@ void Gameplay::creadorJuego()
     else if (_ronda > 5)
     {
         partidaGanada = true;
+        if(newRecord){
+            cargarRecord(5);
+            std::cout<<"hiciste un nuevo record"<<std::endl;
+            newRecord = false;
+        }
     }
 
 }
@@ -835,24 +840,28 @@ void Gameplay::draw(sf::RenderWindow &window)
     for(Planta &p : plant)
     {
         // Dibuja la forma geométrica
+        window.draw(p.getShadowSprite());
         window.draw(p.getShape());
+        window.draw(p.getSprite());
         for (auto& guis : p.getGuisantes())
         {
             window.draw(guis.getDraw());
+            window.draw(guis.getShadowDraw());
         }
 
-        window.draw(p.getSprite());
 
     }
 
     for(Nuez &n : nuez)
     {
+        window.draw(n.getShadowSprite());
         window.draw(n.getShape());
         window.draw(n.getSprite());
     }
 
     for(Girasol &g : girasol)
     {
+        window.draw(g.getShadowSprite());
         window.draw(g.getShape());
         window.draw(g.getSprite());
 
@@ -877,9 +886,9 @@ void Gameplay::draw(sf::RenderWindow &window)
 
             gameOverText.setFont(font);
             gameOverText.setString("GAME OVER");
-            gameOverText.setCharacterSize(110);
+            gameOverText.setCharacterSize(320);
             gameOverText.setFillColor(sf::Color::Red);
-            gameOverText.setPosition(760, 350);
+            gameOverText.setPosition(360, 350);
             gameOverText.setOutlineColor(sf::Color::Black);
             gameOverText.setOutlineThickness(10);
 
@@ -1131,7 +1140,19 @@ void Gameplay::plantsCollisions()
 
                 if (enColision)
                 {
-                    p.hitPlant();
+                    if (z.getProfe() == MATI)
+                    {
+                        p.hitPlant(40,1);
+                    }
+                    else if (z.getProfe() == VASTAG)
+                    {
+                        p.hitPlant(20,2);
+                    }
+                    else if (z.getProfe() == MAXI)
+                    {
+                        p.hitPlant(50,3);
+                    }
+
                     if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                     {
                             if (z.getProfe() == MATI)
@@ -1167,7 +1188,22 @@ void Gameplay::plantsCollisions()
                     enColision = true;  // Si colisiona con alguna planta, se marca como true
                     if (enColision)
                     {
-                        n.hitNutt();
+
+
+                        if (z.getProfe() == MATI)
+                        {
+                            n.hitNutt(40,1);
+                        }
+                        else if (z.getProfe() == VASTAG)
+                        {
+                            n.hitNutt(20,2);
+                        }
+                        else if (z.getProfe() == MAXI)
+                        {
+                            n.hitNutt(50,3);
+                        }
+
+
                         if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                         {
                             if (z.getProfe() == MATI)
@@ -1207,7 +1243,20 @@ void Gameplay::plantsCollisions()
 
                     if (enColision)
                     {
-                        g.hitGirasol();
+
+                        if (z.getProfe() == MATI)
+                        {
+                            g.hitGirasol(40,1);
+                        }
+                        else if (z.getProfe() == VASTAG)
+                        {
+                            g.hitGirasol(20,2);
+                        }
+                        else if (z.getProfe() == MAXI)
+                        {
+                            g.hitGirasol(50,3);
+                        }
+
                         if (z.getEstado() != ESTADOS_ZOMBIES::ATACANDO)
                         {
                             if (z.getProfe() == MATI)

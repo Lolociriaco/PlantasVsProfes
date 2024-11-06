@@ -7,6 +7,7 @@ class Girasol
 private:
     sf::RectangleShape _girasol;
     sf::Sprite _spriteGirasol;
+    sf::Sprite _shadowGirasol;
     sf::Texture _girasolTexture;
 
     int _vida = 100;
@@ -15,6 +16,8 @@ private:
     int fila;
     int columna;
     std::vector<Soles> _sol;
+    sf::Color originalColor;
+    sf::Clock collisionClock; // Reloj para medir el tiempo de cambio de color
 
 public:
     Girasol();
@@ -24,7 +27,8 @@ public:
     void posInicio(int x, int y);
     sf::RectangleShape& getShape();
     sf::Sprite& getSprite();
-    void hitGirasol();
+    sf::Sprite& getShadowSprite();
+    void hitGirasol(int damage, int profesor);
     void setTexture(const sf::Texture& texture);
     void posicionMatriz(int x, int y);
     int getFila(){return fila;}

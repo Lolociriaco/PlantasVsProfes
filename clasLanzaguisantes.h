@@ -7,6 +7,7 @@ class Lanzaguisantes
 {
 private:
     sf::CircleShape _shape;
+    sf::CircleShape _shadow;
 
 public:
     Lanzaguisantes(float y, float x);
@@ -17,6 +18,10 @@ public:
 
     sf::CircleShape& getDraw(){
         return _shape;
+    }
+
+    sf::CircleShape& getShadowDraw(){
+        return _shadow;
     }
 
     sf::FloatRect getBounds() const { //parte de la colision

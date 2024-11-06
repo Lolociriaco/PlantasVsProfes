@@ -150,7 +150,7 @@ void Zombie::posInicio()
 
 
     _spriteSombra.setPosition(_shape.getPosition().x + offsetX + 120.f, _shape.getPosition().y + offsetY - 43.f);
-    _spriteSombra.setColor(sf::Color(0, 0, 0, 100));
+    _spriteSombra.setColor(sf::Color(0, 0, 0, 60));
     _spriteSombra.rotate(25);
 }
 

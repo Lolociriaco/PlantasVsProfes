@@ -42,7 +42,7 @@ int ArchivoRecords::comparaRegistros(Record newRecord){
     Record obj;
     for(int i=0; i<cantReg; i++){
         obj = leerRegistro(i);
-        if(obj.getTime() == 0 || obj.getRondas() < newRecord.getRondas() || (obj.getTime() > newRecord.getTime() && obj.getRondas() == newRecord.getRondas())){
+        if(obj.getTime() == 0 || obj.getRondas() < newRecord.getRondas() || (obj.getTime() < newRecord.getTime() && obj.getRondas() == newRecord.getRondas())){
             return i; ///TENGO EN CUANTA SI EL TIEMPO ESTA VACIO, SI EL OTRO JUGADOR LLEGO A MAS RONDAS Y SI EN LA MISMA RONDA EL JUGADOR HIZO MENOR TIEMPO
         }
     }
