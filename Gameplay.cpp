@@ -447,6 +447,7 @@ bool Gameplay::round1()
                     _ronda++;
                     reiniciar();
                 }
+
             }
             else if (_zombieTimer % (60 * 5) == 0){
                 crearZombie();
@@ -915,21 +916,30 @@ void Gameplay::draw(sf::RenderWindow &window)
 
             gameOverText.setFont(font);
             gameOverText.setString("¡YOU WIN!");
-            gameOverText.setCharacterSize(110);
+            gameOverText.setCharacterSize(320);
             gameOverText.setFillColor(sf::Color::Green);
-            gameOverText.setPosition(760, 350);
+            gameOverText.setPosition(400, 290);
             gameOverText.setOutlineColor(sf::Color::Black);
             gameOverText.setOutlineThickness(10);
+
+            continuaraText.setFont(font);
+            continuaraText.setString("LOS PROFES VOLVERAN...");
+            continuaraText.setCharacterSize(45);
+            continuaraText.setFillColor(sf::Color::Green);
+            continuaraText.setPosition(770, 620);
+            continuaraText.setOutlineThickness(7);
+            continuaraText.setOutlineColor(sf::Color::Black);
 
             pressAnyKey.setFont(font);
             pressAnyKey.setString("PRESIONA 'ENTER' PARA CONTINUAR");
             pressAnyKey.setCharacterSize(45);
             pressAnyKey.setFillColor(sf::Color::Green);
-            pressAnyKey.setPosition(695, 850);
+            pressAnyKey.setPosition(695, 880);
             pressAnyKey.setOutlineColor(sf::Color::Black);
             pressAnyKey.setOutlineThickness(7);
 
             window.draw(gameOverText);
+            window.draw(continuaraText);
             window.draw(pressAnyKey);
 
             pausarTodo = true;
@@ -943,7 +953,7 @@ void Gameplay::draw(sf::RenderWindow &window)
         texReadySetPlant.loadFromFile("cartelReady.png");
         readySetPlant.setTexture(texReadySetPlant);
         readySetPlant.setScale(1.f, 1.f);
-        readySetPlant.setPosition(800, 300);
+        readySetPlant.setPosition(700, 280);
         window.draw(readySetPlant);
     }
 
@@ -1059,7 +1069,7 @@ void Gameplay::reiniciar()
 {
     _ticsGm = 0;
     _zombieTimer = 0;
-    // Reiniciar todos los vectores
+
 
     zombies.clear();  // Vacía el vector de zombies.
     plant.clear();  // Vacía el vector de zombies.
@@ -1175,6 +1185,7 @@ void Gameplay::plantsCollisions()
 
                 break;  // No hace falta seguir verificando otras plantas para este zombie
             }
+            p.reiniciarColor();
         }
 
         /// SI NO HAY COLISION CON PLANTAS PREGUNTO SI HAY COLISION CON NUECES
@@ -1226,7 +1237,7 @@ void Gameplay::plantsCollisions()
 
                     break;  // No hace falta seguir verificando otras plantas para este zombie
                 }
-
+                n.reiniciarColor();
             }
         }
 
@@ -1279,7 +1290,7 @@ void Gameplay::plantsCollisions()
 
                     break;  // No hace falta seguir verificando otras plantas para este zombie
                 }
-
+                g.reiniciarColor();
             }
         }
 

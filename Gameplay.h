@@ -110,6 +110,7 @@ private:
 
     sf::Text pressAnyKey;
     sf::Text gameOverText;
+    sf::Text continuaraText;
 
     sf::Text youWonText;
     sf::Text salvastePlantasText;

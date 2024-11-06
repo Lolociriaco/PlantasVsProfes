@@ -36,6 +36,13 @@ public:
     std::vector<Soles>& getSoles();
     bool checkSolClick(sf::Vector2f mousePos);
     void playSound();
+    void reiniciarColor()
+    {
+        if(collisionClock.getElapsedTime().asSeconds() >= 0.23)
+        {
+            _spriteGirasol.setColor(originalColor);
+        }
+    }
 
     sf::FloatRect getBounds() const {
         return _girasol.getGlobalBounds();

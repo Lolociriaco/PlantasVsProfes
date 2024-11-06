@@ -37,6 +37,13 @@ public:
     int getColumna(){return columna;}
     void playSound();
     bool getSonidoDisparado();
+    void reiniciarColor()
+    {
+        if(collisionClock.getElapsedTime().asSeconds() >= 0.23)
+        {
+            _spritePlanta.setColor(originalColor);
+        }
+    }
     std::vector<Lanzaguisantes>& getGuisantes();
 
     sf::FloatRect getBounds() const {

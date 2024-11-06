@@ -36,7 +36,7 @@ void Zombie::setProfe(int profe){
     else if(profe == 2){
         _totalFrames = 8;
         _profe = VASTAG;
-        _velocidad = -0.8;
+        _velocidad = -1.2;
         _vida = 120;
     }
     else{

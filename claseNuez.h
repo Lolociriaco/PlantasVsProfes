@@ -30,7 +30,13 @@ public:
     void posicionMatriz(int x, int y);
     int getFila(){return fila;}
     int getColumna(){return columna;}
-
+    void reiniciarColor()
+    {
+        if(collisionClock.getElapsedTime().asSeconds() >= 0.23)
+        {
+            _spriteNuez.setColor(originalColor);
+        }
+    }
 
     bool isAlive(){
         return _vida > 0;
