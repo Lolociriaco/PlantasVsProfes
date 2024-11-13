@@ -61,6 +61,8 @@ mainMenu::mainMenu(float ancho, float alto)
 
     mainMenuSelected = 0;
 
+    musicMenu.openFromFile("cancionPartida.ogg");
+    musicMenu.setVolume(50);
 }
 
 ///destructor
@@ -106,4 +108,29 @@ void mainMenu::moveDown()
          MainMenu[mainMenuSelected].setFillColor(softYellow);
 
      }
+}
+
+void mainMenu::playMusic()
+{
+    if (!isMusicPlaying) {
+        if (musicMenu.getStatus() == sf::SoundSource::Paused) {
+            musicMenu.play(); // Reanuda si está en pausa
+        } else {
+            musicMenu.setLoop(true);
+            musicMenu.setVolume(20.f);
+            musicMenu.play();
+        }
+        isMusicPlaying = true;
+    }
+}
+
+void mainMenu::stopMusic()
+{
+    musicMenu.stop();
+}
+
+void mainMenu::pauseMusic()
+{
+        musicMenu.pause();
+        isMusicPlaying = false;
 }

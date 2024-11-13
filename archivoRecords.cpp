@@ -141,5 +141,3 @@ int ArchivoRecords::getRondas(int i){
     std::cout<<std::endl;
 
 }
-
-

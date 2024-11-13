@@ -12,7 +12,7 @@ private:
     int rondasJugadas;
 
 public:
-       Record(const std::string& nombre = "", int tiempo = 0, int rondas = 0)
+       Record(const std::string& nombre = "VACIO", int tiempo = 0, int rondas = 0)
         : tiempo(tiempo), rondasJugadas(rondas) {
         strncpy(nombreJugador, nombre.c_str(), sizeof(nombreJugador) - 1);
         nombreJugador[sizeof(nombreJugador) - 1] = '\0'; // Asegura que el nombre esté terminado en null

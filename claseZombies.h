@@ -1,4 +1,7 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+
 
 enum ESTADOS_ZOMBIES
 {
@@ -6,34 +9,45 @@ enum ESTADOS_ZOMBIES
     ATACANDO
 };
 
+enum TIPO_ZOMBIE{
+    MAXI,
+    MATI,
+    VASTAG
+};
+
 class Zombie
 {
 private:
     sf::RectangleShape _shape;
     sf::Sprite _spriteVikingo;
+    sf::Sprite _spriteSombra;
     sf::Texture _vikingoTexture;
-//    sf::Sprite _spriteMaxi;
-//    sf::Texture _maxiTexture;
-//    sf::Sprite _spriteVastag;
-//    sf::Texture _vastagTexture;
+
     int _vida = 100;
     int _danio;
     ESTADOS_ZOMBIES _estado;
+    TIPO_ZOMBIE _profe;
 
     sf::Texture _attackTexture;
 
-    // Variables para la animación del sprite
-    int _frameWidth;        // Ancho de un cuadro del sprite
-    int _frameHeight;       // Alto de un cuadro del sprite
-    int _totalFrames;       // Total de cuadros en la animación
-    int _totalAttackFrames;       // Total de cuadros en la animación
-    int _currentFrame;      // Cuadro actual que se está mostrando
-    float _frameDuration;   // Duración de cada cuadro en segundos
+
+    int _frameWidth;
+    int _frameHeight;
+    int _totalFrames;
+    int _totalAttackFrames;
+    int _currentFrame;
+    float _frameDuration;
     sf::Clock _clock;       // Reloj para controlar el tiempo entre cuadros
+    bool hablo = false;
+    float _velocidad = -1.5;
+    bool hitted = false;
+    sf::Color originalColor;
+    sf::Clock collisionClock; // Reloj para medir el tiempo de cambio de color
 
 public:
     Zombie();
 
+    sf::Sprite& getSpriteShadow();
     void cmd();
     void update();
     void atacando();
@@ -44,6 +58,8 @@ public:
     void setAttackTexture(const sf::Texture& attackTexture);
     void reiniciar();
     void punchZombie();
+    void setProfe(int profe);
+    TIPO_ZOMBIE getProfe();
 
     void attackAnimation();
 

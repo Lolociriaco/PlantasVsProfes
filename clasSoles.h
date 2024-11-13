@@ -71,6 +71,19 @@ public:
         inputClock.restart();
     }
 
+    void solCayendo(){
+        _shape.move(0,+2);
+        _spriteSol.move(0,+2);
+    }
+
+    sf::CircleShape getShape(){
+        return _shape;
+    }
+
+    bool isMouseOver(sf::Vector2f mousePos) const {
+        return _spriteSol.getGlobalBounds().contains(mousePos);
+    }
+
 };
 
 

@@ -44,7 +44,7 @@ menuIngame::menuIngame(float width, float height)
     Opciones[0].setFillColor(softYellow);
     Opciones[0].setString("> Reanudar <");
     Opciones[0].setCharacterSize(80);
-    Opciones[0].setPosition(810, 300);
+    Opciones[0].setPosition(780, 300);
     Opciones[0].setOutlineColor(sf::Color::Black);
     Opciones[0].setOutlineThickness(3);
 
@@ -53,7 +53,7 @@ menuIngame::menuIngame(float width, float height)
     Opciones[1].setFillColor(darkGreen);
     Opciones[1].setString("> Opciones <");
     Opciones[1].setCharacterSize(80);
-    Opciones[1].setPosition(815, 450);
+    Opciones[1].setPosition(785, 450);
     Opciones[1].setOutlineColor(sf::Color::Black);
     Opciones[1].setOutlineThickness(3);
 
@@ -62,7 +62,7 @@ menuIngame::menuIngame(float width, float height)
     Opciones[2].setFillColor(darkGreen);
     Opciones[2].setString("> Volver <");
     Opciones[2].setCharacterSize(80);
-    Opciones[2].setPosition(832, 600);
+    Opciones[2].setPosition(802, 600);
     Opciones[2].setOutlineColor(sf::Color::Black);
     Opciones[2].setOutlineThickness(3);
 

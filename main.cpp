@@ -5,6 +5,9 @@
 #include "claseMenuOpciones.h"
 #include "claseMenuIngame.h"
 #include "claseCompraPlantas.h"
+#include "menuRecords.h"
+#include <SFML/Audio.hpp>
+#include "claseMenuJugabilidad.h"
 
 using namespace std;
 
@@ -14,7 +17,8 @@ enum EstadoJuego
     JUEGO,
     OPCIONES,
     PAUSAINGAME,
-    RECORDS
+    RECORDS,
+    JUGABILIDAD
 };
 
 int main()
@@ -32,6 +36,10 @@ int main()
     menuOpciones muestraOpciones(window.getSize().x, window.getSize().y);
 
     menuIngame ingameMenu(window.getSize().x, window.getSize().y);
+
+    menuRecords objMenuRecords;
+
+    Jugabilidad jugaMenu(window.getSize().x, window.getSize().y);
 
     ///sprite fondo de partida
     sf::Sprite fondo;
@@ -53,6 +61,19 @@ int main()
     texfondoOpciones.loadFromFile("OpcionesMenu.jpg");
 
     fondoOpciones.setTexture(texfondoOpciones);
+
+    ///sprite fondo menu ingame
+    sf::Sprite fondoIngame;
+    sf::Texture texfondoIngame;
+    if (!texfondoIngame.loadFromFile("utnINICIO.jpg")) {
+        cout<<"el pepe";
+    }
+
+    fondoIngame.setTexture(texfondoIngame);
+
+
+    sf::Color transparentColor(255, 255, 255, 40); // 128 es semi-transparente
+    fondoIngame.setColor(transparentColor);
 
     ///carga de texturas de menu compra
     CompraPlanta compra;
@@ -83,7 +104,6 @@ int main()
 
     window.setFramerateLimit(60);
 
-
     Gameplay juego;
 
     sf::Texture matiTex;
@@ -95,14 +115,14 @@ int main()
     sf::Texture maxiTex;
     maxiTex.loadFromFile("maxicaminando.png");
 
-//    sf::Texture attackMaxi;
-//    attackMaxi.loadFromFile("maxiatacando.png");
+    sf::Texture attackMaxi;
+    attackMaxi.loadFromFile("maxiatacando.png");
 
     sf::Texture vastagTex;
     vastagTex.loadFromFile("vastagcaminando.png");
 
-//    sf::Texture attackVastag;
-//    attackVastag.loadFromFile("vastagatacando.png");
+    sf::Texture attackVastag;
+    attackVastag.loadFromFile("vastagatacando.png");
 
     sf::Texture plantaTexture;
     plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
@@ -115,6 +135,8 @@ int main()
 
     sf::Texture solTexture;
     solTexture.loadFromFile("solcito.png");
+
+    bool musicaEnPausa = false;
 
     while (window.isOpen())
     {
@@ -169,7 +191,9 @@ int main()
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
                     {
                         std::cout<<"ENTROOOOOO";
-                        //juego.reiniciar();
+                        juego.setRonda(0);
+                        juego.setNewRecord();
+                        juego.jugador.reinciarNombre();
                         estado = MENU;
                     }
                 }
@@ -180,6 +204,7 @@ int main()
                     {
                         juego.reiniciar();
                         estado = MENU;
+
                     }
                 }
 
@@ -237,15 +262,28 @@ int main()
                     else if (event.key.code == sf::Keyboard::Return)
                     {
                         int choosenOption = muestraOpciones.opcionPresionada();
+
                         if (choosenOption == 0)
                         {
-
+                            menu.pauseMusic();
+                            juego.pauseMusicIngame();
+                            musicaEnPausa = true;
                         }
+
                         else if (choosenOption == 1)
                         {
-
+                            if (musicaEnPausa == true)
+                            {
+                                menu.playMusic();
+                                juego.playMusicIngame();
+                                musicaEnPausa = false;
+                            }
                         }
                         else if (choosenOption == 2)
+                        {
+                            estado = JUGABILIDAD;
+                        }
+                        else if (choosenOption == 3)
                         {
                             estado = estadoAnterior;
                         }
@@ -256,23 +294,37 @@ int main()
                     }
                 }
             }
-            else if(estado == RECORDS){
+                else if(estado == RECORDS){
                 ArchivoRecords archivo("archivo.dat");
                 Record record;
 
                 std::string nombres[8];
-                int tiempos[8];
+                int mins[8];
+                int segs[8];
                 int rondas[8];
 
                 for(int x = 0; x < 8; x++){
+                    record = archivo.leerRegistro(x);
+
                     nombres[x] = record.getNombre();
-                    tiempos[x] = record.getTime();
+                    mins[x] = record.getTime()/60;
+                    segs[x] = record.getTime() % 60;
                     rondas[x] = record.getRondas();
                 }
+
+                objMenuRecords.update(nombres,rondas,mins,segs);
 
                 if (event.type == sf::Event::KeyPressed){
                     if (event.key.code == sf::Keyboard::Return){
                         estado = MENU;
+                    }
+                }
+            }
+            else if (estado == JUGABILIDAD)
+            {
+                if (event.type == sf::Event::KeyPressed){
+                    if (event.key.code == sf::Keyboard::Return){
+                        estado = OPCIONES;
                     }
                 }
             }
@@ -281,13 +333,24 @@ int main()
 
             if (estado == MENU)
             {
+
+                juego.pauseMusicIngame();
+                juego.pauseGameOver();
+                if (!musicaEnPausa)
+                {
+                    menu.playMusic();
+                }
                 window.draw(fondoInicio);
                 menu.draw(window);
-
             }
             else if (estado == JUEGO)
             {
+                menu.stopMusic();
+                if (!musicaEnPausa)
+                {
+                    juego.playMusicIngame();
 
+                }
                 juego.cmd();
 
                 juego.update(event, window);
@@ -295,12 +358,12 @@ int main()
                 window.draw(fondo);
                 compra.draw(window);
 
-                juego.draw(window);
-                juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati);
+                juego.setZombieTexture(matiTex, maxiTex, vastagTex, attackMati, attackVastag, attackMaxi);
                 juego.setPlantaTexture(plantaTexture);
                 juego.setGirasolTexture(girasolTexture, solTexture);
+                juego.setSolTexture(solTexture);
                 juego.setNuezTexture(nuezTexture);
-//                juego.setSolTexture(solTexture);
+                juego.draw(window);
 
             }
             else if (estado == OPCIONES)
@@ -310,13 +373,20 @@ int main()
             }
             else if (estado == PAUSAINGAME)
             {
-                window.draw(fondoOpciones);
+                juego.pauseMusicIngame();
+                juego.pauseRSP();
+                window.draw(fondoIngame);
                 ingameMenu.drawOpciones(window);
             }
             else if (estado == RECORDS){
                 window.draw(fondoOpciones);
+                objMenuRecords.drawTexto(window);
             }
-
+            else if (estado == JUGABILIDAD)
+            {
+                window.draw(fondoOpciones);
+                jugaMenu.draw(window);
+            }
                 window.display();
         }
 
