@@ -36,4 +36,5 @@ El desarrollo de este proyecto permitió aplicar y reforzar:
   - Diagrama de clases.
   - Descripcion completa de los profesores y las plantas.
   - Jugabilidad y controles.
+
 [Plantas VS Profes-1.docx](https://github.com/user-attachments/files/18610016/Plantas.VS.Profes-1.docx)
