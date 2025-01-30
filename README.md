@@ -32,9 +32,10 @@ El desarrollo de este proyecto permitió aplicar y reforzar:
 [![miniatura](https://github.com/user-attachments/assets/b4627be5-887d-4598-9412-ed65298dcb95)](https://youtu.be/9dzpA_pu9q4)
 
 ## Informe Institucional
+[Informe-PlantasVsProfes](https://github.com/user-attachments/files/18610016/Plantas.VS.Profes-1.docx)
+
   **Cuenta con**:
   - Diagrama de clases.
   - Descripcion completa de los profesores y las plantas.
   - Jugabilidad y controles.
 
-[Informe-PlantasVsProfes](https://github.com/user-attachments/files/18610016/Plantas.VS.Profes-1.docx)
