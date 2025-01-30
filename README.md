@@ -37,4 +37,4 @@ El desarrollo de este proyecto permitió aplicar y reforzar:
   - Descripcion completa de los profesores y las plantas.
   - Jugabilidad y controles.
 
-[Plantas VS Profes-1.docx](https://github.com/user-attachments/files/18610016/Plantas.VS.Profes-1.docx)
+[Informe-PlantasVsProfes](https://github.com/user-attachments/files/18610016/Plantas.VS.Profes-1.docx)
