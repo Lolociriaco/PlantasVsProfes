@@ -6,10 +6,10 @@ CompraPlanta::CompraPlanta()
     sf::Color marronBordes(190, 89, 47);
     sf::Color colorSeleccionada(255, 255, 255, 255); // Opacidad al 100%
 
-    texTableroCompra.loadFromFile("tableroCompra.jpg");
-    texNuezMenu.loadFromFile("nuezMenu.jpg");
-    texLanzaguisanteMenu.loadFromFile("guisantevioletaMenu.jpg");
-    texGirasolMenu.loadFromFile("girasolMenu.jpg");
+    texTableroCompra.loadFromFile("UI/tableroCompra.jpg");
+    texNuezMenu.loadFromFile("UI/nuezMenu.jpg");
+    texLanzaguisanteMenu.loadFromFile("UI/guisantevioletaMenu.jpg");
+    texGirasolMenu.loadFromFile("UI/girasolMenu.jpg");
     contador.loadFromFile("Samdan.ttf");
 
     tableroCompra.setTexture(texTableroCompra);

@@ -11,22 +11,12 @@ Planta::Planta() : _ticsPL(0)
     _plant.setSize(sf::Vector2f(50.f, 130.f));
 
     sf::Texture _plantaTexture;
-    _plantaTexture.loadFromFile("lanzaguisantevioleta.png");
+    _plantaTexture.loadFromFile("UI/lanzaguisantevioleta.png");
     _spritePlanta.setTexture(_plantaTexture);
     _spritePlanta.setScale(1.f, 1.f);
 
     _shadowPlanta.setTexture(_plantaTexture);
     _shadowPlanta.setScale(1.f, 1.f);
-
-
-    if (!_plantaTexture.loadFromFile("lanzaguisantevioleta.png")) {
-    std::cout << "Error cargando la textura de la planta" << std::endl;
-    }else{
-    std::cerr << " textura de la planta" << std::endl;
-
-    }
-
-    std::cout<<"ENTRANDO AL CONSTRUCTOR \n";
 
 }
 

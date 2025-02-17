@@ -8,7 +8,7 @@ Girasol::Girasol()
     _girasol.setFillColor(sf::Color::Transparent);
     _girasol.setSize(sf::Vector2f(50.f, 130.f));
 
-    _girasolTexture.loadFromFile("girasole.png");
+    _girasolTexture.loadFromFile("UI/girasole.png");
     _spriteGirasol.setTexture(_girasolTexture);
     _spriteGirasol.setScale(1.f, 1.f);
 

@@ -27,43 +27,43 @@ Gameplay::Gameplay()
     borde2.setPosition(623, 12);
 
 
-    bufferMati.loadFromFile("jejetranqui.wav");
+    bufferMati.loadFromFile("sounds/jejetranqui.wav");
     soundMati.setBuffer(bufferMati);
     soundPlantar.setVolume(540);
 
-    bufferMaxi.loadFromFile("elforesunciclo.wav");
+    bufferMaxi.loadFromFile("sounds/elforesunciclo.wav");
     soundMaxi.setBuffer(bufferMaxi);
     soundPlantar.setVolume(540);
 
-    bufferVastag.loadFromFile("bienvenidavastag.wav");
+    bufferVastag.loadFromFile("sounds/bienvenidavastag.wav");
     soundVastag.setBuffer(bufferVastag);
     soundPlantar.setVolume(540);
 
-    bufferPlantar.loadFromFile("sonidoplantar.wav");
+    bufferPlantar.loadFromFile("sounds/sonidoplantar.wav");
     soundPlantar.setBuffer(bufferPlantar);
     soundPlantar.setVolume(20);
 
-    bufferRSP.loadFromFile("sonidorsp.wav");
+    bufferRSP.loadFromFile("sounds/sonidorsp.wav");
     soundRSP.setBuffer(bufferRSP);
     soundRSP.setVolume(30);
 
-    bufferWin.loadFromFile("sonidoWin.wav");
+    bufferWin.loadFromFile("sounds/sonidoWin.wav");
     soundWin.setBuffer(bufferWin);
     soundWin.setVolume(30);
 
-    bufferGameOver.loadFromFile("defeatsound.wav");
+    bufferGameOver.loadFromFile("sounds/defeatsound.wav");
     soundGameOver.setBuffer(bufferGameOver);
     soundGameOver.setVolume(20);
 
-    bufferSoles.loadFromFile("sonidoGirasoles.wav");
+    bufferSoles.loadFromFile("sounds/sonidoGirasoles.wav");
     soundSoles.setBuffer(bufferSoles);
     soundSoles.setVolume(20);
 
-    bufferGuisante.loadFromFile("peashootersound.wav");
+    bufferGuisante.loadFromFile("sounds/peashootersound.wav");
     soundGuisante.setBuffer(bufferGuisante);
     soundGuisante.setVolume(10);
 
-    musicIngame.openFromFile("musicaIngame.ogg");
+    musicIngame.openFromFile("sounds/musicaIngame.ogg");
     musicIngame.setVolume(50);
 
 }
@@ -950,7 +950,7 @@ void Gameplay::draw(sf::RenderWindow &window)
 
     if (mostrarCartel)
     {
-        texReadySetPlant.loadFromFile("cartelReady.png");
+        texReadySetPlant.loadFromFile("UI/cartelReady.png");
         readySetPlant.setTexture(texReadySetPlant);
         readySetPlant.setScale(1.f, 1.f);
         readySetPlant.setPosition(700, 280);
@@ -973,7 +973,6 @@ void Gameplay::setZombieTexture(const sf::Texture& mati, const sf::Texture& maxi
     if(zombies.size()==0) return;
 
     if(nuevoZombie){
-        std::cout<<"cargando una sprites digo textourkajsdklf";
         int random = randomZombie();
 
         if (random == 1){

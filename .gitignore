@@ -1,0 +1,19 @@
+# Ignorar DLLs de SFML
+*.dll
+
+# Ignorar archivos de cscope y dependencias
+*.cscope_file_list
+*.depend
+*.layout
+
+# Ignorar compilados y temporales de C++
+*.o
+*.obj
+*.exe
+*.out
+*.log
+*.tmp
+
+# Ignorar la carpeta de registros de Git (opcional)
+.git/
+

@@ -44,29 +44,29 @@ int main()
     ///sprite fondo de partida
     sf::Sprite fondo;
     sf::Texture tex;
-    tex.loadFromFile("fondop.jpg");
+    tex.loadFromFile("UI/fondop.jpg");
 
     fondo.setTexture(tex);
 
     ///sprite fondo de inicio
     sf::Sprite fondoInicio;
     sf::Texture texInicio;
-    texInicio.loadFromFile("utnINICIO.jpg");
+    texInicio.loadFromFile("UI/utnINICIO.jpg");
 
     fondoInicio.setTexture(texInicio);
 
     ///sprite fondo de opciones
     sf::Sprite fondoOpciones;
     sf::Texture texfondoOpciones;
-    texfondoOpciones.loadFromFile("OpcionesMenu.jpg");
+    texfondoOpciones.loadFromFile("UI/OpcionesMenu.jpg");
 
     fondoOpciones.setTexture(texfondoOpciones);
 
     ///sprite fondo menu ingame
     sf::Sprite fondoIngame;
     sf::Texture texfondoIngame;
-    if (!texfondoIngame.loadFromFile("utnINICIO.jpg")) {
-        cout<<"el pepe";
+    if (!texfondoIngame.loadFromFile("UI/utnINICIO.jpg")) {
+        cout<<"Error";
     }
 
     fondoIngame.setTexture(texfondoIngame);
@@ -80,22 +80,22 @@ int main()
 
     sf::Sprite tableroCompra;
     sf::Texture texTableroCompra;
-    texTableroCompra.loadFromFile("tableroCompra.jpg");
+    texTableroCompra.loadFromFile("UI/tableroCompra.jpg");
     tableroCompra.setTexture(texTableroCompra);
 
     sf::Sprite nuezMenu;
     sf::Texture texNuezMenu;
-    texNuezMenu.loadFromFile("nuezMenu.jpg");
+    texNuezMenu.loadFromFile("UI/nuezMenu.jpg");
     nuezMenu.setTexture(texNuezMenu);
 
     sf::Sprite lanzaguisanteMenu;
     sf::Texture texLanzaguisanteMenu;
-    texLanzaguisanteMenu.loadFromFile("guisantevioletaMenu.jpg");
+    texLanzaguisanteMenu.loadFromFile("UI/guisantevioletaMenu.jpg");
     lanzaguisanteMenu.setTexture(texLanzaguisanteMenu);
 
     sf::Sprite girasolMenu;
     sf::Texture texGirasolMenu;
-    texGirasolMenu.loadFromFile("girasolMenu.jpg");
+    texGirasolMenu.loadFromFile("UI/girasolMenu.jpg");
     girasolMenu.setTexture(texGirasolMenu);
 
 
@@ -107,34 +107,34 @@ int main()
     Gameplay juego;
 
     sf::Texture matiTex;
-    matiTex.loadFromFile("dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
+    matiTex.loadFromFile("UI/dirubecaminando.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture attackMati;
-    attackMati.loadFromFile("dirubeatacando.png");
+    attackMati.loadFromFile("UI/dirubeatacando.png");
 
     sf::Texture maxiTex;
-    maxiTex.loadFromFile("maxicaminando.png");
+    maxiTex.loadFromFile("UI/maxicaminando.png");
 
     sf::Texture attackMaxi;
-    attackMaxi.loadFromFile("maxiatacando.png");
+    attackMaxi.loadFromFile("UI/maxiatacando.png");
 
     sf::Texture vastagTex;
-    vastagTex.loadFromFile("vastagcaminando.png");
+    vastagTex.loadFromFile("UI/vastagcaminando.png");
 
     sf::Texture attackVastag;
-    attackVastag.loadFromFile("vastagatacando.png");
+    attackVastag.loadFromFile("UI/vastagatacando.png");
 
     sf::Texture plantaTexture;
-    plantaTexture.loadFromFile("lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
+    plantaTexture.loadFromFile("UI/lanzaguisantevioleta.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture nuezTexture;
-    nuezTexture.loadFromFile("nuezpvp.png");  // Cambia por el nombre de tu archivo de textura
+    nuezTexture.loadFromFile("UI/nuezpvp.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture girasolTexture;
-    girasolTexture.loadFromFile("girasole.png");  // Cambia por el nombre de tu archivo de textura
+    girasolTexture.loadFromFile("UI/girasole.png");  // Cambia por el nombre de tu archivo de textura
 
     sf::Texture solTexture;
-    solTexture.loadFromFile("solcito.png");
+    solTexture.loadFromFile("UI/solcito.png");
 
     bool musicaEnPausa = false;
 
@@ -190,7 +190,6 @@ int main()
                 {
                     if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Enter)
                     {
-                        std::cout<<"ENTROOOOOO";
                         juego.setRonda(0);
                         juego.setNewRecord();
                         juego.jugador.reinciarNombre();

@@ -21,7 +21,7 @@ public:
         _shape.setRadius(28);
         _shape.setPosition(x, y);
 
-        _solTexture.loadFromFile("solcito.png");
+        _solTexture.loadFromFile("UI/solcito.png");
         _spriteSol.setTexture(_solTexture);
         _spriteSol.setScale(1.f, 1.f);
         _spriteSol.setPosition(x, y);

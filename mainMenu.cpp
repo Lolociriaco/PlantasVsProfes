@@ -61,7 +61,7 @@ mainMenu::mainMenu(float ancho, float alto)
 
     mainMenuSelected = 0;
 
-    musicMenu.openFromFile("cancionPartida.ogg");
+    musicMenu.openFromFile("sounds/cancionPartida.ogg");
     musicMenu.setVolume(50);
 }
 

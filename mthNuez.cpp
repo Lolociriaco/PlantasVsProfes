@@ -8,7 +8,7 @@ Nuez::Nuez()
     _nuez.setSize(sf::Vector2f(50.f, 100.f));
 
 
-    _nuezTexture.loadFromFile("nuezpvp.png");
+    _nuezTexture.loadFromFile("UI/nuezpvp.png");
     _spriteNuez.setTexture(_nuezTexture);
     _spriteNuez.setScale(1.f, 1.f);
 
